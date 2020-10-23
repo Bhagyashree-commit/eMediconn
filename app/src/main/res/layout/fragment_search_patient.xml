@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Doctor.ui.SearchPatient">
+
+    <LinearLayout
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_30sdp"
+        >
+
+        <TextView
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            android:text="Enter mobile Number"
+            android:textSize="@dimen/_15sdp"
+            android:inputType="phone"
+            android:digits="0123456789"
+            android:drawableLeft="@drawable/mob"
+            android:id="@+id/etcontractor_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:fontFamily="sans-serif-condensed"
+
+            />
+        <EditText
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            android:id="@+id/etcontractor_mobilenum1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:fontFamily="sans-serif-condensed"
+
+            />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_35sdp"
+            android:background="@drawable/gradient"
+            android:layout_alignParentBottom="true"
+            android:text="Search"
+            android:layout_margin="@dimen/_15sdp"
+            android:textColor="@color/white"
+            android:id="@+id/btnaddclinic"
+            ></Button>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+
+        android:layout_marginTop="@dimen/_250sdp"
+
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="wrap_content"
+            android:id="@+id/recyclerview"></androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+</FrameLayout>

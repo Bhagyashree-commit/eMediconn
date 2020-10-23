@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Doctor.ui.DoctorProfile">
+    <FrameLayout
+        android:id="@+id/frame_doctor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_12sdp"
+        android:background="@drawable/square_box"
+       >
+
+        <include
+           android:id="@+id/linear1"
+            layout="@layout/tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Personal Info."
+        android:layout_gravity="center"
+        android:textSize="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/black"
+        android:id="@+id/tv1"></TextView>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_12sdp"
+            android:id="@+id/R_L">
+
+            <ImageButton
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:id="@+id/proimage"
+                android:background="@drawable/editpic"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:clickable="true"
+                ></ImageButton>
+
+            <TextView
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:drawableLeft="@drawable/edit"
+                android:textSize="@dimen/_12sdp"
+                android:text=" Photo"
+                android:layout_below="@+id/proimage"
+                android:id="@+id/et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="sans-serif-condensed"
+
+                />
+            <LinearLayout
+                android:id="@+id/Lin"
+                android:weightSum="2"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_toRightOf="@id/proimage"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_weight="0.8"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:text="Name"
+                    android:drawableLeft="@drawable/per"
+                    android:id="@+id/etcontractor_username"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+
+                    />
+                <EditText
+                    android:layout_weight="1.2"
+                    android:maxLines="1"
+                    android:id="@+id/et_docname"
+                    android:layout_width="0dp"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:weightSum="2"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_toRightOf="@id/proimage"
+                android:layout_below="@+id/Lin"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_weight="0.8"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:text="City"
+                    android:drawableLeft="@drawable/location"
+                    android:id="@+id/et_city"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+
+                    />
+                <EditText
+                    android:layout_weight="1.2"
+                    android:maxLines="1"
+                    android:id="@+id/et_cityname"
+                    android:layout_width="0dp"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+
+                    />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_below="@id/Lin"
+            android:layout_toRightOf="@id/proimage"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:textSize="@dimen/_12sdp"
+                android:text="   Speciality"
+                android:drawableLeft="@drawable/spciality"
+                android:id="@+id/etcontractor_username1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="sans-serif-condensed"
+
+                />
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:layout_width="match_parent"
+                android:layout_below="@+id/etcontractor_username1"
+                android:id="@+id/spin_speciality"
+                android:background="@drawable/square_box"
+                android:layout_height="wrap_content"></com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_weight="0.8"
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:textSize="@dimen/_12sdp"
+                android:text="  Gender"
+                android:drawableLeft="@drawable/gen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="sans-serif-condensed"
+
+                />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rg_interestedonworking"
+                    android:layout_column="0"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:layout_span="3">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radio_daily"
+                        android:checked="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Male"></RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/radio_weekly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/black"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Female"></RadioButton>
+
+                </RadioGroup>
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@id/proimage"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:textColor="@color/blue_400"
+                android:textSize="@dimen/_15sdp"
+                android:text="   Add Medical Registration"
+                android:drawableLeft="@drawable/add"
+                android:id="@+id/medical_registration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="sans-serif-condensed"
+
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@id/proimage"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:textColor="@color/blue_400"
+                android:textSize="@dimen/_15sdp"
+                android:text="   Add Education Details"
+                android:drawableLeft="@drawable/add"
+                android:id="@+id/educational_information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="sans-serif-condensed"
+
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@id/proimage"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:textColor="@color/blue_400"
+                android:textSize="@dimen/_15sdp"
+                android:text="   Connect Practice"
+                android:drawableLeft="@drawable/add"
+                android:id="@+id/connect_practice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="sans-serif-condensed"
+
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@id/proimage"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:textColor="@color/blue_400"
+                android:textSize="@dimen/_15sdp"
+                android:text="   Establishment Details"
+                android:drawableLeft="@drawable/add"
+                android:id="@+id/establishment_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="sans-serif-condensed"
+
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    </FrameLayout>
+
+</ScrollView>

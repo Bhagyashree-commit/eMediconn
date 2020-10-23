@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.SpecialityFragment">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_margin="@dimen/_20sdp"
+        android:padding="@dimen/_15sdp"
+        android:id="@+id/recyclerview_speciality"></androidx.recyclerview.widget.RecyclerView>
+
+
+</FrameLayout>

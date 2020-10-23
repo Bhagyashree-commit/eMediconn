@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_clinic"
+            android:icon="@drawable/per"
+            android:title="@string/menu_clinic" />
+        <item
+            android:id="@+id/nav_docProfile"
+            android:icon="@drawable/rounddoctor"
+            android:title="@string/menu_docPro" />
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/per"
+            android:title="@string/menu_account" />
+        <item
+            android:id="@+id/nav_searchpatient"
+            android:icon="@drawable/search"
+            android:title="@string/menu_searchpatient" />
+        <item
+            android:id="@+id/nav_patientaccount"
+            android:icon="@drawable/per"
+            android:title="@string/menu_patientaccount" />
+        <item
+            android:id="@+id/nav_appointment"
+            android:icon="@drawable/appointment"
+            android:title="@string/menu_appointment" />
+        <item
+            android:id="@+id/nav_patientdashboard"
+            android:icon="@drawable/appointment"
+            android:title="@string/menu_patientdashboard" />
+
+        <item
+            android:id="@+id/nav_followup"
+            android:icon="@drawable/followup"
+            android:title="@string/menu_follow" />
+        <item
+            android:id="@+id/nav_mnageclinic"
+            android:icon="@drawable/manage"
+            android:title="@string/menu_manageclinic" />
+        <item
+            android:id="@+id/nav_emergencynumber"
+            android:icon="@drawable/mob"
+            android:visible="false"
+            android:title="@string/menu_enumber" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout"
+            android:title="@string/menu_logout" />
+    </group>
+</menu>

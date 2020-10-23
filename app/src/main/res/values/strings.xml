@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">eMediconn</string>
+    <string name="start">Start</string>
+    <string name="next">Next</string>
+    <string name="terms">Terms &amp; Conditions</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_drawer">DrawerActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_account">My Account</string>
+    <string name="menu_searchpatient">Search Patient</string>
+    <string name="menu_appointment">Appointments</string>
+    <string name="menu_follow">Follow Up</string>
+    <string name="menu_manageclinic">Manage Clinic</string>
+    <string name="menu_enumber">Emergency Number</string>
+    <string name="menu_logout">Log Out</string>
+    <string name="menu_clinic">Add Clinic</string>
+    <string name="menu_patientaccount">Account</string>
+    <string name="menu_patientdashboard">Dashboard</string>
+    <string name="menu_docPro">Profile</string>
+
+</resources>

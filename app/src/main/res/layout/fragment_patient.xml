@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal Info."
+            android:textSize="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/black"
+            android:id="@+id/tv1"></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/square_box"
+            android:layout_margin="@dimen/_15sdp"
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/R_L">
+
+
+
+                <ImageButton
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:id="@+id/proimage"
+                    android:background="@drawable/editpic"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/_15sdp"
+                    android:clickable="true"
+                    ></ImageButton>
+
+                <TextView
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:text="upload Photo"
+                    android:layout_below="@+id/proimage"
+                    android:drawableLeft="@drawable/per"
+                    android:id="@+id/et"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+
+                    />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:weightSum="2"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_weight="0.8"
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:text="First Name"
+                    android:drawableLeft="@drawable/per"
+                    android:id="@+id/etcontractor_username"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+
+                    />
+                <EditText
+                    android:layout_weight="1.2"
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:id="@+id/etcontractor_mobilenum1"
+                    android:layout_width="0dp"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:weightSum="2"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:text="Last Name"
+                    android:textSize="@dimen/_12sdp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:drawableLeft="@drawable/per"
+                    android:id="@+id/etcontractor_usernam"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.8"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+
+                    />
+
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_weight="1.2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:weightSum="2"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:layout_weight="0.8"
+                    android:textSize="@dimen/_12sdp"
+                    android:text="  Mobile"
+                    android:drawableLeft="@drawable/mob"
+                    android:id="@+id/etcontractor_userna"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_margin="@dimen/_10sdp"
+
+                    />
+
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_weight="1.2"
+                    android:id="@+id/etcontractor_areaofoperation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+
+
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:weightSum="2"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:layout_weight="0.8"
+                    android:text="  Email"
+                    android:drawableLeft="@drawable/email"
+                    android:id="@+id/etcontractor_usern"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:textSize="@dimen/_12sdp"
+
+                    />
+                <EditText
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_weight="1.2"
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:id="@+id/etcontractor_postaladdress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:imeOptions="actionDone"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_weight="0.8"
+                    android:maxLines="1"
+                    android:text="  Date Of Birth"
+                    android:fontFamily="sans-serif-condensed"
+                    android:drawableLeft="@drawable/calender"
+                    android:id="@+id/etcontractor_uern"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+
+                    />
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_weight="1.2"
+                    android:fontFamily="sans-serif-condensed"
+                    android:id="@+id/etcontractor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:weightSum="2"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:layout_weight="0.8"
+                    android:text="Gender"
+                    android:fontFamily="sans-serif-condensed"
+                    android:drawableLeft="@drawable/gen"
+                    android:id="@+id/etcontractor_ern"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+
+                    />
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:layout_weight="1.2"
+                    android:fontFamily="sans-serif-condensed"
+                    android:id="@+id/etcontractor_postaladdres"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:text="Blood Group"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_weight="0.8"
+                    android:drawableLeft="@drawable/bloodgroup"
+                    android:id="@+id/etcontra"
+                    android:fontFamily="@fonts/NunitoExtraBold.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+
+                    />
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:layout_weight="1.2"
+                    android:id="@+id/_postaladdress"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:text="Weight"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_weight="0.8"
+                    android:drawableLeft="@drawable/weight"
+                    android:id="@+id/etcontra78"
+                    android:fontFamily="@fonts/NunitoExtraBold.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+
+                    />
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:layout_weight="1.2"
+                    android:id="@+id/_postaladdress88"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:text="Height"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_weight="0.8"
+                    android:drawableLeft="@drawable/height"
+                    android:id="@+id/etcontra9"
+                    android:fontFamily="@fonts/NunitoExtraBold.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+
+                    />
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:layout_weight="1.2"
+                    android:id="@+id/_postaladdress3"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+                    />
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Allergy Info"
+            android:textSize="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/black"
+            android:id="@+id/tv2"></TextView>
+
+       <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/square_box"
+            android:layout_margin="@dimen/_15sdp"
+            >
+
+
+
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_weight="0.9"
+                    android:text=" University"
+                    android:drawableLeft="@drawable/per"
+                    android:id="@+id/etcontractor_usernam2"
+                    android:layout_width="0dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+
+                    />
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_weight="1.1"
+                    android:id="@+id/etcontractor_mobilenum12"
+                    android:layout_width="0dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                >
+
+                <TextView
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:layout_weight="0.8"
+                    android:text="Experiance (In Year)"
+                    android:drawableLeft="@drawable/per"
+                    android:id="@+id/etcontractor_usernam77"
+                    android:layout_width="0dp"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_margin="@dimen/_10sdp"
+
+                    />
+
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_weight="1.2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                >
+
+                <TextView
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_weight="0.8"
+                    android:text="Certification"
+                    android:drawableLeft="@drawable/mob"
+                    android:id="@+id/etcontractor_userna778"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+
+
+                    />
+
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:layout_weight="1.2"
+                    android:textSize="@dimen/_12sdp"
+                    android:id="@+id/etcontractor_areaofoperation77"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+
+
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                >
+                <TextView
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_weight="0.8"
+                    android:text="  Speciality"
+                    android:drawableLeft="@drawable/email"
+                    android:id="@+id/etcontractor_usern44"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+
+                    />
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_weight="1.2"
+                    android:id="@+id/etcontractor_postaladdress7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_margin="@dimen/_10sdp"
+                    />
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/R_L7">
+
+
+                <TextView
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:text="  Degree Certificate"
+                    android:id="@+id/etcontractor_usern448"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginLeft="@dimen/_100sdp"
+
+                    />
+                <ImageButton
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:id="@+id/proimage1"
+                    android:background="@drawable/uploaddoc"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/_35sdp"
+
+                    ></ImageButton>
+
+            </RelativeLayout>
+
+
+
+
+
+
+
+        </LinearLayout>-->
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:background="@drawable/gradient"
+                android:layout_alignParentBottom="true"
+                android:text="Update"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:id="@+id/btnaddclinic"
+                android:fontFamily="sans-serif-condensed"
+                ></Button>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</ScrollView>

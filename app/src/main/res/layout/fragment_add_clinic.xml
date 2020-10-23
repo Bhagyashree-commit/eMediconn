@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Doctor.ui.AddClinic">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="0dp"
+            android:layout_height="match_parent">
+
+
+           <!-- <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+
+                android:background="@drawable/newgradient"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_25sdp"
+                    android:id="@+id/back"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:background="@drawable/back"></ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_25sdp"
+                    android:textSize="@dimen/_15sdp"
+                    android:layout_toRightOf="@+id/back"
+                    android:layout_marginLeft="@dimen/_25sdp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Add Clinic"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textColor="#FFFFFF"></TextView>
+
+            </RelativeLayout>-->
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="    Clinic Name">
+
+                    <EditText
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:drawableLeft="@drawable/clinic"
+                        android:id="@+id/et_clinicname"
+                        android:fontFamily="sans-serif-condensed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="   Registration Number">
+
+                    <EditText
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:fontFamily="sans-serif-condensed"
+                        android:drawableLeft="@drawable/number"
+                        android:id="@+id/et_regnumber"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="   Clinic Address">
+
+                    <EditText
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:inputType="textPostalAddress"
+                        android:fontFamily="sans-serif-condensed"
+                        android:drawableLeft="@drawable/address"
+                        android:id="@+id/et_clinicaddr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="   Clinic Phone Number">
+
+                    <EditText
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:fontFamily="sans-serif-condensed"
+                        android:drawableLeft="@drawable/mob"
+                        android:id="@+id/et_phnnumber"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="  Clinic Email">
+
+                    <EditText
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:inputType="textEmailAddress"
+                        android:fontFamily="sans-serif-condensed"
+                        android:drawableLeft="@drawable/email"
+                        android:id="@+id/et_clinicemail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:textSize="@dimen/_15sdp"
+                android:drawableLeft="@drawable/time"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif-condensed"
+                android:text="     Clinic Timing "></TextView>
+
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:background="@drawable/square_box"
+                >
+
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:imeOptions="actionDone"
+                        android:text="  Morning"
+                        android:textColor="@color/black"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_15sdp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:drawableLeft="@drawable/email"
+                        android:id="@+id/et_morningtime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+
+                        />
+                    <Switch
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="On/Off"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_toRightOf="@+id/et_morningtime"
+                        android:layout_marginLeft="@dimen/_60sdp"
+                        ></Switch>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_13sdp"
+                    >
+
+
+                    <EditText
+                        android:imeOptions="actionDone"
+                        android:text="  Start Time"
+                        android:maxLines="1"
+                        android:fontFamily="sans-serif-condensed"
+                        android:drawableLeft="@drawable/time"
+                        android:id="@+id/et_mstartime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        />
+
+
+
+                    <EditText
+                        android:imeOptions="actionDone"
+                        android:text="  End Time"
+                        android:maxLines="1"
+                        android:fontFamily="sans-serif-condensed"
+                        android:drawableLeft="@drawable/time"
+                        android:id="@+id/et_mendtime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/et_mstartime"
+
+
+
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/square_box"
+                >
+
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:imeOptions="actionDone"
+                        android:text="  Evening"
+                        android:textColor="@color/black"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_15sdp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:drawableLeft="@drawable/email"
+                        android:id="@+id/et_morningtime1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+
+                        />
+                    <Switch
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="On/Off"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_toRightOf="@+id/et_morningtime1"
+                        android:layout_marginLeft="@dimen/_60sdp"
+                        ></Switch>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_13sdp"
+                    >
+
+
+                    <EditText
+                        android:imeOptions="actionDone"
+                        android:text="  Start Time"
+                        android:maxLines="1"
+                        android:fontFamily="sans-serif-condensed"
+                        android:drawableLeft="@drawable/time"
+                        android:id="@+id/et_Estartime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        />
+
+
+
+                    <EditText
+                        android:imeOptions="actionDone"
+                        android:text="  End Time"
+                        android:maxLines="1"
+                        android:fontFamily="sans-serif-condensed"
+                        android:drawableLeft="@drawable/time"
+                        android:id="@+id/et_Eendtime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/et_Estartime"
+
+
+
+                        />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/black"
+                android:drawableLeft="@drawable/off"
+                android:fontFamily="sans-serif-condensed"
+                android:text="    Weekly Off"></TextView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/square_box"
+                android:layout_height="@dimen/_100sdp">
+
+                <CheckBox
+                    android:id="@+id/sun"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:text="Sun" />
+
+                <CheckBox
+                    android:id="@+id/mon"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/sun"
+                    android:text="Mon" />
+
+                <CheckBox
+                    android:id="@+id/tue"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/mon"
+                    android:text="Tue" />
+                <CheckBox
+                    android:id="@+id/wed"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sun"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:text="Wed" />
+                <CheckBox
+                    android:id="@+id/thur"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/wed"
+                    android:layout_below="@+id/mon"
+                    android:text="Thu" />
+                <CheckBox
+                    android:id="@+id/fri"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tue"
+                    android:layout_toRightOf="@+id/thur"
+                    android:text="Fri" />
+                <CheckBox
+                    android:id="@+id/sat"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/thur"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:text="Sat" />
+            </RelativeLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:background="@drawable/gradient"
+                android:layout_alignParentBottom="true"
+                android:text="Submit"
+                android:layout_margin="@dimen/_15sdp"
+                android:textColor="@color/white"
+                android:id="@+id/btnaddclinic"
+                ></Button>
+
+        </LinearLayout>
+    </FrameLayout>
+</ScrollView>

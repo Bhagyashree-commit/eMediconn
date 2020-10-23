@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Doctor.DoctorRegistration"
+    android:background="@color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/doctor_login"></ImageView>
+
+        <ImageView
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_minus40sdp"
+            android:layout_gravity="right|center"
+            android:src="@drawable/emedican"></ImageView>
+
+
+        <LinearLayout
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_60sdp"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="   Your Name Please">
+
+            <EditText
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:inputType="text"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:drawableLeft="@drawable/per"
+                android:id="@+id/et_doctor_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="@dimen/_15sdp"
+
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="   Mobile Number">
+
+            <EditText
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:drawableLeft="@drawable/phone"
+                android:id="@+id/et_doctor_mobnum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:digits="0123456789"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif-condensed"
+                android:maxLength="10"
+                android:inputType="number"
+                android:textColorHint="@color/black"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="  Password">
+
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:drawableLeft="@drawable/pass"
+                    android:id="@+id/et_doctor_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:fontFamily="sans-serif-condensed"
+                 android:inputType="textPassword"
+                    android:textSize="@dimen/_15sdp"
+
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_15sdp">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_minus5sdp"
+                android:id="@+id/cb"></CheckBox>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:id="@+id/tv1"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_toRightOf="@+id/cb"
+                android:text="I agree to the ">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tv2"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/red_400"
+                android:layout_toRightOf="@+id/tv1"
+                android:layout_height="wrap_content"
+                android:text="@string/terms"></TextView>
+        </RelativeLayout>
+        <Button
+            android:text="Register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_registerdoctor"
+            android:layout_margin="25dp"
+            android:layout_gravity="center"
+            android:textColor="#ffffff"
+            android:background="@drawable/gradient"
+            ></Button>
+        <LinearLayout
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/_25sdp"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Already a Member ?"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/black_trans"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_existingdoctor"
+                android:text="Sign In"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/red_900"
+
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+   <!-- <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/_175sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/emedican"></ImageView>
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="   Mobile Number">
+
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:drawableLeft="@drawable/mob"
+                    android:id="@+id/etcontractor_areaofoperation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+
+
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="   Date Of Birth">
+
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:drawableLeft="@drawable/calender"
+                    android:id="@+id/etcontractor_postaladdress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:autofillHints="Speciality"
+            android:id="@+id/fragment_container"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/speciality"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:text="Speciality"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textspeciality"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:text="Speciality"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp"></TextView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+
+
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="  Select Gender"
+                android:drawableLeft="@drawable/gen"
+                android:layout_margin="@dimen/_10sdp"
+
+                />
+
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+
+
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/bloodgroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="  Blood Group"
+                android:drawableLeft="@drawable/bloodgroup"
+                android:layout_margin="@dimen/_10sdp"
+                />
+
+
+
+
+        </LinearLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_35sdp"
+                android:id="@+id/cb"></CheckBox>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:id="@+id/tv1"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_toRightOf="@+id/cb"
+                android:text="I agree to the ">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tv2"
+                android:textColor="@color/red_400"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_toRightOf="@+id/tv1"
+                android:layout_height="wrap_content"
+                android:text="@string/terms"></TextView>
+        </RelativeLayout>
+
+        <Button
+            android:text="Register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_registerdoctor"
+            android:layout_margin="25dp"
+            android:textColor="#ffffff"
+            android:background="@drawable/gradient"
+            ></Button>
+
+
+
+    </LinearLayout>-->
+
+</ScrollView>

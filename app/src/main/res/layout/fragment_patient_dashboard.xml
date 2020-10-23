@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Doctor.ui.PatientDashboard">
+
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+   <!-- <ImageView
+
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_110sdp"
+        android:background="@drawable/banner"></ImageView>-->
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        >
+
+
+
+        <LinearLayout
+            android:id="@+id/lin1"
+            android:layout_width="0dp"
+            android:layout_height="175dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:id="@+id/card1"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="@dimen/_25sdp"
+                app:cardBackgroundColor="@color/grey_50"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageButton
+                        android:id="@+id/ibfinddoctor"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/finddoc"
+                        android:padding="5dp"
+                        tools:ignore="VectorDrawableCompat" />
+
+
+                    <TextView
+                        android:id="@+id/tvfinddoc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ibfinddoctor"
+                        android:layout_marginTop="10dp"
+                        android:text="Find Doctor/Clinic"
+                        android:layout_centerHorizontal="true"
+                        android:textAllCaps="false"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        /></RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:id="@+id/card2"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="@dimen/_25sdp"
+                app:cardBackgroundColor="@color/grey_50"
+                android:layout_weight="1">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/ibordermedicine"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/ordermedicine"
+                        android:padding="5dp"
+                        tools:ignore="VectorDrawableCompat"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvordermed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ibordermedicine"
+                        android:layout_marginTop="10dp"
+                        android:text="Hospital/Clinic"
+                        android:textAllCaps="false"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        />
+
+
+
+                </RelativeLayout></androidx.cardview.widget.CardView></LinearLayout></androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="310dp"
+        >
+
+
+
+        <LinearLayout
+            android:id="@+id/lin2"
+            android:layout_width="0dp"
+            android:layout_height="175dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:id="@+id/card3"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="@dimen/_25sdp"
+                app:cardBackgroundColor="@color/grey_50"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageButton
+                        android:id="@+id/ibhomecare"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/homecareservice"
+                        android:padding="5dp"
+                        tools:ignore="VectorDrawableCompat" />
+
+
+                    <TextView
+                        android:id="@+id/tvhomecare"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ibhomecare"
+                        android:layout_marginTop="10dp"
+                        android:text="Pharmacy /Medicine Shops"
+                       android:gravity="center"
+                        android:textAllCaps="false"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        /></RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:id="@+id/card4"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="@dimen/_25sdp"
+                app:cardBackgroundColor="@color/grey_50"
+                android:layout_weight="1">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/ibambulance"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/nearbylabs"                      android:padding="5dp"
+                        tools:ignore="VectorDrawableCompat"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvambulance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ibambulance"
+                        android:layout_marginTop="10dp"
+                        android:text="Pathology Labs"
+                        android:textAllCaps="false"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        />
+
+
+
+                </RelativeLayout></androidx.cardview.widget.CardView></LinearLayout></androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="490dp"
+        >
+
+
+
+        <LinearLayout
+            android:id="@+id/lin3"
+            android:layout_width="0dp"
+            android:layout_height="175dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:id="@+id/card5"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="@dimen/_25sdp"
+                app:cardBackgroundColor="@color/grey_50"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageButton
+                        android:id="@+id/iblaboratory"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/nearambulance"
+                        android:padding="5dp"
+                        tools:ignore="VectorDrawableCompat" />
+
+
+                    <TextView
+                        android:id="@+id/tvlab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iblaboratory"
+                        android:layout_marginTop="10dp"
+                        android:text="Ambulance / Emergency"
+                        android:gravity="center"
+                        android:textAllCaps="false"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        /></RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:id="@+id/card6"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="@dimen/_25sdp"
+                app:cardBackgroundColor="@color/grey_50"
+                android:layout_weight="1">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/ibmedinsurance"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/medicalinsurance"
+                        android:padding="5dp"
+                        tools:ignore="VectorDrawableCompat"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvmedinsurance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ibmedinsurance"
+                        android:layout_marginTop="10dp"
+                        android:text="Home Care Service"
+                        android:textAllCaps="false"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        />
+
+
+
+                </RelativeLayout></androidx.cardview.widget.CardView></LinearLayout></androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
+</ScrollView>

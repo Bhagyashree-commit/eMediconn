@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_clinic"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/nav_clinic"
+        android:name="com.example.emediconn.Doctor.ui.AddClinic"
+        android:label="@string/menu_clinic"
+        tools:layout="@layout/fragment_add_clinic" />
+
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="com.example.emediconn.Doctor.ui.AccountFragment"
+        android:label="@string/menu_account"
+        tools:layout="@layout/fragment_account" />
+
+    <fragment
+        android:id="@+id/nav_searchpatient"
+        android:name="com.example.emediconn.Doctor.ui.SearchPatient"
+        android:label="@string/menu_searchpatient"
+        tools:layout="@layout/fragment_search_patient" />
+    <fragment
+        android:id="@+id/nav_patientaccount"
+        android:name="com.example.emediconn.Doctor.ui.SearchPatient"
+        android:label="@string/menu_searchpatient"
+        tools:layout="@layout/fragment_search_patient" />
+
+    <fragment
+        android:id="@+id/nav_mnageclinic"
+        android:name="com.example.emediconn.Doctor.ui.ManageClinic"
+        android:label="@string/menu_manageclinic"
+        tools:layout="@layout/fragment_manage_clinic" />
+</navigation>

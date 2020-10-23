@@ -19,6 +19,7 @@
         <activity android:name=".Patient.PatientRegistration" />
         <activity android:name=".Patient.LoginPatient" />
         <activity android:name=".Patient.RegisterPatient" />
+        <activity android:name=".Doctor.DoctorDashboard" />
         <activity
             android:name=".Doctor.DrawerActivity"
             android:label="@string/title_activity_drawer"

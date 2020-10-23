@@ -12,15 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Doctor.MedicalRegistration"></activity>
-        <activity android:name=".Doctor.DoctorDashboard" />
-        <activity android:name=".Doctor.otp_doctor" />
+        <activity android:name=".Doctor.otp_doctor"></activity>
         <activity android:name=".Patient.ResetPassword" />
         <activity android:name=".Patient.ForgetPassword" />
         <activity android:name=".Patient.otp_patient" />
         <activity android:name=".Patient.PatientRegistration" />
         <activity android:name=".Patient.LoginPatient" />
         <activity android:name=".Patient.RegisterPatient" />
+        <activity android:name=".Doctor.DoctorDashboard" />
         <activity
             android:name=".Doctor.DrawerActivity"
             android:label="@string/title_activity_drawer"

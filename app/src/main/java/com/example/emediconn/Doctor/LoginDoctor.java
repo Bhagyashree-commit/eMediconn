@@ -54,10 +54,6 @@ public class LoginDoctor extends AppCompatActivity {
         et_doc_password=(EditText) findViewById(R.id.et_doctor_passwordlogin);
         existing_user=(TextView) findViewById(R.id.text_existingdoctorlogin);
 
-
-
-              //forgetpassword_doc=(TextView) findViewById(R.id.forgetpassword_patient);
-
         ploader = new ProgressDialog(LoginDoctor.this);
         prefManager=new PrefManager(LoginDoctor.this);
 
@@ -68,13 +64,6 @@ public class LoginDoctor extends AppCompatActivity {
                 startActivity(i);
             }
         });
-      /*  forgetpassword_patient.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(LoginDoctor.this, ForgetPassword.class);
-                startActivity(i);
-            }
-        });*/
 
         btn_logindoctor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,8 +85,7 @@ public class LoginDoctor extends AppCompatActivity {
                 if(flag==0){
                     logindoctor(mobilenum,password);
 
-                   /* Intent intent = new Intent(LoginPatient.this, DrawerActivity.class);
-                    startActivity(intent);*/
+                   /* */
 
                 }
             }
@@ -144,14 +132,9 @@ public class LoginDoctor extends AppCompatActivity {
                                 Log.d(TAG,"usertype"+usertype);
                                 Log.d(TAG,"ID"+userID);
                                 Log.d(TAG,"ID"+role);
+                                Intent intent = new Intent(LoginDoctor.this, DoctorDashboard.class);
+                                startActivity(intent);
 
-                                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                                transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
-                                transaction.replace(R.id.frame_doctor,  new DoctorProfile());
-                                FragmentManager mFragmentManager=getSupportFragmentManager();
-                                mFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                                 transaction.addToBackStack(null);
-                                transaction.commit();
                             }
                             else
                             {

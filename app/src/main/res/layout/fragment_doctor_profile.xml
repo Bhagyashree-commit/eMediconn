@@ -4,10 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Doctor.ui.DoctorProfile">
-    <FrameLayout
-        android:id="@+id/frame_doctor"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
 
     <LinearLayout
 
@@ -33,36 +30,38 @@
         android:fontFamily="sans-serif-condensed"
         android:textColor="@color/black"
         android:id="@+id/tv1"></TextView>
+        <ImageButton
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:id="@+id/proimage"
+            android:background="@drawable/upload_pic"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:clickable="true"
+            ></ImageButton>
+        <TextView
+        android:layout_gravity="center"
+            android:maxLines="1"
+            android:drawableLeft="@drawable/edit"
+            android:textSize="@dimen/_12sdp"
+            android:text=" Photo"
+            android:layout_below="@+id/proimage"
+            android:id="@+id/et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:fontFamily="sans-serif-condensed"
 
+            />
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_12sdp"
             android:id="@+id/R_L">
 
-            <ImageButton
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_70sdp"
-                android:id="@+id/proimage"
-                android:background="@drawable/editpic"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:clickable="true"
-                ></ImageButton>
 
-            <TextView
-                android:imeOptions="actionDone"
-                android:maxLines="1"
-                android:drawableLeft="@drawable/edit"
-                android:textSize="@dimen/_12sdp"
-                android:text=" Photo"
-                android:layout_below="@+id/proimage"
-                android:id="@+id/et"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
-                android:fontFamily="sans-serif-condensed"
 
-                />
+
             <LinearLayout
                 android:id="@+id/Lin"
                 android:weightSum="2"
@@ -70,7 +69,6 @@
                 android:layout_marginRight="@dimen/_15sdp"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-                android:layout_toRightOf="@id/proimage"
                 android:layout_height="wrap_content"
                 >
 
@@ -107,7 +105,6 @@
                 android:layout_marginRight="@dimen/_15sdp"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-                android:layout_toRightOf="@id/proimage"
                 android:layout_below="@+id/Lin"
                 android:layout_height="wrap_content"
                 >
@@ -147,7 +144,6 @@
             android:layout_marginRight="@dimen/_15sdp"
             android:layout_width="match_parent"
             android:layout_below="@id/Lin"
-            android:layout_toRightOf="@id/proimage"
             android:layout_height="wrap_content"
             >
 
@@ -161,7 +157,8 @@
                 android:id="@+id/etcontractor_username1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
                 android:fontFamily="sans-serif-condensed"
 
                 />
@@ -169,13 +166,15 @@
                 android:layout_width="match_parent"
                 android:layout_below="@+id/etcontractor_username1"
                 android:id="@+id/spin_speciality"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
                 android:background="@drawable/square_box"
                 android:layout_height="wrap_content"></com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner>
 
         </RelativeLayout>
         <LinearLayout
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_12sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -337,6 +336,6 @@
         </LinearLayout>
 
     </LinearLayout>
-    </FrameLayout>
+
 
 </ScrollView>

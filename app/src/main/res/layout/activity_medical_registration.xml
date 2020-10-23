@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Doctor.MedicalRegistration">
+
+    <LinearLayout
+        android:id="@+id/Linear_Layout"
+        android:weightSum="2"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:layout_weight="0.8"
+            android:maxLines="1"
+            android:textSize="@dimen/_12sdp"
+            android:text="Registration No."
+            android:drawableLeft="@drawable/per"
+            android:id="@+id/etcontractor_username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:fontFamily="sans-serif-condensed"
+
+            />
+        <EditText
+            android:layout_weight="1.2"
+            android:maxLines="1"
+            android:id="@+id/et_docname"
+            android:layout_width="0dp"
+            android:textSize="@dimen/_12sdp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:fontFamily="sans-serif-condensed"
+
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

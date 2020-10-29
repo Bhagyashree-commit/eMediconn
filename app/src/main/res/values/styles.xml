@@ -10,6 +10,10 @@
         <item name="android:background">?android:attr/listDivider</item> //you can give your color here. that will change all divider color in your app.
     </style>
 
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/grey_700</item>
+        <item name="colorControlActivated">@color/yellow_800</item>
+    </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -27,7 +31,9 @@
     <style name="Divider.Horizontal" parent="Divider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item> // You can change thickness here.
-
     </style>
+
+
+
 
 </resources>

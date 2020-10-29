@@ -12,7 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Doctor.otp_doctor"></activity>
+        <activity android:name=".Patient.PatientActivity">  <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
+        <activity android:name=".Patient.DoctorDescription">
+
+        </activity>
+        <activity android:name=".Patient.DoctorCategory"></activity>
+        <activity android:name=".Patient.DoctorList" />
+        <activity android:name=".Doctor.otp_doctor" />
         <activity android:name=".Patient.ResetPassword" />
         <activity android:name=".Patient.ForgetPassword" />
         <activity android:name=".Patient.otp_patient" />
@@ -29,13 +39,7 @@
         <activity android:name=".SelectProvider" />
         <activity android:name=".ChooseRole" />
         <activity android:name=".WelcomeActivity" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

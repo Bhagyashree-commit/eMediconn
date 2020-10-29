@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Patient.DoctorCategory">
+
+
+    <androidx.cardview.widget.CardView
+        app:cardElevation="@dimen/_10sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:elevation="@dimen/_12sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_120sdp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivCategory"
+            android:src="@drawable/ic_cardiologist"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"/>
+
+        <TextView
+           android:textStyle="bold"
+            android:id="@+id/tvCategoryName"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_gravity="center"
+            android:text="CardioLogist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

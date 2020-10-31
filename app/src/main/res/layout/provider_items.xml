@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+        <RelativeLayout
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_122sdp">
+
+            <ImageView
+                android:id="@+id/ivComingSoon"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_alignParentTop="true"
+                android:elevation="@dimen/_10sdp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/coming"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"/>
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+
+                android:id="@+id/ivProviderImage"
+               android:layout_centerHorizontal="true"
+                android:src="@drawable/hospital1"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"/>
+            <ImageView
+                android:id="@+id/shine"
+                android:layout_width="50dp"
+                android:layout_marginLeft="-50dp"
+                android:layout_height="@dimen/_80sdp"
+                android:src="@drawable/shine_effect" />
+
+
+            <TextView
+                android:id="@+id/tvProviderName"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/grey_900"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                android:layout_below="@+id/ivProviderImage"
+                android:text="Doctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/black_trans"
+                android:textSize="@dimen/_10sdp"
+                android:gravity="center"
+                android:paddingRight="@dimen/_10sdp"
+                android:paddingLeft="@dimen/_10sdp"
+                android:layout_below="@+id/tvProviderName"
+                android:text="Find Doctor Around You"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

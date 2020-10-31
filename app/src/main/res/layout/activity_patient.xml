@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Patient.PatientActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+         <LinearLayout
+            android:orientation="vertical"
+            android:background="@color/blue_900"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_110sdp">
+             <LinearLayout
+                 android:layout_marginTop="@dimen/_5sdp"
+                 android:layout_marginRight="@dimen/_5sdp"
+                 android:layout_marginLeft="@dimen/_5sdp"
+
+                 android:orientation="horizontal"
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/_20sdp">
+                 <ImageView
+                     android:backgroundTint="@color/red_700"
+                     android:src="@drawable/ic_baseline_location_on_24"
+                     android:layout_width="@dimen/_20sdp"
+                     android:layout_height="@dimen/_20sdp"/>
+                 <TextView
+                     android:textColor="@color/white"
+                     android:textSize="@dimen/_12sdp"
+                     android:layout_marginLeft="@dimen/_5sdp"
+                     android:text="Hinjewadi,Pune 4110057"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"/>
+                 <ImageView
+                     android:backgroundTint="@color/yellow_700"
+                     android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                     android:layout_width="@dimen/_20sdp"
+                     android:layout_height="@dimen/_20sdp"/>
+             </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/rlsearchview"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:background="@drawable/capsule1">
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:id="@+id/rlSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_4sdp"
+                    >
+                    <ImageView
+                        android:id="@+id/ivSearch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        app:srcCompat="@drawable/search1"
+                        tools:ignore="VectorDrawableCompat"
+                        app:tint="@color/black_trans" />
+
+                    <EditText
+                        android:gravity="center_vertical"
+                        android:hint="Search For doctors"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_toRightOf="@+id/ivSearch"
+                        android:background="@null"
+                        android:textSize="@dimen/_12sdp"
+                        />
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+
+
+        </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="@dimen/_minus30sdp"
+                android:id="@+id/recyclerView"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+
+            <LinearLayout
+                android:background="@drawable/rounded_corner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.flaviofaria.kenburnsview.KenBurnsView
+                    android:layout_margin="@dimen/_5sdp"
+                    android:src="@drawable/ban"
+                    android:fadingEdge="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_120sdp"/>
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/grey_900"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:text="Find Doctors near you"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginRight="@dimen/_10sdp"
+                   android:layout_alignParentRight="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/red_900"
+                    android:textSize="@dimen/_13sdp"
+                    android:gravity="right"
+                    android:text="View All"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/rvDoctor"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+
+        </LinearLayout>
+
+
+
+
+
+    </ScrollView>
+</LinearLayout>

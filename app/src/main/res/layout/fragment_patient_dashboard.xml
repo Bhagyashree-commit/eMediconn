@@ -15,7 +15,7 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_110sdp"
-        android:background="@drawable/banner"></ImageView>-->
+        android:background="@drawable/bannerr"></ImageView>-->
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_margin="@dimen/_10sdp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:background="@drawable/user"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tvName"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:text="Rashmi Dwivedi"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RatingBar
+                android:id="@+id/ratingbar"
+                android:progressTint="@color/orange_400"
+                android:layout_marginLeft="@dimen/_10sdp"
+                style="?android:attr/ratingBarStyleSmall"
+                android:rating="3.5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1.0"
+                />
+            <TextView
+                android:text="         2 Days ago"
+
+                android:textSize="@dimen/_9sdp"
+                android:textColor="@color/grey_600"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Visited for managing actute medical conditions"
+            android:textColor="@color/grey_900"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/tvReviews"
+            android:text="He was very professional and friendly.He explained the cause of the health issue in a very detailed way."
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+
+            android:textColor="@color/black"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_height="wrap_content" />
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_400"
+            />
+    </LinearLayout>
+
+</LinearLayout>

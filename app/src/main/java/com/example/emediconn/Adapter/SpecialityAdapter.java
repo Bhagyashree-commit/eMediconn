@@ -73,7 +73,7 @@ public class SpecialityAdapter extends RecyclerView.Adapter<SpecialityAdapter.Vi
                 i.putExtra("Speciality",specialityModel.getSpeciality_title());
 
                     Speciality=specialityModel.getSpeciality_title();
-                Log.d("speciality","bhagya "+specialityModel.getSpeciality_title());
+               // Log.d("speciality","bhagya "+specialityModel.getSpeciality_title());
 
                 context.startActivity(new Intent(context, DoctorRegistration.class));
 

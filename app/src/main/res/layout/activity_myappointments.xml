@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight=".5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/grey_600"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_13sdp"
+                android:text="WED"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/red_900"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_27sdp"
+                android:text="14"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/grey_600"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_13sdp"
+                android:text="12:00 AM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            
+            
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:outlineSpotShadowColor="@color/blue_900"
+                    app:civ_circle_background_color="@color/blue_900"
+                    android:src="@drawable/doctrrrr"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"/>
+
+                <LinearLayout
+                    android:orientation="vertical"
+
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:textColor="@color/black_trans"
+                        android:textSize="@dimen/_14sdp"
+                        android:text="Dr. Williamson Chaple"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textColor="@color/black_trans"
+                        android:textSize="@dimen/_12sdp"
+                        android:text="Cardiac Surgeon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </TextView>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="center"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/grey_900"
+                        android:text="Location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/grey_700"
+                        android:text="Newyork"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+                <View
+                    android:background="@color/black_trans"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="match_parent"></View>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="center"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/grey_900"
+                        android:text="Fee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/grey_700"
+                        android:text="\u20b9 700"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <View
+                    android:background="@color/black_trans"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="match_parent"></View>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="center"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/grey_900"
+                        android:text="Status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/red_900"
+                        android:text="Received"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@color/grey_300"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    
+</LinearLayout>

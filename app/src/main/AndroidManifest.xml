@@ -12,15 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Patient.PatientActivity">  <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
-        <activity android:name=".Patient.DoctorDescription">
-
+        <activity android:name=".Patient.MyActivity">  </activity>
+        <activity android:name=".Patient.TimeSlot">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".Patient.DoctorCategory"></activity>
+        <activity android:name=".Patient.PatientActivity" />
+        <activity android:name=".Patient.DoctorDescription"></activity>
+        <activity android:name=".Patient.DoctorCategory" />
         <activity android:name=".Patient.DoctorList" />
         <activity android:name=".Doctor.otp_doctor" />
         <activity android:name=".Patient.ResetPassword" />

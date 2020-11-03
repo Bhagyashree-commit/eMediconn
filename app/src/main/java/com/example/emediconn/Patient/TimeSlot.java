@@ -14,7 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+
 import android.widget.TextView;
 
 import com.example.emediconn.R;
@@ -24,16 +24,13 @@ import org.joda.time.DateTime;
 import noman.weekcalendar.WeekCalendar;
 import noman.weekcalendar.listener.OnDateClickListener;
 
-
 public class TimeSlot extends AppCompatActivity implements  OnDateClickListener {
 
     RecyclerView recyclerView;
     RecyclerView recyclerEvening;
     RecyclerView recyclerAfternoon;
 
-
     public String isSelected;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,24 +48,17 @@ public class TimeSlot extends AppCompatActivity implements  OnDateClickListener 
         weekCalendar.setOnDateClickListener(this);
 
     }
-
     @Override
     public void onDateClick(DateTime dateTime) {
         Log.e("jjddjd",""+dateTime.getDayOfWeek());
-
-
     }
-
     public void setAdapter(RecyclerView mRecyclerview)
     {
         mRecyclerview.setLayoutManager(new GridLayoutManager(this,3));
         mRecyclerview.setAdapter(new TimeSlotAdapter());
     }
 
-
-
     //*Recyclerview Adapter*//
-
     private class TimeSlotAdapter  extends RecyclerView.Adapter<Holder> {
 
         private int last_position=0;
@@ -77,6 +67,7 @@ public class TimeSlot extends AppCompatActivity implements  OnDateClickListener 
         public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
             return new Holder(LayoutInflater.from(parent.getContext()).inflate(R.layout.slot_items, parent, false));
         }
+
         @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
         public void onBindViewHolder(@NonNull final Holder holder, final int position) {
@@ -102,14 +93,11 @@ public class TimeSlot extends AppCompatActivity implements  OnDateClickListener 
                     if(present_position!=RecyclerView.NO_POSITION) {
 
                         if(present_position!=-1){
-
                             //img=layoutManager.findViewByPosition(last_position).findViewById(R.id.check);
                           //  holder.tvTime.setVisibility(View.GONE);
                            // holder.tvTime.setBackgroundColor(getResources().getColor(R.color.yellow_500));
                             holder.tvTime.setBackground(getResources().getDrawable(R.drawable.timecapsule));
                             holder.tvTime.setTextColor(getResources().getColor(R.color.blue_900));
-
-
 
                             notifyItemChanged(last_position);
                             //img=layoutManager.findViewByPosition(present_position).findViewById(R.id.check);
@@ -117,7 +105,6 @@ public class TimeSlot extends AppCompatActivity implements  OnDateClickListener 
                           //  holder.tvTime.setBackgroundColor(getResources().getColor(R.color.green_200));
                             holder.tvTime.setBackground(getResources().getDrawable(R.drawable.capsule));
                             holder.tvTime.setTextColor(getResources().getColor(R.color.white));
-
 
                             notifyItemChanged(present_position);
                             System.err.println(last_position+" -- myParent");
@@ -137,7 +124,6 @@ public class TimeSlot extends AppCompatActivity implements  OnDateClickListener 
                     }
                 }
             });
-
 //            Typeface typeface = ResourcesCompat.getFont(TimeSlot.this, R.font.nunitosemibold);
 //            holder.tvCategoryName.setTypeface(typeface);
         }
@@ -149,7 +135,6 @@ public class TimeSlot extends AppCompatActivity implements  OnDateClickListener 
             return position;
         }
     }
-
     private class Holder extends RecyclerView.ViewHolder {
 
         TextView tvTime;

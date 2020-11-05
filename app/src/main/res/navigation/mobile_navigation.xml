@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_clinic"
+    app:startDestination="@+id/nav_patientdashboard"
     tools:ignore="UnusedNavigation">
 
     <fragment
@@ -11,6 +11,11 @@
         android:name="com.example.emediconn.Doctor.ui.AddClinic"
         android:label="@string/menu_clinic"
         tools:layout="@layout/fragment_add_clinic" />
+    <fragment
+        android:id="@+id/nav_patientdashboard"
+        android:name="com.example.emediconn.Doctor.ui.AddClinic"
+        android:label="@string/menu_clinic"
+        tools:layout="@layout/fragment_patient_dashboard" />
 
     <fragment
         android:id="@+id/nav_account"

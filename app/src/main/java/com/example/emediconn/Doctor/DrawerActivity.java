@@ -50,7 +50,7 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
         setContentView(R.layout.activity_drawer);
 
 
-replaceFragmentWithAnimation(new AddClinic());
+replaceFragmentWithAnimation(new PatientDashboard());
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -199,8 +199,6 @@ replaceFragmentWithAnimation(new AddClinic());
 
     @Override
     public void onBackPressed() {
-
-
         backPressed = backPressed + 1;
         if (backPressed == 1) {
             Toast.makeText(DrawerActivity.this, "Press back again to exit", Toast.LENGTH_SHORT).show();

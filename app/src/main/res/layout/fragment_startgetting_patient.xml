@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Doctor.ui.StartgettingPatient">
+    <include
+        android:id="@+id/linear1"
+        layout="@layout/tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <LinearLayout
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/Lin"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_height="wrap_content"
+        >
+
+
+        <TextView
+
+            android:maxLines="1"
+            android:textSize="@dimen/_12sdp"
+            android:text="Consultation Fees"
+            android:drawableLeft="@drawable/fees"
+            android:id="@+id/et_city"
+            android:layout_marginTop="@dimen/_80sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:fontFamily="sans-serif-condensed"
+
+            />
+        <EditText
+
+            android:maxLines="1"
+            android:id="@+id/et_cityname"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/_12sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:fontFamily="sans-serif-condensed"
+
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/Lin"
+        android:layout_marginTop="@dimen/_100sdp"
+        android:layout_height="wrap_content"
+        >
+
+    <TextView
+        android:maxLines="1"
+        android:textSize="@dimen/_12sdp"
+        android:text="Clinic Timings"
+        android:drawableLeft="@drawable/fees"
+        android:id="@+id/et_city1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:fontFamily="sans-serif-condensed"
+        /></LinearLayout>
+
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:id="@+id/RL1"
+        android:layout_height="wrap_content"
+        android:background="@drawable/square_box"
+        android:layout_marginTop="@dimen/_200sdp"
+        >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monday"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:textColor="@color/red_400"
+                android:textSize="@dimen/_12sdp"
+                android:fontFamily="sans-serif-condensed"
+                android:id="@+id/textmonday"></TextView>
+
+        <TextView
+            android:text="  Morning"
+            android:layout_below="@+id/textmonday"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:textSize="@dimen/_12sdp"
+            android:fontFamily="sans-serif-condensed"
+            android:drawableLeft="@drawable/email"
+            android:id="@+id/et_morningtime1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            />
+
+            <EditText
+                android:imeOptions="actionDone"
+                android:text="  Start Time"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:maxLines="1"
+                android:layout_toRightOf="@+id/et_morningtime1"
+                android:fontFamily="sans-serif-condensed"
+                android:drawableLeft="@drawable/time"
+                android:id="@+id/et_mstarttime1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <EditText
+                android:imeOptions="actionDone"
+                android:text="  End Time"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:maxLines="1"
+                android:fontFamily="sans-serif-condensed"
+                android:drawableLeft="@drawable/time"
+                android:id="@+id/et_mendtime1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/et_mstarttime1"
+                />
+        <TextView
+            android:text="  Evening"
+            android:layout_below="@+id/et_morningtime1"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:textSize="@dimen/_12sdp"
+            android:fontFamily="sans-serif-condensed"
+            android:drawableLeft="@drawable/email"
+            android:id="@+id/et_eveningtime1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            />
+        <EditText
+            android:imeOptions="actionDone"
+            android:text="  Start Time"
+            android:maxLines="1"
+           android:layout_toRightOf="@+id/et_eveningtime1"
+            android:fontFamily="sans-serif-condensed"
+            android:drawableLeft="@drawable/time"
+            android:id="@+id/et_evstarttime1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_70sdp"
+            />
+        <EditText
+            android:imeOptions="actionDone"
+            android:text="  End Time"
+            android:maxLines="1"
+            android:fontFamily="sans-serif-condensed"
+            android:drawableLeft="@drawable/time"
+            android:id="@+id/et_evendtime1"
+            android:layout_marginTop="@dimen/_70sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/et_mstarttime1"
+            />
+
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:id="@+id/RL2"
+        android:layout_below="@+id/RL1"
+        android:layout_height="wrap_content"
+        android:background="@drawable/square_box"
+        android:layout_marginTop="@dimen/_380sdp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tuesday"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textColor="@color/red_400"
+            android:textSize="@dimen/_12sdp"
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/texttuesday"></TextView>
+
+        <TextView
+            android:text="  Morning"
+            android:layout_below="@+id/texttuesday"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:textSize="@dimen/_12sdp"
+            android:fontFamily="sans-serif-condensed"
+            android:drawableLeft="@drawable/email"
+            android:id="@+id/et_tuemorstattime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:id="@+id/RL3"
+        android:layout_below="@+id/RL2"
+        android:layout_height="wrap_content"
+        android:background="@drawable/square_box"
+        android:layout_marginTop="@dimen/_465sdp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wednesday"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textColor="@color/red_400"
+            android:textSize="@dimen/_12sdp"
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/textwednesday"></TextView>
+
+        <TextView
+            android:text="  Morning"
+            android:layout_below="@+id/textwednesday"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:textSize="@dimen/_12sdp"
+            android:fontFamily="sans-serif-condensed"
+            android:drawableLeft="@drawable/email"
+            android:id="@+id/et_tuemorstattime1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            />
+
+    </RelativeLayout>
+
+
+</FrameLayout>

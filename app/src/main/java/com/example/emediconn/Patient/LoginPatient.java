@@ -21,6 +21,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.emediconn.Database.AppConfig;
 import com.example.emediconn.Database.PrefManager;
+import com.example.emediconn.Doctor.DoctorDashboard;
+import com.example.emediconn.Doctor.DoctorRegistration;
 import com.example.emediconn.Doctor.DrawerActivity;
 import com.example.emediconn.Doctor.LoginDoctor;
 import com.example.emediconn.R;
@@ -53,6 +55,14 @@ public class LoginPatient extends AppCompatActivity {
 
         ploader = new ProgressDialog(LoginPatient.this);
         prefManager=new PrefManager(LoginPatient.this);
+        if (prefManager.isLoggedIn()) {
+            // User is already logged in. Take him to main activity
+            Intent intent = new Intent(LoginPatient.this,
+                    DrawerActivity .class);
+            startActivity(intent);
+            finish();
+        }
+
 
         existing_user.setOnClickListener(new View.OnClickListener() {
             @Override

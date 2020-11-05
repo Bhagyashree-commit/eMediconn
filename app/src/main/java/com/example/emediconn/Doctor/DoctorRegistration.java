@@ -59,6 +59,15 @@ public class DoctorRegistration extends AppCompatActivity {
         ploader = new ProgressDialog(DoctorRegistration.this);
         prefManager=new PrefManager(DoctorRegistration.this);
 
+        if (prefManager.isLoggedIn()) {
+            // User is already logged in. Take him to main activity
+            Intent intent = new Intent(DoctorRegistration.this,
+                    DoctorDashboard.class);
+            startActivity(intent);
+            finish();
+        }
+
+
         existing_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

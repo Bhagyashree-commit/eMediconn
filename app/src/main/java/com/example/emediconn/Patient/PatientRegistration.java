@@ -29,6 +29,9 @@ import com.android.volley.toolbox.Volley;
 import com.example.emediconn.ChooseRole;
 import com.example.emediconn.Database.AppConfig;
 import com.example.emediconn.Database.PrefManager;
+import com.example.emediconn.Doctor.DoctorDashboard;
+import com.example.emediconn.Doctor.DoctorRegistration;
+import com.example.emediconn.Doctor.DrawerActivity;
 import com.example.emediconn.MainActivity;
 import com.example.emediconn.R;
 import com.example.emediconn.SelectProvider;
@@ -62,6 +65,16 @@ int flag;
 
          ploader = new ProgressDialog(PatientRegistration.this);
          prefManager=new PrefManager(PatientRegistration.this);
+
+
+        if (prefManager.isLoggedIn()) {
+            // User is already logged in. Take him to main activity
+            Intent intent = new Intent(PatientRegistration.this,
+                    DrawerActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
 
          existing_user.setOnClickListener(new View.OnClickListener() {
              @Override

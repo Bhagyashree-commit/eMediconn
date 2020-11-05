@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Patient.DoctorCategory">
 
@@ -21,7 +22,7 @@
         android:layout_height="@dimen/_120sdp">
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ivCategory"
-            android:src="@drawable/ic_cardiologist"
+
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_80sdp"/>
 
@@ -32,9 +33,14 @@
             android:textSize="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_gravity="center"
-            android:text="CardioLogist"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/catid"
+            android:visibility="invisible"></TextView>
 
     </LinearLayout>
     </androidx.cardview.widget.CardView>

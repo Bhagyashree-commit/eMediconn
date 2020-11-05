@@ -21,7 +21,6 @@
                  android:layout_marginTop="@dimen/_5sdp"
                  android:layout_marginRight="@dimen/_5sdp"
                  android:layout_marginLeft="@dimen/_5sdp"
-
                  android:orientation="horizontal"
                  android:layout_width="match_parent"
                  android:layout_height="@dimen/_20sdp">
@@ -66,7 +65,8 @@
                         tools:ignore="VectorDrawableCompat"
                         app:tint="@color/black_trans" />
 
-                    <EditText
+                    <TextView
+                        android:id="@+id/etSearch"
                         android:gravity="center_vertical"
                         android:hint="Search For doctors"
                         android:layout_width="wrap_content"
@@ -153,10 +153,5 @@
                 />
 
         </LinearLayout>
-
-
-
-
-
     </ScrollView>
 </LinearLayout>

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,8 +16,10 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,14 +32,28 @@ import java.util.TimerTask;
 public class PatientActivity extends AppCompatActivity {
 
 
+    //Recyclerview
     RecyclerView recyclerView;
     RecyclerView rvDoctor;
+
+
+    //Relativelayout
+    RelativeLayout rlsearchview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
         recyclerView=findViewById(R.id.recyclerView);
         rvDoctor=findViewById(R.id.rvDoctor);
+        rlsearchview=findViewById(R.id.rlsearchview);
+
+        rlsearchview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PatientActivity.this,SearchActivity.class));
+            }
+        });
+
         setAdapter(recyclerView,new RecyAdapter());
         setAdapter(rvDoctor,new DoctAdapter());
     }

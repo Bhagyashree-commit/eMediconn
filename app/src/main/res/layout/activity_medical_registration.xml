@@ -4,15 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Doctor.MedicalRegistration">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:background="@drawable/newgradient">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/backbutton"
+            android:layout_height="wrap_content"
+            android:src="@drawable/backarrow"></ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medical Registration"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_gravity="center"></TextView>
+    </LinearLayout>
+
 
     <LinearLayout
-        android:id="@+id/Linear_Layout"
+        android:layout_marginTop="@dimen/_30sdp"
         android:weightSum="2"
-        android:layout_marginLeft="@dimen/_15sdp"
-        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:layout_height="wrap_content"
         >
 
@@ -23,9 +46,10 @@
             android:text="Registration No."
             android:drawableLeft="@drawable/per"
             android:id="@+id/etcontractor_username"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
             android:fontFamily="sans-serif-condensed"
 
             />
@@ -33,14 +57,101 @@
             android:layout_weight="1.2"
             android:maxLines="1"
             android:id="@+id/et_docname"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:textSize="@dimen/_12sdp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
             android:fontFamily="sans-serif-condensed"
 
             />
 
     </LinearLayout>
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_height="wrap_content"
+        >
 
+        <TextView
+            android:layout_weight="0.8"
+            android:maxLines="1"
+            android:textSize="@dimen/_12sdp"
+            android:text="Registration Council"
+            android:drawableLeft="@drawable/per"
+            android:id="@+id/etcontractor_username1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:fontFamily="sans-serif-condensed"
+
+            />
+        <EditText
+            android:layout_weight="1.2"
+            android:maxLines="1"
+            android:id="@+id/et_docname1"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/_12sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:fontFamily="sans-serif-condensed"
+
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:layout_weight="0.8"
+            android:maxLines="1"
+            android:textSize="@dimen/_12sdp"
+            android:text="Registration Year"
+            android:drawableLeft="@drawable/per"
+            android:id="@+id/etcontractor_username2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:fontFamily="sans-serif-condensed"
+
+            />
+        <EditText
+            android:layout_weight="1.2"
+            android:maxLines="1"
+            android:id="@+id/et_docname3"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/_12sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:fontFamily="sans-serif-condensed"
+
+            />
+
+    </LinearLayout>
+    <Button
+        android:layout_gravity="center|right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Continue"
+        android:id="@+id/btn_continue"
+        android:textColor="@color/white"
+        android:background="@drawable/gradient"></Button>
 </LinearLayout>

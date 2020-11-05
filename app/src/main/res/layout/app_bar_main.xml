@@ -14,7 +14,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="@dimen/_30sdp"
             android:background="@drawable/newgradient"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 

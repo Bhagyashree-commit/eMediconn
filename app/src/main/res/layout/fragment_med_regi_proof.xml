@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Doctor.ui.DoctorProfile">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        >
+
+
+        <include
+            android:id="@+id/linear1"
+            layout="@layout/tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile Verification"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/orange_900"
+            android:id="@+id/tv1"></TextView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Step 1/2 Medical Registration Proof"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:textColor="@color/black_trans"
+            android:fontFamily="sans-serif-condensed"></TextView>
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/progress"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:progressTint="@color/orange_900"
+            android:max="100"
+            android:maxWidth="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:progress="66"/>
+
+        <LinearLayout
+            android:id="@+id/Lin"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:textSize="@dimen/_12sdp"
+                android:text="Please upload your medical registration proof. Only licensed and genuine doctors are liste on mediconn."
+                android:id="@+id/etcontractor_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:fontFamily="sans-serif-condensed"
+
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_below="@id/Lin"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_height="wrap_content"
+            >
+
+
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:layout_width="match_parent"
+                android:layout_below="@+id/etcontractor_username1"
+                android:id="@+id/spin_medidocument"
+                android:text="Select Document"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_height="wrap_content"></com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:id="@+id/upload_medicalproof"
+            android:background="@drawable/upload_doc"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:clickable="true"
+            ></ImageButton>
+        <ImageView
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:id="@+id/iv_medicalproof"></ImageView>
+        <TextView
+            android:layout_gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:drawableLeft="@drawable/edit"
+            android:textSize="@dimen/_12sdp"
+            android:text=" Upload Document"
+            android:layout_below="@+id/proimage"
+            android:id="@+id/et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:fontFamily="sans-serif-condensed"
+
+            />
+
+        <Button
+            android:layout_gravity="center|right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:text="Continue"
+            android:id="@+id/btn_continuemedicalproof"
+            android:textColor="@color/white"
+            android:background="@drawable/gradient"></Button>
+
+    </LinearLayout>
+
+
+</ScrollView>

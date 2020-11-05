@@ -1,5 +1,6 @@
 package com.example.emediconn.Doctor;
 
+import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -49,11 +50,11 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
         setContentView(R.layout.activity_drawer);
 
 
-replaceFragmentWithAnimation(new AddClinic());
+replaceFragmentWithAnimation(new PatientDashboard());
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       drawer = findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -198,8 +199,6 @@ replaceFragmentWithAnimation(new AddClinic());
 
     @Override
     public void onBackPressed() {
-
-
         backPressed = backPressed + 1;
         if (backPressed == 1) {
             Toast.makeText(DrawerActivity.this, "Press back again to exit", Toast.LENGTH_SHORT).show();

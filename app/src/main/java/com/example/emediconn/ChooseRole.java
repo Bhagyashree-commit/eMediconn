@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.emediconn.Patient.PatientActivity;
 import com.example.emediconn.Patient.PatientRegistration;
 import com.example.emediconn.Patient.RegisterPatient;
 

@@ -2,25 +2,54 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:background="@drawable/newgradient">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/backbutton"
+            android:layout_height="wrap_content"
+            android:src="@drawable/backarrow"></ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Doctor Profile"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_gravity="center"></TextView>
+    </LinearLayout>
+
 <LinearLayout
+    android:elevation="@dimen/_20sdp"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_50sdp"
+    android:layout_height="@dimen/_60sdp"
     android:weightSum="3">
 
 
     <LinearLayout
+        android:elevation="@dimen/_5sdp"
         android:id="@+id/Lin1"
         android:layout_weight="1"
         android:layout_width="0dp"
         android:padding="@dimen/_12sdp"
-        android:layout_height="match_parent">
+        android:layout_height="@dimen/_60sdp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/per"></ImageView>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_50sdp"
             android:textColor="@color/black"
             android:textSize="@dimen/_12sdp"
+            android:id="@+id/text"
             android:text="Profile Details"></TextView>
     </LinearLayout>
 
@@ -29,29 +58,41 @@
         android:layout_weight="1"
         android:layout_width="0dp"
         android:padding="@dimen/_12sdp"
-        android:layout_height="match_parent">
+        android:layout_height="@dimen/_60sdp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/per"></ImageView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="@dimen/_12sdp"
+            android:id="@+id/text_proverify"
             android:text="Profile Verify "></TextView>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/Lin3"
         android:layout_weight="1"
         android:layout_width="0dp"
-
         android:padding="@dimen/_12sdp"
-        android:layout_height="match_parent">
-
+        android:layout_height="@dimen/_60sdp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/start_icon"></ImageView>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="@dimen/_12sdp"
-            android:text="Start Getting Patient"></TextView>
+            android:gravity="center"
+            android:text="Start"></TextView>
     </LinearLayout>
 </LinearLayout>
+
 </LinearLayout>

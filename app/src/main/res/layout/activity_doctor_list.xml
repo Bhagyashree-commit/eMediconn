@@ -2,11 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:orientation="vertical"
-    android:layout_height="match_parent"  android:background="@color/grey_200"
+    android:layout_height="wrap_content"  android:background="@color/grey_200"
     tools:context=".Patient.DoctorList">
-
     <LinearLayout
         android:orientation="vertical"
         android:background="@color/white"
@@ -19,8 +18,9 @@
             android:layout_height="@dimen/_100sdp">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_marginLeft="@dimen/_10sdp"
+                android:id="@+id/ivDoctorImage"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/doctorr"
+
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_70sdp"/>
 
@@ -33,6 +33,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:id="@+id/tvDoctorName"
                     android:textStyle="bold"
                     android:textSize="@dimen/_12sdp"
                     android:textColor="@color/black"
@@ -42,6 +43,7 @@
 
 
                 <TextView
+                    android:id="@+id/tvDegree"
                     android:layout_marginTop="@dimen/_4sdp"
                     android:textSize="@dimen/_12sdp"
                     android:textColor="@color/grey_800"
@@ -50,6 +52,7 @@
                     android:layout_height="wrap_content"/>
 
                 <RatingBar
+                    android:id="@+id/ratingbar"
                     android:theme="@style/RatingBar"
                     android:layout_marginTop="@dimen/_4sdp"
                     android:rating="3.5"
@@ -61,6 +64,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/tvHospitalname"
                     android:layout_marginTop="@dimen/_4sdp"
                     android:textSize="@dimen/_12sdp"
                     android:textColor="@color/grey_900"
@@ -89,13 +93,14 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/grey_900"
-                    android:text="15 years"
+                    android:id="@+id/tvExperience"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="15 years"
+                    android:textColor="@color/grey_900"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
@@ -121,6 +126,7 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
+                    android:id="@+id/tvRating"
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textSize="@dimen/_12sdp"
@@ -151,6 +157,7 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
+                    android:id="@+id/tvFee"
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textSize="@dimen/_12sdp"
@@ -187,428 +194,13 @@
                 android:layout_width="59dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center_vertical"
-                android:layout_margin="@dimen/_20sdp"
+               android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_10sdp"
                 android:background="@drawable/capsule"
-
                 android:padding="@dimen/_5sdp"
                 android:text="Book Now"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_10sdp" />
-
-
-
-
-
-
-        </LinearLayout>
-
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="vertical"
-        android:background="@color/white"
-        android:layout_margin="@dimen/_5sdp"
-        android:elevation="@dimen/_20sdp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_190sdp">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_100sdp">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_gravity="center_vertical"
-
-                android:src="@drawable/ladydoctrrr"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_70sdp"/>
-
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/black"
-                    android:text="Dr. Victor John"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-
-                <TextView
-                    android:layout_marginTop="@dimen/_4sdp"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/grey_800"
-                    android:text="MBBS MD DNB Orthopedist"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <RatingBar
-                    android:theme="@style/RatingBar"
-                    android:layout_marginTop="@dimen/_4sdp"
-                    android:rating="3.5"
-                    style="@style/Widget.AppCompat.RatingBar.Small"
-                    android:id="@+id/ratingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_marginTop="@dimen/_4sdp"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/grey_900"
-                    android:text="Saint Francis Memorial Hospital"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-
-
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:weightSum="3"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
-                <TextView
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:gravity="center"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/grey_900"
-                    android:text="Experience"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/grey_900"
-                    android:text="15 years"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-
-            </LinearLayout>
-            <View
-                android:background="@color/black_trans"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_width="@dimen/_1sdp"
-                android:layout_height="match_parent"></View>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:gravity="center"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/grey_900"
-                    android:text="Ratings"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/black"
-                    android:text="4.5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <View
-                android:background="@color/black_trans"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_width="@dimen/_1sdp"
-                android:layout_height="match_parent"></View>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:gravity="center"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/grey_900"
-                    android:text="Fee"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/black"
-                    android:text="\u20b9 700"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_baseline_access_time_24"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                app:tint="@color/grey_600"></ImageView>
-
-
-            <TextView
-                android:text="Open Timings 09:00AM - 06:00PM"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <Button
-                android:padding="@dimen/_5sdp"
-                android:text="Book Now"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_25sdp"
-                android:id="@+id/btnSubmit"
-                android:layout_margin="@dimen/_20sdp"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_10sdp"
-                android:background="@drawable/capsule"/>
-
-
-
-
-
-
-        </LinearLayout>
-
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="vertical"
-        android:background="@color/white"
-        android:layout_margin="@dimen/_5sdp"
-        android:elevation="@dimen/_20sdp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_190sdp">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_100sdp">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/doctrrrr"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_70sdp"/>
-
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/black"
-                    android:text="Dr. Victor John"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-
-                <TextView
-                    android:layout_marginTop="@dimen/_4sdp"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/grey_800"
-                    android:text="MBBS MD DNB Orthopedist"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <RatingBar
-                    android:theme="@style/RatingBar"
-                    android:layout_marginTop="@dimen/_4sdp"
-                    android:rating="3.5"
-                    style="@style/Widget.AppCompat.RatingBar.Small"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_marginTop="@dimen/_4sdp"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/grey_900"
-                    android:text="Saint Francis Memorial Hospital"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-
-
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:weightSum="3"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
-                <TextView
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:gravity="center"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/grey_900"
-                    android:text="Experience"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/grey_900"
-                    android:text="15 years"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-
-            </LinearLayout>
-            <View
-                android:background="@color/black_trans"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_width="@dimen/_1sdp"
-                android:layout_height="match_parent"></View>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:gravity="center"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/grey_900"
-                    android:text="Ratings"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/black"
-                    android:text="4.5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <View
-                android:background="@color/black_trans"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_width="@dimen/_1sdp"
-                android:layout_height="match_parent"></View>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:gravity="center"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/grey_900"
-                    android:text="Fee"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/black"
-                    android:text="\u20b9 700"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_baseline_access_time_24"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                app:tint="@color/grey_600"></ImageView>
-
-
-            <TextView
-                android:text="Open Timings 09:00AM - 06:00PM"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <Button
-                android:padding="@dimen/_5sdp"
-                android:text="Book Now"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_25sdp"
-
-                android:layout_margin="@dimen/_20sdp"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_10sdp"
-                android:background="@drawable/capsule"/>
-
-
 
 
 

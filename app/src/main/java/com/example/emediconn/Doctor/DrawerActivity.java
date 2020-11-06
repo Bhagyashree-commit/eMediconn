@@ -50,7 +50,7 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
         setContentView(R.layout.activity_drawer);
 
 
-replaceFragmentWithAnimation(new PatientDashboard());
+     replaceFragmentWithAnimation(new PatientDashboard());
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

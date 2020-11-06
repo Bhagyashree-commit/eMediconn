@@ -5,9 +5,12 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +18,13 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.emediconn.Patient.DoctorCategory;
 import com.example.emediconn.Patient.PatientActivity;
+import com.example.emediconn.Patient.SearchActivity;
 import com.example.emediconn.R;
 
 import java.util.Timer;
@@ -35,6 +40,8 @@ public class PatientDashboard extends Fragment {
     RecyclerView recyclerView;
     RecyclerView rvDoctor;
     TextView viewdoctor;
+
+    RelativeLayout rlsearchview;
 
     public PatientDashboard() {
         // Required empty public constructor
@@ -81,8 +88,10 @@ public class PatientDashboard extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         getActivity().setTitle("");
-        // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_patient_dashboard, container, false);
+
+
+        // Inflate the layout for this fragment
         recyclerView=v.findViewById(R.id.recyclerView);
         rvDoctor=v.findViewById(R.id.rvDoctor);
         viewdoctor=v.findViewById(R.id.viewdoctor);
@@ -92,14 +101,30 @@ public class PatientDashboard extends Fragment {
         viewdoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getActivity(), DoctorCategory.class);
-                getActivity().startActivity(myIntent);
+                replaceFragmentWithAnimation(new DoctorCategory());
+            }
+        });
+
+        rlsearchview=v.findViewById(R.id.rlsearchview);
+
+        rlsearchview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), SearchActivity.class));
             }
         });
         return v;
     }
 
-
+    public void replaceFragmentWithAnimation(Fragment fragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
+        transaction.replace(R.id.nav_host_fragment, fragment);
+        FragmentManager mFragmentManager=getFragmentManager();
+        mFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        // transaction.addToBackStack(null);
+        transaction.commit();
+    }
 
     public void setAdapter(RecyclerView mRecyclerview, RecyclerView.Adapter adapter)
     {
@@ -148,11 +173,11 @@ public class PatientDashboard extends Fragment {
                         Toast.makeText(getActivity(),"Comming Soon",Toast.LENGTH_SHORT).show();
                     }
                     else {
-                        Intent myIntent = new Intent(getActivity(), DoctorCategory.class);
-                        getActivity().startActivity(myIntent);
+                       replaceFragmentWithAnimation(new DoctorCategory());
                     }
                 }
             });
+
 
 
             Timer timerAsync = new Timer();
@@ -160,15 +185,21 @@ public class PatientDashboard extends Fragment {
                 @Override
                 public void run() {
 
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override public void run() {
-                            Animation animation = new TranslateAnimation(0, holder.ivProviderImage.getWidth()+holder.shine.getWidth(),0, 0);
-                            animation.setDuration(550);
-                            animation.setFillAfter(false);
-                            animation.setInterpolator(new AccelerateDecelerateInterpolator());
-                            holder.shine.startAnimation(animation);
-                        }
-                    });
+                    if(getActivity() !=null){
+                        //call the ui thread
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Animation animation = new TranslateAnimation(0, holder.ivProviderImage.getWidth()+holder.shine.getWidth(),0, 0);
+                                animation.setDuration(550);
+                                animation.setFillAfter(false);
+                                animation.setInterpolator(new AccelerateDecelerateInterpolator());
+                                holder.shine.startAnimation(animation);
+                            }
+                        });
+                    }
+
+
                 }
             };
             timerAsync.schedule(timerTaskAsync, 0, 5000);
@@ -210,7 +241,7 @@ public class PatientDashboard extends Fragment {
     }
 
     //Doctor Recyclerview
-    private class DoctAdapter extends RecyclerView.Adapter<PatientDashboard.DocHolder> {
+    private class DoctAdapter extends RecyclerView.Adapter<DocHolder> {
 
 
         public DoctAdapter() {

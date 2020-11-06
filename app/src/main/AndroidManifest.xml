@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.emediconn">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".Patient.PatientActivity" />
         <activity android:name=".Patient.DoctorDescription"></activity>
-        <activity android:name=".Patient.DoctorCategory" />
+
         <activity android:name=".Patient.DoctorList" />
         <activity android:name=".Doctor.otp_doctor" />
         <activity android:name=".Patient.ResetPassword" />
@@ -29,6 +29,7 @@
         <activity android:name=".Patient.RegisterPatient" />
         <activity android:name=".Doctor.DoctorDashboard" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".Doctor.DrawerActivity"
             android:label="@string/title_activity_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -36,11 +37,11 @@
         <activity android:name=".Doctor.DoctorRegistration" />
         <activity android:name=".SelectProvider" />
         <activity android:name=".ChooseRole" />
+        <activity android:name=".Patient.SearchActivity" />
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".MainActivity" >    <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter></activity>
     </application>
-
 </manifest>

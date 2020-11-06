@@ -149,9 +149,7 @@ public class SearchActivity extends AppCompatActivity {
                     }
                     else {
                         Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_LONG).show();
-
                     }
-
 
                 } catch (JSONException e) {
 

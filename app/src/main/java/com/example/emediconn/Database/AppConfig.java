@@ -24,5 +24,7 @@ public class AppConfig {
 
     public static String URL_UPLOADIDPROOF= "http://healthcare.blucorsys.in/api/doctor/uploadDocument.php";
 
+    public static String URL_GETDOCTORLIST= "http://healthcare.blucorsys.in/api/other/getDoctorByCategory.php";
+
 
 }

@@ -159,6 +159,7 @@ public class PatientDashboard extends Fragment {
             TimerTask timerTaskAsync = new TimerTask() {
                 @Override
                 public void run() {
+
                     getActivity().runOnUiThread(new Runnable() {
                         @Override public void run() {
                             Animation animation = new TranslateAnimation(0, holder.ivProviderImage.getWidth()+holder.shine.getWidth(),0, 0);

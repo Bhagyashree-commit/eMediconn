@@ -14,10 +14,7 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".Patient.MyActivity">  </activity>
         <activity android:name=".Patient.TimeSlot">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".Patient.PatientActivity" />
         <activity android:name=".Patient.DoctorDescription"></activity>
@@ -40,7 +37,10 @@
         <activity android:name=".SelectProvider" />
         <activity android:name=".ChooseRole" />
         <activity android:name=".WelcomeActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity" >    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
     </application>
 
 </manifest>

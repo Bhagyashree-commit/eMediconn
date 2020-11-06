@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.example.emediconn.R;
 
@@ -16,6 +18,8 @@ import com.example.emediconn.R;
  * create an instance of this fragment.
  */
 public class SearchPatient extends Fragment {
+
+    WebView wv;
     public SearchPatient() {
         // Required empty public constructor
     }
@@ -60,8 +64,20 @@ public class SearchPatient extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        getActivity().setTitle("Search Patient");
+        getActivity().setTitle("About Us");
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search_patient, container, false);
+        View v= inflater.inflate(R.layout.fragment_search_patient, container, false);
+        /*wv=v.findViewById(R.id.webview);
+        wv.loadUrl("http://healthcare.blucorsys.in/");
+*/
+
+        return v;
+    }
+    private class MyBrowser extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
     }
 }

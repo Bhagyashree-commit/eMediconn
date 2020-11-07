@@ -18,9 +18,7 @@ public class DoctorDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_dashboard);
      replaceFragmentWithAnimation(new DoctorProfile());
-
     }
-
 
     public void replaceFragmentWithAnimation(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

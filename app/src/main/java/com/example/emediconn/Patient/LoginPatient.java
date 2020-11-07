@@ -57,8 +57,8 @@ public class LoginPatient extends AppCompatActivity {
         prefManager=new PrefManager(LoginPatient.this);
         if (prefManager.isLoggedIn()) {
             // User is already logged in. Take him to main activity
-            Intent intent = new Intent(LoginPatient.this,
-                    DrawerActivity .class);
+            Intent intent = new Intent(LoginPatient.this, DrawerActivity .class);
+            intent.putExtra("page","Login");
             startActivity(intent);
             finish();
         }
@@ -151,6 +151,7 @@ public class LoginPatient extends AppCompatActivity {
                                 Log.d(TAG,"ID"+role);
 
                                 Intent intent = new Intent(LoginPatient.this, DrawerActivity.class);
+                                intent.putExtra("page","Login");
                                 intent.putExtra("mobilenumber",mobilenum);
                                 startActivity(intent);
 

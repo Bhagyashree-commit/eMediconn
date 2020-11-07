@@ -21,7 +21,7 @@ import com.example.emediconn.R;
 
 import java.util.List;
 
-public class SpecialityAdapter extends RecyclerView.Adapter<SpecialityAdapter.ViewHolder>  {
+public class SpecialityAdapter extends                              RecyclerView.Adapter<SpecialityAdapter.ViewHolder>  {
     private Context context;
     private List<SpecialityModel> smodel;
     public static String Speciality;

@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.emediconn.Doctor.ui.DoctorListFragment;
 import com.example.emediconn.Doctor.ui.DoctorProfile;
 import com.example.emediconn.Doctor.ui.PatientDashboard;
 import com.example.emediconn.Doctor.ui.PatientFragment;
@@ -50,7 +52,6 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
         setContentView(R.layout.activity_drawer);
 
 
-     replaceFragmentWithAnimation(new PatientDashboard());
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -61,6 +62,40 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
         drawer.setDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        Intent in=getIntent();
+
+        String called_from = getIntent().getStringExtra("page");
+
+        if(called_from == null) {
+            called_from = "empty string";
+            Log.e("called",called_from);
+        }
+        if (called_from.equalsIgnoreCase("Search")) {
+            // do whatever
+            replaceFragmentWithAnimation(new DoctorListFragment());
+        } else {
+            replaceFragmentWithAnimation(new PatientDashboard());
+            // do whatever
+        }
+//        if(in != null){
+//
+//            if( in.getStringExtra("page").equalsIgnoreCase("Search"))
+//            {
+//
+//            }
+//            else
+//            {
+//
+//            }
+//
+//
+//
+//
+//        }
+//
+
 
 
 

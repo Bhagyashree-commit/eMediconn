@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 
@@ -77,7 +78,6 @@ public class SearchActivity extends AppCompatActivity {
         activitySearchBinding.search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-
                 Search=query;
                 SubcatId="";
                 return false;
@@ -91,28 +91,27 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-
         activitySearchBinding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                Intent intent=new Intent(SearchActivity.this,DrawerActivity.class);
+                intent.putExtra("page","Search");
+                startActivity(intent);
 
             }
         });
 
-
     }
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         Intent i = new Intent(this, DrawerActivity.class);
+        i.putExtra("page","patient");
         startActivity(i);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     //********************************Web Services************************//
-
 
     public void getCategory(){
 
@@ -123,10 +122,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.d("testttttttt", response);
-
-
                 ploader.dismiss();
-
                 try {
                     //converting the string to json array object
                     JSONArray array = new JSONArray(response);
@@ -203,6 +199,16 @@ public class SearchActivity extends AppCompatActivity {
                     }
                 });
         Volley.newRequestQueue(this).add(stringRequest);
+    }
+
+    public void replaceFragmentWithAnimation(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
+        transaction.replace(R.id.nav_host_fragment, fragment);
+        FragmentManager mFragmentManager=getSupportFragmentManager();
+        mFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        // transaction.addToBackStack(null);
+        transaction.commit();
     }
 
 }

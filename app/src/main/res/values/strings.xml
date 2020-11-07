@@ -14,7 +14,7 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_account">My Account</string>
-    <string name="menu_searchpatient">Search Patient</string>
+    <string name="menu_searchpatient">About Us</string>
     <string name="menu_appointment">Appointments</string>
     <string name="menu_follow">Follow Up</string>
     <string name="menu_manageclinic">Manage Clinic</string>

@@ -8,22 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
 import com.example.emediconn.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SearchPatient#newInstance} factory method to
+ * Use the {@link ContactUsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SearchPatient extends Fragment {
-
-    WebView wv;
-    public SearchPatient() {
-        // Required empty public constructor
-    }
-
+public class ContactUsFragment extends Fragment {
+WebView wv;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -33,6 +27,9 @@ public class SearchPatient extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    public ContactUsFragment() {
+        // Required empty public constructor
+    }
 
     /**
      * Use this factory method to create a new instance of
@@ -40,11 +37,11 @@ public class SearchPatient extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SearchPatient.
+     * @return A new instance of fragment ContactUsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SearchPatient newInstance(String param1, String param2) {
-        SearchPatient fragment = new SearchPatient();
+    public static ContactUsFragment newInstance(String param1, String param2) {
+        ContactUsFragment fragment = new ContactUsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,25 +61,12 @@ public class SearchPatient extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        getActivity().setTitle("About Us");
+        getActivity().setTitle("Contact Us");
         // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.fragment_search_patient, container, false);
-        wv=v.findViewById(R.id.webview12);
-        wv.loadUrl("http://healthcare.blucorsys.in/aboutus");
+        View v= inflater.inflate(R.layout.fragment_contact_us, container, false);
+        wv=v.findViewById(R.id.webview2);
+        wv.loadUrl("http://healthcare.blucorsys.in/contactus");
         wv.getSettings().setJavaScriptEnabled(true);
-
-        // WebViewClient allows you to handle
-        // onPageFinished and override Url loading.
-        wv.setWebViewClient(new WebViewClient());
-
-
         return v;
-    }
-    private class MyBrowser extends WebViewClient {
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            view.loadUrl(url);
-            return true;
-        }
     }
 }

@@ -26,5 +26,7 @@ public class AppConfig {
 
     public static String URL_GETDOCTORLIST= "http://healthcare.blucorsys.in/api/other/getDoctorByCategory.php";
 
+    public static String URL_GETDOCTORDISCRIPTION= "http://healthcare.blucorsys.in/api/other/getDoctorDetails.php";
+
 
 }

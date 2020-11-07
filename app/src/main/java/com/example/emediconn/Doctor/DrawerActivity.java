@@ -1,6 +1,5 @@
 package com.example.emediconn.Doctor;
 
-import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,14 +16,14 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.emediconn.Doctor.ui.AboutUs;
+import com.example.emediconn.Doctor.ui.ContactUsFragment;
 import com.example.emediconn.Doctor.ui.DoctorListFragment;
-import com.example.emediconn.Doctor.ui.DoctorProfile;
 import com.example.emediconn.Doctor.ui.PatientDashboard;
-import com.example.emediconn.Doctor.ui.PatientFragment;
+import com.example.emediconn.Doctor.ui.TermsOfService;
+import com.example.emediconn.Patient.DoctorCategory;
 import com.example.emediconn.R;
 import com.google.android.material.navigation.NavigationView;
-import com.example.emediconn.Doctor.ui.AddClinic;
-import com.example.emediconn.Doctor.ui.AccountFragment;
 import com.example.emediconn.Doctor.ui.SearchPatient;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -79,83 +78,40 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
             replaceFragmentWithAnimation(new PatientDashboard());
             // do whatever
         }
-//        if(in != null){
-//
-//            if( in.getStringExtra("page").equalsIgnoreCase("Search"))
-//            {
-//
-//            }
-//            else
-//            {
-//
-//            }
-//
-//
-//
-//
-//        }
-//
 
-
-
-
-      /*  if (navigationView != null) {
-            Menu menu = navigationView.getMenu();
-
-            navigationView.setNavigationItemSelectedListener(this);
-
-
-        }*/
-
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
- /*      mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_clinic, R.id.nav_account, R.id.nav_searchpatient, R.id.nav_mnageclinic,R.id.nav_logout)
-                .setDrawerLayout(drawer)
-                .build();*/
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-//        NavigationUI.setupWithNavController(navigationView, navController);
     }
-
-  /*  @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.drawer, menu);
-        return true;
-    }*/
-
-   /* @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
-    }*/
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
-        if (id == R.id.nav_clinic) {
-            replaceFragmentWithAnimation( new AddClinic());
+        if (id == R.id.nav_patientdashboard) {
+            replaceFragmentWithAnimation( new PatientDashboard());
         }
-        else if (id == R.id.nav_account) {
-            replaceFragmentWithAnimation(new AccountFragment());
-        }
-        else if (id == R.id.nav_docProfile) {
-            replaceFragmentWithAnimation(new DoctorProfile());
-        }
-        else if (id == R.id.nav_searchpatient) {
-            replaceFragmentWithAnimation(new SearchPatient());
+        else if (id == R.id.nav_aboutus) {
+            replaceFragmentWithAnimation(new AboutUs());
 
         }
-        else if (id == R.id.nav_patientaccount) {
-            replaceFragmentWithAnimation(new PatientFragment());
+        else if (id == R.id.nav_category) {
+            replaceFragmentWithAnimation(new DoctorListFragment());
 
         }
-        else if (id == R.id.nav_patientdashboard) {
-            replaceFragmentWithAnimation(new PatientDashboard());
+        else if (id == R.id.nav_termsOfservice) {
+            replaceFragmentWithAnimation(new TermsOfService());
 
         }
+        else if (id == R.id.nav_appshare) {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Hey, download this app!");
+            startActivity(shareIntent);
+
+        }
+        else if (id == R.id.nav_contactus) {
+            replaceFragmentWithAnimation(new ContactUsFragment());
+
+        }
+
         else if (id == R.id.nav_logout) {
             logout();
 

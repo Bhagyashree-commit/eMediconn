@@ -128,6 +128,9 @@ public class DoctorListFragment extends Fragment {
         }
         @Override
         public void onBindViewHolder(@NonNull final DocHolder holder, final int position) {
+            holder.itemView.setTag(arrayList.get(position));
+
+            //DoctorListModel dm = arrayList.get(position);
 
             holder.tvDegree.setText(arrayList.get(position).getDegree());
             holder.tvDoctorName.setText(arrayList.get(position).getDoctor_name());
@@ -141,7 +144,15 @@ public class DoctorListFragment extends Fragment {
             Glide.with(getActivity())
                     .load(image_url)
                     .into(holder.ivDoctorImage);
+
+          holder.itemView.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+                  replaceFragmentWithAnimation(new DoctorDiscriptionFragment());
+              }
+          });
         }
+
         public int getItemCount() {
             return arrayList.size();
         }

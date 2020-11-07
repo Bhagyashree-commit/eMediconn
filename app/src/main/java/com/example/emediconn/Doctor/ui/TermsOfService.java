@@ -7,18 +7,18 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import com.example.emediconn.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link PatientFragment#newInstance} factory method to
+ * Use the {@link TermsOfService#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PatientFragment extends Fragment {
-    public PatientFragment() {
-        // Required empty public constructor
-    }
+public class TermsOfService extends Fragment {
+    WebView web;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,7 +28,9 @@ public class PatientFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-
+    public TermsOfService() {
+        // Required empty public constructor
+    }
 
     /**
      * Use this factory method to create a new instance of
@@ -36,11 +38,11 @@ public class PatientFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment PatientFragment.
+     * @return A new instance of fragment TermsOfService.
      */
     // TODO: Rename and change types and number of parameters
-    public static PatientFragment newInstance(String param1, String param2) {
-        PatientFragment fragment = new PatientFragment();
+    public static TermsOfService newInstance(String param1, String param2) {
+        TermsOfService fragment = new TermsOfService();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,7 +62,16 @@ public class PatientFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        getActivity().setTitle("Terms And Conditions");
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_patient, container, false);
+        View v= inflater.inflate(R.layout.fragment_terms_of_service, container, false);
+
+        // Inflate the layout for this fragment
+
+
+        web=v.findViewById(R.id.web2);
+        web.loadUrl("http://healthcare.blucorsys.in/terms-of-service");
+        web.getSettings().setJavaScriptEnabled(true);
+        return v;
     }
 }

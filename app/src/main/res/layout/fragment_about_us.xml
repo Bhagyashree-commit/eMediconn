@@ -3,9 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Doctor.ui.SearchPatient">
+    tools:context=".Doctor.ui.AboutUs">
+
 <WebView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/webview12"></WebView>
+    android:id="@+id/web"></WebView>
+
 </FrameLayout>

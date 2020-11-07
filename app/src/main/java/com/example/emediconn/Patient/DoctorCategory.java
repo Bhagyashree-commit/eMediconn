@@ -228,8 +228,8 @@ public class DoctorCategory extends Fragment {
                             catModel.setSpeciality_id(job.getString("speciality_id"));
                             catModel.setSpeciality(job.getString("speciality"));
 
-                            //String imgpath="http://healthcare.blucorsys.in/"+job.getString("imagepath");
-                            String imgpath="http://healthcare.blucorsys.in/assets/img/category/9.jpg";
+                            String imgpath="http://healthcare.blucorsys.in/"+job.getString("imagepath");
+                            //String imgpath="http://healthcare.blucorsys.in/assets/img/category/9.jpg";
                             catModel.setImagepath(imgpath);
 
                             categorymodel.add(catModel);

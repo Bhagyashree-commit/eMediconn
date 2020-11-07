@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
-import com.example.emediconn.Doctor.ui.AddClinic;
 import com.example.emediconn.Doctor.ui.DoctorProfile;
 import com.example.emediconn.R;
 

@@ -232,6 +232,13 @@
                                     android:textSize="@dimen/_12sdp"
                                     android:textStyle="bold" />
 
+                                <ImageView
+                                    android:layout_width="@dimen/_100sdp"
+                                    android:layout_height="@dimen/_100sdp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginBottom="@dimen/_10sdp"
+                                    android:src="@drawable/testmap" />
+
 
                             </LinearLayout>
 
@@ -312,6 +319,7 @@
                         android:layout_marginLeft="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:text="Apolo Hospital"
+                        android:id="@+id/hospitalnameondescrip"
                         android:textColor="@color/grey_900"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
@@ -320,16 +328,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_15sdp"
+                        android:id="@+id/hospitaladdressondescrip"
                         android:text="Hinjawadi Village, Hinjawadi, Pune, Maharashtra 411057"
                         android:textColor="@color/black_trans"
                         android:textSize="@dimen/_12sdp" />
-
-                    <ImageView
-                        android:layout_width="@dimen/_100sdp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        android:src="@drawable/testmap" />
 
                 </LinearLayout>
 
@@ -360,7 +362,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:visibility="gone"
                         android:layout_marginLeft="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:text="\u25A0 COPD Treatement "
@@ -369,6 +371,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_15sdp"
@@ -382,6 +385,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_15sdp"
+                        android:id="@+id/doctorservice"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:text="\u25A0 Health Checkup(General) "
                         android:textColor="@color/black_trans"

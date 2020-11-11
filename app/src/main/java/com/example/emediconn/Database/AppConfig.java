@@ -8,6 +8,8 @@ public class AppConfig {
 
     public static String URL_LOGINPATIENT= BASE_URL+"login.php";
 
+
+
     public static String URL_FORGETPASSWORD=BASE_URL+"validateOTP.php";
 
     public static String URL_VALIDATEMOBILENUM=BASE_URL+"validateMobileNumber.php";
@@ -28,5 +30,7 @@ public class AppConfig {
 
     public static String URL_GETDOCTORDISCRIPTION= "http://healthcare.blucorsys.in/api/other/getDoctorDetails.php";
 
+    public static String URL_TIMESLOT= "http://healthcare.blucorsys.in/api/other/getDoctorAppointment.php";
 
+    public static String URL_BOOKAPPOINTMENT= "http://healthcare.blucorsys.in/api/other/bookDoctorAppointment.php";
 }

@@ -64,7 +64,6 @@ public class PatientDashboard extends Fragment {
     ProgressDialog ploader;
 
     ArrayList<DoctorListModel> arrayList=new ArrayList<>();
-
     RelativeLayout rlsearchview;
 
     public PatientDashboard() {
@@ -78,8 +77,6 @@ public class PatientDashboard extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-
 
     /**
      * Use this factory method to create a new instance of
@@ -145,6 +142,7 @@ public class PatientDashboard extends Fragment {
         } else {
             Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
         }
+
         return v;
     }
 
@@ -265,15 +263,11 @@ public class PatientDashboard extends Fragment {
 
         public Holder(View itemView) {
             super(itemView);
-
-
             ivProviderImage=itemView.findViewById(R.id.ivProviderImage);
             tvProviderName=itemView.findViewById(R.id.tvProviderName);
             tvDescription=itemView.findViewById(R.id.tvDescription);
             shine = itemView.findViewById(R.id.shine);
             ivComingSoon = itemView.findViewById(R.id.ivComingSoon);
-
-
 
         }
     }
@@ -337,8 +331,6 @@ public class PatientDashboard extends Fragment {
 
         }
     }
-
-
 
     //API
     private void HitDoctorListAPI( final String categoryId){

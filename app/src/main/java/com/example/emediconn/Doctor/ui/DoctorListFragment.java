@@ -79,12 +79,11 @@ public class DoctorListFragment extends Fragment {
                 }
                 return false;
             }
+
         });
         // Inflate the layout for this fragment
 
-
         ploader = new ProgressDialog(getActivity());
-
         arrayList=new ArrayList<>();
 
         if (Utils.isNetworkConnectedMainThred(getActivity())) {
@@ -96,7 +95,6 @@ public class DoctorListFragment extends Fragment {
 
         return v;
     }
-
 
     public void replaceFragmentWithAnimation(Fragment fragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -185,7 +183,6 @@ public class DoctorListFragment extends Fragment {
             tvFee=itemView.findViewById(R.id.tvFee);
         }
     }
-
 
     //API
     private void HitDoctorListAPI( final String categoryId){

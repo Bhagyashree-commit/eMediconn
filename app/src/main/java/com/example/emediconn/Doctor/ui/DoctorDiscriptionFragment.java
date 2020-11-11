@@ -12,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -29,6 +30,7 @@ import com.example.emediconn.Database.AppConfig;
 import com.example.emediconn.Database.PrefManager;
 import com.example.emediconn.Extras.Utils;
 import com.example.emediconn.Model.DoctorListModel;
+import com.example.emediconn.Patient.BookAppointment;
 import com.example.emediconn.Patient.DoctorCategory;
 import com.example.emediconn.R;
 
@@ -48,8 +50,18 @@ ProgressDialog ploader;
 PrefManager prefManager;
 CircleImageView propic;
 RatingBar patientreview;
+
+Button btnBookAppointment;
+
+public static  String proimage;
+public static  String hospitalname;
+public static  String  fees;
+public static  String  speciality;
+public static  String    docname;
+public static String doc_mobile;
+
     public static  String date_time;
-TextView tv_docname,tv_specialization,tv_reviewpostdate,tv_education,tv_servicesofdoctor,tv_experiance,tv_fees,tv_avaibility,tv_hospname,tv_destination,tv_PRpatientname,tv_PRheading,tv_PRstory;
+    TextView tv_docname,tv_specialization,tv_reviewpostdate,tv_education,tv_servicesofdoctor,tv_experiance,tv_fees,tv_avaibility,tv_hospname,tv_destination,tv_PRpatientname,tv_PRheading,tv_PRstory;
     private static final int SECOND_MILLIS = 1000;
     private static final int MINUTE_MILLIS = 60 * SECOND_MILLIS;
     private static final int HOUR_MILLIS = 60 * MINUTE_MILLIS;
@@ -60,16 +72,15 @@ TextView tv_docname,tv_specialization,tv_reviewpostdate,tv_education,tv_services
         // Required empty public constructor
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         getActivity().setTitle("Summary");
 
         // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.fragment_doctor_discription, container, false);
+View v= inflater.inflate(R.layout.fragment_doctor_discription, container, false);
 tv_docname=v.findViewById(R.id.doctornameondescrip);
+btnBookAppointment=v.findViewById(R.id.btnBookAppointment);
 propic=v.findViewById(R.id.doctorpropicondescrip);
 tv_specialization=v.findViewById(R.id.doctorspecializationondescrip);
 tv_education=v.findViewById(R.id.doctordeegreeondescrip);
@@ -83,7 +94,6 @@ tv_PRheading=v.findViewById(R.id.PRheading);
 tv_PRstory=v.findViewById(R.id.PRstory);
 patientreview=v.findViewById(R.id.patientreview);
 tv_reviewpostdate=v.findViewById(R.id.reviewpostdate);
-//
 tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
 
         //Back
@@ -94,13 +104,19 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     if (keyCode == KeyEvent.KEYCODE_BACK) {
-
                         replaceFragmentWithAnimation(new DoctorCategory());
-
                         return true;
                     }
                 }
                 return false;
+            }
+        });
+
+
+        btnBookAppointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragmentWithAnimation(new BookAppointment());
             }
         });
 
@@ -118,10 +134,8 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
             Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
         }
 
-
         return v;
     }
-
     public void replaceFragmentWithAnimation(Fragment fragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
@@ -161,13 +175,14 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
                                 {
                                     JSONObject jsonObject=jsonArray.getJSONObject(i);
 
-                                    String docname= jsonObject.getString("doctor_name");
+                                     docname= jsonObject.getString("doctor_name");
                                     String experience= jsonObject.getString("experience");
-                                    String fees= jsonObject.getString("fees");
-                                    String hospitalname= jsonObject.getString("hospitalname");
+                                     doc_mobile= jsonObject.getString("mobilenumber");
+                                     fees= jsonObject.getString("fees");
+                                     hospitalname= jsonObject.getString("hospitalname");
                                     String hospitalcity= jsonObject.getString("hospitalcity");
                                     String degree= jsonObject.getString("degree");
-                                    String proimage="http://healthcare.blucorsys.in/daccount/"+jsonObject.getString("profile_photo");
+                                    proimage="http://healthcare.blucorsys.in/daccount/"+jsonObject.getString("profile_photo");
 
                                     tv_docname.setText(docname);
                                     tv_education.setText(degree);
@@ -200,7 +215,7 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
                                     for(int j=0;j<jsonA .length();j++)
                                     {
                                         jsonObject = jsonA.getJSONObject(j);
-                                        String speciality= jsonObject.getString("speciality");
+                                         speciality= jsonObject.getString("speciality");
                                         tv_specialization.setText(speciality);
                                     }
                                     JSONArray jsoA = jsonObject .getJSONArray("service");
@@ -245,7 +260,6 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
                 return headers;
             }
         };
-
         queue.add(jsObjRequest);
 
     }

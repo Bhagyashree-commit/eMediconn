@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_180sdp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentTop="true"
+            android:background="#aaa"
+            android:id="@+id/rr_header">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Profile Photo"
+                android:id="@+id/tv_1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:id="@+id/ll_camera"
+                android:paddingLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:paddingRight="@dimen/_15sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/camera1"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tv_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Camera"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textColor="@color/popup_black"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:id="@+id/ll_gallery"
+                android:paddingLeft="@dimen/_15sdp"
+                android:paddingRight="@dimen/_8sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/gallery1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gallery"
+                    android:id="@+id/tv_3"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textColor="@color/popup_black"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_above="@+id/rr_cancel"
+            android:background="@color/view_colour"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/rr_cancel">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Cancel"
+                android:id="@+id/tv_4"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

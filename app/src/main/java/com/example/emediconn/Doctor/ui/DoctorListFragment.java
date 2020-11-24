@@ -58,7 +58,6 @@ public class DoctorListFragment extends Fragment {
                              Bundle savedInstanceState) {
         getActivity().setTitle("Choose Doctor");
 
-
         View v= inflater.inflate(R.layout.doctorfragment, container, false);
         recyclerView=v.findViewById(R.id.recyclerView);
 

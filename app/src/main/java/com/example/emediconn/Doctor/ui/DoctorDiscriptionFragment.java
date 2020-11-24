@@ -194,6 +194,7 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
                                             .load(proimage)
                                             .into(propic);
 
+
                                     JSONArray jsonAr = jsonObject .getJSONArray("patient_stories");
                                     for(int j=0;j<jsonAr .length();j++)
                                     {

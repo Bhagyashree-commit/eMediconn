@@ -10,6 +10,11 @@
         <item name="android:background">?android:attr/listDivider</item> //you can give your color here. that will change all divider color in your app.
     </style>
 
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">#fff</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/grey_700</item>
         <item name="colorControlActivated">@color/yellow_800</item>

@@ -7,9 +7,12 @@
     <color name="dark_grey">#9d9b9b</color>
 
     <color name="dusk_yellow">#0064A8</color>
-
+    <color name="popup_black">#302c2c</color>
     <color name="grey_light">#E0E0E0</color>
+    <color name="view_colour">#959595</color>
 
+    <color name="grey">#edecec</color>
+    <color name="mtrl_textinput_default_box_stroke_color">#fff</color>
     <!-- Screens background color-->
     <color name="bg_screen1">#f64c73</color>
     <color name="bg_screen2">#20d2bb</color>

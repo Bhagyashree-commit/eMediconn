@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    >
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        android:background="@drawable/gradient"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/back_white"
+            android:visibility="invisible" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivProfile"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="@dimen/_2sdp"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_gravity="center_horizontal"
+            android:outlineSpotShadowColor="@color/blue_900"
+            android:src="@drawable/userr"
+            app:civ_circle_background_color="@color/blue_900" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:gravity="center"
+            android:text="Rashmi Dwivedi"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:gravity="center"
+            android:text="+918452639188"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11sdp" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11sdp" />
+
+        <RelativeLayout
+            android:id="@+id/rlEdit"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_130sdp">
+
+            <ImageView
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:background="@drawable/pencil_edit"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textColor="@color/red_900"
+            android:textSize="@dimen/_12sdp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/rectangle_blue">
+
+            <EditText
+                android:id="@+id/etName"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Rashmi Dwivedi"
+                android:background="@null"
+                android:paddingLeft="@dimen/_7sdp"
+                android:paddingRight="@dimen/_5sdp"
+                android:scrollbars="none" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone Number"
+            android:textColor="@color/red_900"
+            android:textSize="@dimen/_12sdp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/rectangle_blue">
+
+            <TextView
+                android:id="@+id/tvMobile"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black_trans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="8585858585"
+                android:background="@null"
+                android:paddingLeft="@dimen/_7sdp"
+                android:paddingRight="@dimen/_5sdp"
+                android:scrollbars="none" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="@color/red_900"
+            android:textSize="@dimen/_12sdp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/rectangle_blue">
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="dwivedirashmi321@gmail.com"
+                android:background="@null"
+                android:paddingLeft="@dimen/_7sdp"
+                android:paddingRight="@dimen/_5sdp"
+                android:scrollbars="none" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of Birth"
+            android:textColor="@color/red_900"
+            android:textSize="@dimen/_12sdp" />
+
+        <RelativeLayout
+            android:id="@+id/rrDate"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/rectangle_blue">
+            <TextView
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:id="@+id/tvDate"
+                android:layout_width="match_parent"
+                android:drawableRight="@drawable/ic_baseline_date_range_24"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Select D.O.B"
+                android:background="@null"
+                android:paddingLeft="@dimen/_7sdp"
+                android:paddingRight="@dimen/_5sdp"
+                android:scrollbars="none" />
+        </RelativeLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textColor="@color/red_900"
+            android:textSize="@dimen/_12sdp" />
+        <LinearLayout
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp">
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:id="@+id/rrMen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/v1">
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    app:srcCompat="@drawable/ic_check_box_unselected"
+                    tools:ignore="VectorDrawableCompat" />
+
+                <ImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    app:srcCompat="@drawable/ic_men"
+                    android:layout_centerHorizontal="true"
+                    tools:ignore="VectorDrawableCompat" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_weight="1"
+                android:id="@+id/rrWomen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/v1">
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    app:srcCompat="@drawable/ic_check_box_unselected"
+                    tools:ignore="VectorDrawableCompat" />
+                <ImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    app:srcCompat="@drawable/ic_woman"
+                    android:layout_centerHorizontal="true"
+                    tools:ignore="VectorDrawableCompat" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Height (inch)"
+                android:textColor="@color/red_900"
+                android:textSize="@dimen/_12sdp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/rectangle_blue">
+
+                <EditText
+                    android:id="@+id/etHeight"
+                  android:inputType="numberDecimal"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="5.2"
+                    android:background="@null"
+                    android:paddingLeft="@dimen/_7sdp"
+                    android:paddingRight="@dimen/_5sdp"
+                    android:scrollbars="none" />
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weight (Kg)"
+                android:textColor="@color/red_900"
+                android:textSize="@dimen/_12sdp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/rectangle_blue">
+
+                <EditText
+                    android:id="@+id/etWeight"
+                  android:inputType="numberDecimal"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="55"
+                    android:background="@null"
+                    android:paddingLeft="@dimen/_7sdp"
+                    android:paddingRight="@dimen/_5sdp"
+                    android:scrollbars="none" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnUpdateProfile"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="33dp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/_20sdp"
+        android:background="@drawable/capsule"
+        android:padding="@dimen/_5sdp"
+        android:text="Update Profile"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10sdp" />
+</LinearLayout>
+
+
+
+</ScrollView>
+
+
+</LinearLayout>

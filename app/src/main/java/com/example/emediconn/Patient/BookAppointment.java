@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -17,10 +18,12 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -35,8 +38,10 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.emediconn.Database.AppConfig;
+import com.example.emediconn.Database.PrefManager;
 import com.example.emediconn.Doctor.DoctorDashboard;
 import com.example.emediconn.Doctor.LoginDoctor;
+import com.example.emediconn.Doctor.ui.Appointments;
 import com.example.emediconn.Doctor.ui.DoctorDiscriptionFragment;
 import com.example.emediconn.Doctor.ui.PatientDashboard;
 import com.example.emediconn.Extras.Utils;
@@ -71,12 +76,16 @@ public class BookAppointment extends Fragment {
 
     ImageView ivProfile;
 
+    PrefManager prefManager;
+
     ArrayList<HashMap<String,String>> arrayList=new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_book_appointment, container, false);
+
+        prefManager=new PrefManager(getActivity());
 
         //Back
         v.setFocusableInTouchMode(true);
@@ -95,6 +104,7 @@ public class BookAppointment extends Fragment {
         });
 
         ploader = new ProgressDialog(getActivity());
+
         rrUpload = v.findViewById(R.id.rrUpload);
         tvSpeciality=v.findViewById(R.id.tvSpeciality);
         tvDoctorName=v.findViewById(R.id.tvDoctorName);
@@ -119,7 +129,6 @@ public class BookAppointment extends Fragment {
         btnBookAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if(etPatientname.getText().toString().trim().isEmpty())
                 {
                     etPatientname.setError("Enter Patient Name");
@@ -141,7 +150,18 @@ public class BookAppointment extends Fragment {
                 }
                 else
                 {
-                    BookAppointment(DoctorDiscriptionFragment.doc_mobile, etPatientname.getText().toString(), spTimeSlot.getSelectedItem().toString(), etPatientPhone.getText().toString(), etPatientEmail.getText().toString());
+
+                    if (Utils.isNetworkConnectedMainThred(getActivity())) {
+                        // ploader.show();
+                        HashMap<String, String> user = prefManager.getUserDetails();
+                        String patientId = user.get(PrefManager.KEY_ROLE);
+                        BookAppointment(DoctorDiscriptionFragment.doc_mobile, etPatientname.getText().toString(), spTimeSlot.getSelectedItem().toString(), etPatientPhone.getText().toString(), etPatientEmail.getText().toString(),patientId);
+
+                    } else {
+                        Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
+                    }
+
+
                 }
             }
         });
@@ -235,7 +255,7 @@ public class BookAppointment extends Fragment {
 
     }
 
-    private void BookAppointment( final String mobilenumber,String patient_name,String startDate,String patient_phonenumber,String patient_emailaddress){
+    private void BookAppointment( final String mobilenumber,String patient_name,String startDate,String patient_phonenumber,String patient_emailaddress,String patientId){
         ploader.setMessage("Loading");
         ploader.show();
 
@@ -246,6 +266,7 @@ public class BookAppointment extends Fragment {
             obj.put("startDate", startDate);
             obj.put("patient_phonenumber", patient_phonenumber);
             obj.put("patient_emailaddress", patient_emailaddress);
+            obj.put("patientId", patientId);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -368,6 +389,7 @@ public class BookAppointment extends Fragment {
         // transaction.addToBackStack(null);
         transaction.commit();
     }
+
 
 
 

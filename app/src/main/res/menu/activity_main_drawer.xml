@@ -8,12 +8,15 @@
             android:id="@+id/nav_patientdashboard"
             android:icon="@drawable/per"
             android:title="@string/menu_patientdashboard" />
-
-
         <item
             android:id="@+id/nav_category"
             android:icon="@drawable/appointment"
             android:title="Choose Doctor" />
+
+        <item
+            android:id="@+id/myProfile"
+            android:icon="@drawable/appointment"
+            android:title="My Profile" />
 
         <item android:title="Other">
             <menu>

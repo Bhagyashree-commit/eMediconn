@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+import com.example.emediconn.Doctor.ui.DoctorDashboardFragment;
 import com.example.emediconn.Doctor.ui.DoctorProfile;
 import com.example.emediconn.R;
 
@@ -16,7 +17,7 @@ public class DoctorDashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_dashboard);
-     replaceFragmentWithAnimation(new DoctorProfile());
+     replaceFragmentWithAnimation(new DoctorDashboardFragment());
     }
 
     public void replaceFragmentWithAnimation(Fragment fragment) {

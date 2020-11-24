@@ -27,6 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:id="@+id/tvDate"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:textColor="@color/red_900"
                 android:layout_gravity="center"
@@ -38,6 +39,7 @@
 
 
             <TextView
+                android:id="@+id/tvTime"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:textColor="@color/grey_600"
                 android:layout_gravity="center"
@@ -66,6 +68,7 @@
                     android:outlineSpotShadowColor="@color/blue_900"
                     app:civ_circle_background_color="@color/blue_900"
                     android:src="@drawable/doctrrrr"
+                    android:id="@+id/ivProfile"
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"/>
 
@@ -77,6 +80,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/tvName"
                         android:textStyle="bold"
                         android:textColor="@color/black_trans"
                         android:textSize="@dimen/_14sdp"
@@ -84,6 +88,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
+                        android:id="@+id/tvSpeciality"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:textColor="@color/black_trans"
                         android:textSize="@dimen/_12sdp"
@@ -116,7 +121,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
+
                     <TextView
+                        android:id="@+id/tvLocation"
                         android:gravity="center"
                         android:textStyle="bold"
                         android:textSize="@dimen/_12sdp"
@@ -150,6 +157,7 @@
                         android:layout_height="wrap_content"/>
 
                     <TextView
+                        android:id="@+id/tvFee"
                         android:gravity="center"
                         android:textStyle="bold"
                         android:textSize="@dimen/_12sdp"
@@ -180,6 +188,7 @@
                         android:layout_height="wrap_content"/>
 
                     <TextView
+                        android:id="@+id/tvStatus"
                         android:gravity="center"
                         android:textStyle="bold"
                         android:textSize="@dimen/_12sdp"

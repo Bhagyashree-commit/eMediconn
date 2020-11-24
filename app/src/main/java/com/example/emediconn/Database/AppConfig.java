@@ -33,4 +33,12 @@ public class AppConfig {
     public static String URL_TIMESLOT= "http://healthcare.blucorsys.in/api/other/getDoctorAppointment.php";
 
     public static String URL_BOOKAPPOINTMENT= "http://healthcare.blucorsys.in/api/other/bookDoctorAppointment.php";
+
+    public static String URL_GETPATIENTAPPOINTMENT= "http://healthcare.blucorsys.in/api/other//getDoctorsDailyAppointments.php";
+
+    public static String URL_GETMYAPPOINTMENT= "http://healthcare.blucorsys.in/api/other/getPatientAppointments.php";
+
+    public static String URL_GETPATIENTPROFILE= "http://healthcare.blucorsys.in/api/patient/getPatientDetails.php";
+
+    public static String URL_UPDATEPATIENT= "http://healthcare.blucorsys.in/api/patient/updatePatientDetails.php";
 }

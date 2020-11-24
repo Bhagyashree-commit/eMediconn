@@ -19,9 +19,12 @@ import android.widget.Toast;
 import com.example.emediconn.Doctor.ui.AboutUs;
 import com.example.emediconn.Doctor.ui.ContactUsFragment;
 import com.example.emediconn.Doctor.ui.DoctorListFragment;
+import com.example.emediconn.Doctor.ui.MyAccountFragment;
+import com.example.emediconn.Doctor.ui.MyProfile;
 import com.example.emediconn.Doctor.ui.PatientDashboard;
 import com.example.emediconn.Doctor.ui.TermsOfService;
 import com.example.emediconn.Patient.DoctorCategory;
+import com.example.emediconn.Patient.MyProfileFragment;
 import com.example.emediconn.R;
 import com.google.android.material.navigation.NavigationView;
 import com.example.emediconn.Doctor.ui.SearchPatient;
@@ -78,34 +81,32 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
             replaceFragmentWithAnimation(new PatientDashboard());
             // do whatever
         }
-
     }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
         if (id == R.id.nav_patientdashboard) {
             replaceFragmentWithAnimation( new PatientDashboard());
         }
+        else if (id == R.id.myProfile) {
+            replaceFragmentWithAnimation( new MyAccountFragment());
+        }
         else if (id == R.id.nav_aboutus) {
             replaceFragmentWithAnimation(new AboutUs());
-
         }
         else if (id == R.id.nav_category) {
             replaceFragmentWithAnimation(new DoctorListFragment());
-
         }
         else if (id == R.id.nav_termsOfservice) {
             replaceFragmentWithAnimation(new TermsOfService());
-
         }
+
         else if (id == R.id.nav_appshare) {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             shareIntent.setType("text/plain");
             shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Hey, download this app!");
             startActivity(shareIntent);
-
         }
         else if (id == R.id.nav_contactus) {
             replaceFragmentWithAnimation(new ContactUsFragment());

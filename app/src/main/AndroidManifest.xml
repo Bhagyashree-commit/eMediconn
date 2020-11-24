@@ -4,7 +4,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,8 +16,11 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
+        <activity android:name=".Doctor.ui.MyProfile" />
+        <activity android:name=".Doctor.ui.Appointments" />
         <activity android:name=".Patient.MyActivity"></activity>
-        <activity android:name=".Patient.TimeSlot"></activity>
+
+        <activity android:name=".Patient.TimeSlot" />
         <activity android:name=".Patient.PatientActivity" />
         <activity android:name=".Patient.DoctorDescription" />
         <activity android:name=".Patient.DoctorList" />
@@ -26,7 +31,9 @@
         <activity android:name=".Patient.PatientRegistration" />
         <activity android:name=".Patient.LoginPatient" />
         <activity android:name=".Patient.RegisterPatient" />
-        <activity android:name=".Doctor.DoctorDashboard" />
+        <activity android:name=".Doctor.DoctorDashboard" >
+
+        </activity>
         <activity
             android:name=".Doctor.DrawerActivity"
             android:label="@string/title_activity_drawer"
@@ -38,11 +45,24 @@
         <activity android:name=".ChooseRole" />
         <activity android:name=".Patient.SearchActivity" />
         <activity android:name=".WelcomeActivity" />
-        <activity android:name=".MainActivity"><intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths"/>
+        </provider>
     </application>
 
 </manifest>

@@ -118,7 +118,6 @@ public class PatientDashboard extends Fragment {
         viewdoctor=v.findViewById(R.id.viewdoctor);
         setAdapter(recyclerView,new RecyAdapter());
 
-
         viewdoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

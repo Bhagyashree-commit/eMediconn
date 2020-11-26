@@ -2,6 +2,9 @@
 package com.example.emediconn.Patient;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
@@ -9,6 +12,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +31,7 @@ import com.bumptech.glide.Glide;
 import com.example.emediconn.Database.AppConfig;
 import com.example.emediconn.Database.PrefManager;
 
+import com.example.emediconn.Doctor.ui.PatientDashboard;
 import com.example.emediconn.Extras.Utils;
 import com.example.emediconn.Model.MyAppointmentModel;
 
@@ -35,44 +40,74 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-public class MyActivity extends AppCompatActivity {
+public class MyAppointmentFragment extends Fragment {
 
     RecyclerView recyclerView;
     ProgressDialog ploader;
     PrefManager prefManager;
-    ArrayList<MyAppointmentModel> arrayList=new ArrayList<>();
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_appointments);
-        recyclerView=findViewById(R.id.recyclerView);
-        ploader = new ProgressDialog(this);
-        prefManager=new PrefManager(this);
 
-        if (Utils.isNetworkConnectedMainThred(this)) {
+    ArrayList<MyAppointmentModel> arrayList=new ArrayList<>();
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View v= inflater.inflate(R.layout.activity_appointments, container, false);
+
+        //Back
+        v.setFocusableInTouchMode(true);
+        v.requestFocus();
+        v.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+                        replaceFragmentWithAnimation(new PatientDashboard());
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        recyclerView=v.findViewById(R.id.recyclerView);
+        ploader = new ProgressDialog(getActivity());
+        prefManager=new PrefManager(getActivity());
+
+        if (Utils.isNetworkConnectedMainThred(getActivity())) {
             // ploader.show();
             HashMap<String, String> user = prefManager.getUserDetails();
             String patientId = user.get(PrefManager.KEY_ROLE);
             HitGetAppointment(patientId);
         }
         else {
-            Toast.makeText(this, "No Internet Connection!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
         }
+
+        return v;
     }
+
+
+    public void replaceFragmentWithAnimation(Fragment fragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
+        transaction.replace(R.id.nav_host_fragment, fragment);
+        FragmentManager mFragmentManager=getFragmentManager();
+        mFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        // transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
 
 
     public void setAdapter(RecyclerView mRecyclerview,ArrayList<MyAppointmentModel> arrayList)
     {
-        mRecyclerview.setLayoutManager(new GridLayoutManager(this,1));
+        mRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(),1));
         mRecyclerview.setAdapter(new PatientAdapter(arrayList));
     }
 
@@ -112,7 +147,7 @@ public class MyActivity extends AppCompatActivity {
             }
             else
             {
-                Glide.with(MyActivity.this)
+                Glide.with(MyAppointmentFragment.this)
                         .load(arrayList.get(position).getDoctor_image())
                         .into(holder.ivProfile);
             }
@@ -173,7 +208,7 @@ public class MyActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        RequestQueue queue = Volley.newRequestQueue(this);
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
         JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.POST, AppConfig.URL_GETMYAPPOINTMENT,obj,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -238,8 +273,6 @@ public class MyActivity extends AppCompatActivity {
         };
         queue.add(jsObjRequest);
     }
-
-
 
     }
 

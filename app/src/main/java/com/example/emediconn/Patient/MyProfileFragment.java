@@ -97,7 +97,6 @@ public class MyProfileFragment extends Fragment {
         etHeight=v.findViewById(R.id.etHeight);
         etWeight=v.findViewById(R.id.etWeight);
 
-
         btnUpdateProfile=v.findViewById(R.id.btnUpdateProfile);
 
         ivMen = (ImageView) v.findViewById(R.id.imageView11);
@@ -251,18 +250,14 @@ public class MyProfileFragment extends Fragment {
                                             .into(ivProfile);
                                 }
 
-
                                  tvName.setText(object.getString("full_name"));
                                  etName.setText(object.getString("full_name"));
                                  tvPhone.setText(object.getString("mobilenumber"));
                                  tvMobile.setText(object.getString("mobilenumber"));
                                  tvDate.setText(object.getString("dob"));
                                  etEmail.setText(object.getString("emailaddress"));
-
                                  etHeight.setText(object.getString("height"));
                                  etWeight.setText(object.getString("weight"));
-
-
 
                                  if(object.getString("gender").equalsIgnoreCase("Male"))
                                  {
@@ -282,8 +277,6 @@ public class MyProfileFragment extends Fragment {
                                      ivWomen.setImageResource(R.drawable.ic_check_box_unselected);
                                      gender = "";
                                  }
-
-
                              }
 
                             }

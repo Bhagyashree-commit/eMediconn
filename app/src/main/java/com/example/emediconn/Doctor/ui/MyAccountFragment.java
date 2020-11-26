@@ -1,15 +1,19 @@
 package com.example.emediconn.Doctor.ui;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -20,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -28,13 +33,26 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.emediconn.BuildConfig;
+import com.example.emediconn.Extras.FileCompressor;
+import com.example.emediconn.Patient.MyAppointmentFragment;
 import com.example.emediconn.Patient.MyProfileFragment;
 import com.example.emediconn.R;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.DexterError;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.PermissionRequestErrorListener;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
+import java.util.List;
 
 public class MyAccountFragment extends Fragment implements View.OnClickListener {
 
@@ -43,29 +61,16 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
     TextView tvName;
     TextView tvPhone;
     TextView tvEmail;
-    TextView tvViewOrder;
+    TextView tvAppointments;
     TextView tvWallet;
     TextView tvViewProfile;
     TextView tvViewAddress;
     RelativeLayout rlEdit;
 
-    public Uri fileUri;
-
-    private static final int SELECT_PICTURE = 1;
-    public Uri picUri;
-    public static final int MEDIA_TYPE_IMAGE = 1;
-    private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
-    private static final String IMAGE_DIRECTORY_NAME = "VoterMonitor";
-    public static final int MEDIA_TYPE_VIDEO = 2;
-
-    String picturePath = "", filename = "", ext = "";
-    String encodedString1="";
-    String encodedString2="";
-    String setPic = "";
-    public static Bitmap bitmap;
-    int PERMISSION_ALL = 4;
-
-    String[] PERMISSIONS = {Manifest.permission.WRITE_EXTERNAL_STORAGE ,Manifest.permission.CAMERA,Manifest.permission.READ_EXTERNAL_STORAGE};
+    static final int REQUEST_TAKE_PHOTO = 1;
+    static final int REQUEST_GALLERY_PHOTO = 2;
+    File mPhotoFile;
+    FileCompressor mCompressor;
 
 
     @Override
@@ -73,6 +78,8 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
                              Bundle savedInstanceState) {
 
         View v= inflater.inflate(R.layout.activity_my_account, container, false);
+
+        mCompressor = new FileCompressor(getActivity());
 
         ivBack = v.findViewById(R.id.ivBack);
         ivBack.setOnClickListener(this);
@@ -84,8 +91,10 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
         tvName = v.findViewById(R.id.tvName);
         tvPhone = v.findViewById(R.id.tvPhone);
         tvEmail = v.findViewById(R.id.tvEmail);
-        tvViewOrder = v.findViewById(R.id.tvViewOrder);
-        tvViewOrder.setOnClickListener(this);
+
+
+        tvAppointments = v.findViewById(R.id.tvAppointments);
+        tvAppointments.setOnClickListener(this);
 
         tvViewProfile = v.findViewById(R.id.tvViewProfile);
         tvViewAddress = v.findViewById(R.id.tvViewAddress);
@@ -93,8 +102,9 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
         tvViewProfile.setOnClickListener(this);
         tvViewAddress.setOnClickListener(this);
 
-
         ivProfile.setOnClickListener(this);
+
+
 
         //Back
         v.setFocusableInTouchMode(true);
@@ -119,6 +129,7 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
     return v;
     }
 
+
     @Override
     public void onClick(View view) {
 
@@ -127,20 +138,17 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
                 replaceFragmentWithAnimation(new MyProfileFragment());
                 break;
 
-            case R.id.ivProfile:
-                if(!hasPermissions(getActivity(), PERMISSIONS)){
-                    ActivityCompat.requestPermissions(getActivity(), PERMISSIONS, PERMISSION_ALL);
-                }
-                else
-                {
-                    showCameraGalleryDialog();
-                }
+            case R.id.tvAppointments:
+                replaceFragmentWithAnimation(new MyAppointmentFragment());
+                break;
 
+            case R.id.ivProfile:
+              //  selectImage();
+
+                showCameraGalleryDialog();
                 break;
         }
     }
-
-
 
     public static boolean hasPermissions(Context context, String... permissions) {
         if (context != null && permissions != null) {
@@ -156,15 +164,10 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
     public void showCameraGalleryDialog() {
 
         final Dialog dialog = new Dialog(getActivity());
-
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         dialog.setCancelable(true);
-
         dialog.setContentView(R.layout.camera_gallery_popup);
-
         dialog.show();
-
         RelativeLayout rrCancel = (RelativeLayout) dialog.findViewById(R.id.rr_cancel);
         LinearLayout llCamera = (LinearLayout) dialog.findViewById(R.id.ll_camera);
         LinearLayout llGallery = (LinearLayout) dialog.findViewById(R.id.ll_gallery);
@@ -172,8 +175,7 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
         llCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("camera","camera");
-                 captureImage();
+                MyAccountFragment.this.requestStoragePermission(true);
                 dialog.dismiss();
             }
         });
@@ -182,9 +184,7 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
         llGallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//                startActivityForResult(photoPickerIntent, SELECT_PICTURE);
-
+                MyAccountFragment.this.requestStoragePermission(false);
                 dialog.dismiss();
             }
         });
@@ -207,57 +207,164 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
         transaction.commit();
     }
 
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                // Error occurred while creating the File
+            }
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(getActivity(),
+                        BuildConfig.APPLICATION_ID + ".provider",
+                        photoFile);
+                mPhotoFile = photoFile;
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
 
-    //============================Code for Camera and Gallary===================================//
-
-    private void captureImage() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-        //fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
-        fileUri = FileProvider.getUriForFile(getActivity(), getActivity().getApplicationContext().getPackageName() + ".provider", getOutputMediaFile(MEDIA_TYPE_IMAGE));
-
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-
-        // start the image capture Intent
-        startActivityForResult(intent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
-    }
-
-    public Uri getOutputMediaFileUri(int type) {
-        return Uri.fromFile(getOutputMediaFile(type));
-    }
-
-    private static File getOutputMediaFile(int type) {
-
-        // External sdcard location
-        File mediaStorageDir = new File(
-                Environment
-                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
-                IMAGE_DIRECTORY_NAME);
-
-        // Create the storage directory if it does not exist
-        if (!mediaStorageDir.exists()) {
-            if (!mediaStorageDir.mkdirs()) {
-                Log.d(IMAGE_DIRECTORY_NAME, "Oops! Failed create "
-                        + IMAGE_DIRECTORY_NAME + " directory");
-                return null;
             }
         }
+    }
 
-        // Create a media file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
-                Locale.getDefault()).format(new Date());
-        File mediaFile;
-        if (type == MEDIA_TYPE_IMAGE) {
-            mediaFile = new File(mediaStorageDir.getPath() + File.separator
-                    + "IMG_" + timeStamp + ".jpg");
-        } else if (type == MEDIA_TYPE_VIDEO) {
-            mediaFile = new File(mediaStorageDir.getPath() + File.separator
-                    + "VID_" + timeStamp + ".mp4");
-        } else {
-            return null;
+
+    private void dispatchGalleryIntent() {
+        Intent pickPhoto = new Intent(Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        pickPhoto.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivityForResult(pickPhoto, REQUEST_GALLERY_PHOTO);
+    }
+
+
+    private void requestStoragePermission(final boolean isCamera) {
+        Dexter.withActivity(getActivity()).withPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+                .withListener(new MultiplePermissionsListener() {
+                    @Override
+                    public void onPermissionsChecked(MultiplePermissionsReport report) {
+                        // check if all permissions are granted
+                        if (report.areAllPermissionsGranted()) {
+                            if (isCamera) {
+                                dispatchTakePictureIntent();
+                            } else {
+                                dispatchGalleryIntent();
+                            }
+                        }
+                        // check for permanent denial of any permission
+                        if (report.isAnyPermissionPermanentlyDenied()) {
+                            // show alert dialog navigating to Settings
+                            showSettingsDialog();
+                        }
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                        token.continuePermissionRequest();
+                    }
+                }).withErrorListener(new PermissionRequestErrorListener() {
+            @Override
+            public void onError(DexterError error) {
+                Toast.makeText(MyAccountFragment.this.getActivity(), "Error occurred! ", Toast.LENGTH_SHORT).show();
+            }
+        })
+                .onSameThread()
+                .check();
+    }
+
+
+    /**
+     * Showing Alert Dialog with Settings option
+     * Navigates user to app settings
+     * NOTE: Keep proper title and message depending on your app
+     */
+    private void showSettingsDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Need Permissions");
+        builder.setMessage("This app needs permission to use this feature. You can grant them in app settings.");
+        builder.setPositiveButton("GOTO SETTINGS", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+                MyAccountFragment.this.openSettings();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+
+    }
+
+    // navigating user to app settings
+    private void openSettings() {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", getActivity().getPackageName(), null);
+        intent.setData(uri);
+        startActivityForResult(intent, 101);
+    }
+
+    /**
+     * Create file with current timestamp name
+     *
+     * @return
+     * @throws IOException
+     */
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        String mFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File mFile = File.createTempFile(mFileName, ".jpg", storageDir);
+        return mFile;
+    }
+    /**
+     * Get real file path from URI
+     *
+     * @param contentUri
+     * @return
+     */
+    public String getRealPathFromUri(Uri contentUri) {
+        Cursor cursor = null;
+        try {
+            String[] proj = {MediaStore.Images.Media.DATA};
+            cursor = getActivity().getContentResolver().query(contentUri, proj, null, null, null);
+            assert cursor != null;
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
         }
+    }
 
-        return mediaFile;
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == getActivity().RESULT_OK) {
+            if (requestCode == REQUEST_TAKE_PHOTO) {
+                try {
+                    mPhotoFile = mCompressor.compressToFile(mPhotoFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                  Glide.with(getActivity()).load(mPhotoFile).apply(new RequestOptions().centerCrop().circleCrop()).into(ivProfile);
+            } else if (requestCode == REQUEST_GALLERY_PHOTO) {
+                Uri selectedImage = data.getData();
+                try {
+                    mPhotoFile = mCompressor.compressToFile(new File(getRealPathFromUri(selectedImage)));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Glide.with(getActivity()).load(mPhotoFile).apply(new RequestOptions().centerCrop().circleCrop()).into(ivProfile);
+            }
+        }
     }
 
 }

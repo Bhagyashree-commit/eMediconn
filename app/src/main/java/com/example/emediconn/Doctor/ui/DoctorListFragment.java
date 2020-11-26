@@ -53,6 +53,8 @@ public class DoctorListFragment extends Fragment {
     ArrayList<DoctorListModel> arrayList;
 
     RecyclerView recyclerView;
+
+    public static String mobilenumber;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -145,6 +147,8 @@ public class DoctorListFragment extends Fragment {
           holder.itemView.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
+                  mobilenumber=arrayList.get(position).getMobilenumber();
+
                   replaceFragmentWithAnimation(new DoctorDiscriptionFragment());
               }
           });
@@ -221,6 +225,7 @@ public class DoctorListFragment extends Fragment {
                                     model.setHospitalname(jsonObject.getString("hospitalname"));
                                     model.setExperience(jsonObject.getString("experience"));
                                     model.setFees(jsonObject.getString("fees"));
+                                    model.setMobilenumber(jsonObject.getString("mobilenumber"));
 
                                     arrayList.add(model);
 

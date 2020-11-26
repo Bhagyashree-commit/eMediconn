@@ -104,7 +104,7 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     if (keyCode == KeyEvent.KEYCODE_BACK) {
-                        replaceFragmentWithAnimation(new DoctorCategory());
+                        replaceFragmentWithAnimation(new DoctorListFragment());
                         return true;
                     }
                 }
@@ -128,8 +128,8 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
 
             HashMap<String, String> user = prefManager.getUserDetails();
 
-            String mobilenum = "9823650123";
-            getDoctorDiscription(mobilenum);
+
+            getDoctorDiscription(DoctorListFragment.mobilenumber);
         } else {
             Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
         }
@@ -152,7 +152,7 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
 
         JSONObject obj = new JSONObject();
         try {
-            obj.put("mobilenumber", "9960664554");
+            obj.put("mobilenumber", mobilenumber);
 
 
         } catch (JSONException e) {

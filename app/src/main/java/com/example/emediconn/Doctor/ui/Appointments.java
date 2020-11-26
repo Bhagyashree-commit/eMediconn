@@ -96,7 +96,7 @@ public class Appointments extends AppCompatActivity {
 
             holder.tvName.setText(arrayList.get(position).getPatient_name());
            // holder.tvDate.setText(arrayList.get(position).getStartTime());
-            holder.tvTime.setText(arrayList.get(position).getStartTime());
+           // holder.tvTime.setText(arrayList.get(position).getStartTime());
 
             holder.tvAccept.setOnClickListener(new View.OnClickListener() {
                 @Override

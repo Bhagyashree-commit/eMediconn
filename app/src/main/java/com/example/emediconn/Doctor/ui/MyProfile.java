@@ -8,9 +8,6 @@ import android.widget.RelativeLayout;
 import com.example.emediconn.R;
 
 public class MyProfile extends AppCompatActivity {
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -51,7 +51,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -129,6 +131,8 @@ public class BookAppointment extends Fragment {
         btnBookAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 if(etPatientname.getText().toString().trim().isEmpty())
                 {
                     etPatientname.setError("Enter Patient Name");
@@ -155,7 +159,9 @@ public class BookAppointment extends Fragment {
                         // ploader.show();
                         HashMap<String, String> user = prefManager.getUserDetails();
                         String patientId = user.get(PrefManager.KEY_ROLE);
-                        BookAppointment(DoctorDiscriptionFragment.doc_mobile, etPatientname.getText().toString(), spTimeSlot.getSelectedItem().toString(), etPatientPhone.getText().toString(), etPatientEmail.getText().toString(),patientId);
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                        String currentDateTime = dateFormat.format(new Date());
+                        BookAppointment(DoctorDiscriptionFragment.doc_mobile, etPatientname.getText().toString(), currentDateTime, etPatientPhone.getText().toString(), etPatientEmail.getText().toString(),patientId);
 
                     } else {
                         Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
@@ -267,6 +273,10 @@ public class BookAppointment extends Fragment {
             obj.put("patient_phonenumber", patient_phonenumber);
             obj.put("patient_emailaddress", patient_emailaddress);
             obj.put("patientId", patientId);
+
+            Log.e("objeeeeeee",""+obj);
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

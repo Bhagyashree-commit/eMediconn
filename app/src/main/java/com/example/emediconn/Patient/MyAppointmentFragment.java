@@ -31,6 +31,7 @@ import com.bumptech.glide.Glide;
 import com.example.emediconn.Database.AppConfig;
 import com.example.emediconn.Database.PrefManager;
 
+import com.example.emediconn.Doctor.ui.MyAccountFragment;
 import com.example.emediconn.Doctor.ui.PatientDashboard;
 import com.example.emediconn.Extras.Utils;
 import com.example.emediconn.Model.MyAppointmentModel;
@@ -58,6 +59,7 @@ public class MyAppointmentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.activity_appointments, container, false);
+        getActivity().setTitle("My Appointments");
 
         //Back
         v.setFocusableInTouchMode(true);
@@ -67,7 +69,7 @@ public class MyAppointmentFragment extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     if (keyCode == KeyEvent.KEYCODE_BACK) {
-                        replaceFragmentWithAnimation(new PatientDashboard());
+                        replaceFragmentWithAnimation(new MyAccountFragment());
                         return true;
                     }
                 }
@@ -83,6 +85,8 @@ public class MyAppointmentFragment extends Fragment {
             // ploader.show();
             HashMap<String, String> user = prefManager.getUserDetails();
             String patientId = user.get(PrefManager.KEY_ROLE);
+
+
             HitGetAppointment(patientId);
         }
         else {
@@ -102,8 +106,6 @@ public class MyAppointmentFragment extends Fragment {
         // transaction.addToBackStack(null);
         transaction.commit();
     }
-
-
 
     public void setAdapter(RecyclerView mRecyclerview,ArrayList<MyAppointmentModel> arrayList)
     {
@@ -133,14 +135,13 @@ public class MyAppointmentFragment extends Fragment {
             holder.tvName.setText(arrayList.get(position).getDoctor_name());
             holder.tvSpeciality.setText(arrayList.get(position).getSpeciality());
             holder.tvStatus.setText(arrayList.get(position).getStatus());
-            holder.tvTime.setText(arrayList.get(position).getStartTime());
-            Log.e("testss",getDate(Long.parseLong(arrayList.get(position).getStartTime())));
+           // holder.tvTime.setText(arrayList.get(position).getStartTime());
+
             String[] separated = getDate(Long.parseLong(arrayList.get(position).getStartTime())).split("-");
             holder.tvDate.setText(separated[0]);
             Calendar c = Calendar.getInstance();
-          //  c.setTime(arrayList.get(position).getStartTime());
             int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
-            //String dayOfTheWeek = (String) DateFormat.format("EEEE", date); // Thursday
+
             if(arrayList.get(position).getDoctor_image().isEmpty())
             {
                 holder.ivProfile.setImageDrawable(getResources().getDrawable(R.drawable.doctorr));
@@ -151,7 +152,6 @@ public class MyAppointmentFragment extends Fragment {
                         .load(arrayList.get(position).getDoctor_image())
                         .into(holder.ivProfile);
             }
-
         }
 
         public int getItemCount() {
@@ -203,7 +203,8 @@ public class MyAppointmentFragment extends Fragment {
 
         JSONObject obj = new JSONObject();
         try {
-            obj.put("patientId", "Phln9HNr1420201017051617734824");
+            obj.put("patientId", patientId);
+            Log.e("patientid",""+obj);
             // Log.e("objj",""+obj);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -244,7 +245,6 @@ public class MyAppointmentFragment extends Fragment {
                                     patientModel.setSpeciality(jsonObject.getString("speciality"));
                                     arrayList.add(patientModel);
                                 }
-
                                 setAdapter(recyclerView,arrayList);
                             }
 

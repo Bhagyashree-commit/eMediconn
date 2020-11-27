@@ -3,17 +3,20 @@ package com.example.emediconn.Doctor.ui;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.util.Base64;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -33,10 +36,22 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.emediconn.BuildConfig;
+import com.example.emediconn.Database.AppConfig;
+import com.example.emediconn.Database.PrefManager;
 import com.example.emediconn.Extras.FileCompressor;
+import com.example.emediconn.Extras.Utils;
+import com.example.emediconn.Extras.VolleyMultipartRequest;
 import com.example.emediconn.Patient.MyAppointmentFragment;
 import com.example.emediconn.Patient.MyProfileFragment;
 import com.example.emediconn.R;
@@ -48,11 +63,18 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.PermissionRequestErrorListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MyAccountFragment extends Fragment implements View.OnClickListener {
 
@@ -72,6 +94,8 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
     File mPhotoFile;
     FileCompressor mCompressor;
 
+    ProgressDialog ploader;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,6 +104,8 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
         View v= inflater.inflate(R.layout.activity_my_account, container, false);
 
         mCompressor = new FileCompressor(getActivity());
+
+        ploader = new ProgressDialog(getActivity());
 
         ivBack = v.findViewById(R.id.ivBack);
         ivBack.setOnClickListener(this);
@@ -92,7 +118,6 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
         tvPhone = v.findViewById(R.id.tvPhone);
         tvEmail = v.findViewById(R.id.tvEmail);
 
-
         tvAppointments = v.findViewById(R.id.tvAppointments);
         tvAppointments.setOnClickListener(this);
 
@@ -103,8 +128,6 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
         tvViewAddress.setOnClickListener(this);
 
         ivProfile.setOnClickListener(this);
-
-
 
         //Back
         v.setFocusableInTouchMode(true);
@@ -323,12 +346,7 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
         File mFile = File.createTempFile(mFileName, ".jpg", storageDir);
         return mFile;
     }
-    /**
-     * Get real file path from URI
-     *
-     * @param contentUri
-     * @return
-     */
+
     public String getRealPathFromUri(Uri contentUri) {
         Cursor cursor = null;
         try {
@@ -351,14 +369,53 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
             if (requestCode == REQUEST_TAKE_PHOTO) {
                 try {
                     mPhotoFile = mCompressor.compressToFile(mPhotoFile);
+
+                    String picture_path= mPhotoFile.getPath();
+
+
+                    Bitmap bitmap = BitmapFactory.decodeFile(picture_path);
+                    Uri fileuri=Uri.fromFile(mPhotoFile);
+                    String path = fileuri.toString();
+                    Log.e("picture_path1111",""+bitmap);
+
+
+
+
+                    if (Utils.isNetworkConnectedMainThred(getActivity())) {
+                         ploader.show();
+
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                        String currentDateTime = dateFormat.format(new Date());
+                        uploadBitmap( bitmap);
+
+
+                    } else {
+                        Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
+                    }
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                  Glide.with(getActivity()).load(mPhotoFile).apply(new RequestOptions().centerCrop().circleCrop()).into(ivProfile);
+
+                Glide.with(getActivity()).load(mPhotoFile).apply(new RequestOptions().centerCrop().circleCrop()).into(ivProfile);
             } else if (requestCode == REQUEST_GALLERY_PHOTO) {
                 Uri selectedImage = data.getData();
                 try {
                     mPhotoFile = mCompressor.compressToFile(new File(getRealPathFromUri(selectedImage)));
+                    String picture_path= mPhotoFile.getPath();
+
+                    Bitmap bitmap = BitmapFactory.decodeFile(picture_path);
+
+                    if (Utils.isNetworkConnectedMainThred(getActivity())) {
+                         ploader.show();
+
+                        uploadBitmap( bitmap);
+
+
+                    } else {
+                        Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
+                    }
+                    Log.e("picture_path2",picture_path);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -366,5 +423,92 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
             }
         }
     }
+
+    public Bitmap getBitmap(String path) {
+        Bitmap bitmap=null;
+        try {
+            File f= new File(path);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+            bitmap = BitmapFactory.decodeStream(new FileInputStream(f), null, options);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bitmap ;
+    }
+
+
+    private void uploadBitmap(final Bitmap bitmap) {
+
+        //getting the tag from the edittext
+
+
+        //our custom volley request
+        VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, AppConfig.URL_UPDATEPROFILEPIC,
+                new Response.Listener<NetworkResponse>() {
+                    @Override
+                    public void onResponse(NetworkResponse response) {
+                        try {
+
+                            ploader.dismiss();
+                            JSONObject obj = new JSONObject(new String(response.data));
+
+                                 if(obj.getString("status").equalsIgnoreCase("true"))
+                                 {
+                                      Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                 }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        ploader.dismiss();
+                        Log.e("testss",""+error);
+                        Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+
+            /*
+             * If you want to add more parameters with the image
+             * you can do it here
+             * here we have only one parameter with the image
+             * which is tags
+             * */
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("mobilenumber", "9960664553");
+                return params;
+            }
+
+            /*
+             * Here we are passing image by renaming it with a unique name
+             * */
+            @Override
+            protected Map<String, DataPart> getByteData() {
+                Map<String, DataPart> params = new HashMap<>();
+                long imagename = System.currentTimeMillis();
+                params.put("user_doc", new DataPart(imagename + ".png", getFileDataFromDrawable(bitmap)));
+                return params;
+            }
+        };
+
+
+        //adding the request to volley
+        Volley.newRequestQueue(getActivity()).add(volleyMultipartRequest);
+    }
+
+    public byte[] getFileDataFromDrawable(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
+        return byteArrayOutputStream.toByteArray();
+    }
+
+
 
 }

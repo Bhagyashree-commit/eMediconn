@@ -262,14 +262,12 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
             }
         };
         queue.add(jsObjRequest);
-
     }
 
     public static String getTimeAgo(long time) {
         if (time < 1000000000000L) {
             // if timestamp given in seconds, convert to millis
             time *= 1000;
-
 
         }
         // long now = getCurrentTime(ctx);

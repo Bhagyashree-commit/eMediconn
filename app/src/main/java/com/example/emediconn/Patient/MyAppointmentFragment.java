@@ -43,6 +43,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -137,10 +138,20 @@ public class MyAppointmentFragment extends Fragment {
             holder.tvStatus.setText(arrayList.get(position).getStatus());
            // holder.tvTime.setText(arrayList.get(position).getStartTime());
 
+
+            Calendar c = Calendar.getInstance();
+            c.setTimeInMillis(Long.parseLong(arrayList.get(position).getStartTime()));
+
+
+            String dayOfWeek = c.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US);
+            Log.e("ddddd",""+dayOfWeek);
+
+            holder.tvDayName.setText(dayOfWeek);
+
+
+            System.out.println(c.get(Calendar.DAY_OF_WEEK));
             String[] separated = getDate(Long.parseLong(arrayList.get(position).getStartTime())).split("-");
             holder.tvDate.setText(separated[0]);
-            Calendar c = Calendar.getInstance();
-            int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
 
             if(arrayList.get(position).getDoctor_image().isEmpty())
             {
@@ -172,6 +183,7 @@ public class MyAppointmentFragment extends Fragment {
         TextView tvLocation;
         TextView tvSpeciality;
         TextView tvDate;
+        TextView tvDayName;
         ImageView ivProfile;
 
         public DocHolder(View itemView) {
@@ -184,6 +196,7 @@ public class MyAppointmentFragment extends Fragment {
             tvName=itemView.findViewById(R.id.tvName);
             tvSpeciality=itemView.findViewById(R.id.tvSpeciality);
             tvDate=itemView.findViewById(R.id.tvDate);
+            tvDayName=itemView.findViewById(R.id.tvDayName);
             ivProfile=itemView.findViewById(R.id.ivProfile);
         }
     }
@@ -240,6 +253,7 @@ public class MyAppointmentFragment extends Fragment {
                                         String proimage="http://healthcare.blucorsys.in/daccount/"+jsonObject.getString("doctor_image");
                                         patientModel.setDoctor_image(proimage);
                                     }
+
                                     patientModel.setFees(jsonObject.getString("fees"));
                                     patientModel.setStartTime(jsonObject.getString("startTime"));
                                     patientModel.setSpeciality(jsonObject.getString("speciality"));

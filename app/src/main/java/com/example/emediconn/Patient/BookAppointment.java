@@ -97,7 +97,7 @@ public class BookAppointment extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     if (keyCode == KeyEvent.KEYCODE_BACK) {
-                        replaceFragmentWithAnimation(new DoctorCategory());
+                        replaceFragmentWithAnimation(new DoctorDiscriptionFragment());
                         return true;
                     }
                 }
@@ -131,8 +131,6 @@ public class BookAppointment extends Fragment {
         btnBookAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 if(etPatientname.getText().toString().trim().isEmpty())
                 {
                     etPatientname.setError("Enter Patient Name");
@@ -166,7 +164,6 @@ public class BookAppointment extends Fragment {
                     } else {
                         Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
                     }
-
 
                 }
             }
@@ -273,9 +270,7 @@ public class BookAppointment extends Fragment {
             obj.put("patient_phonenumber", patient_phonenumber);
             obj.put("patient_emailaddress", patient_emailaddress);
             obj.put("patientId", patientId);
-
             Log.e("objeeeeeee",""+obj);
-
 
         } catch (JSONException e) {
             e.printStackTrace();

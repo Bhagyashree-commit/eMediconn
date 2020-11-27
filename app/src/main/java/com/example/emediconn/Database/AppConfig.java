@@ -41,4 +41,6 @@ public class AppConfig {
     public static String URL_GETPATIENTPROFILE= "http://healthcare.blucorsys.in/api/patient/getPatientDetails.php";
 
     public static String URL_UPDATEPATIENT= "http://healthcare.blucorsys.in/api/patient/updatePatientDetails.php";
+
+        public static String URL_UPDATEPROFILEPIC= "http://healthcare.blucorsys.in/api/patient/updatePatientProfilePicture.php";
 }

@@ -104,18 +104,13 @@ public class MyProfileFragment extends Fragment {
         ivProfile = (ImageView)v. findViewById(R.id.ivProfile);
 
 
-
-
-
         ploader = new ProgressDialog(getActivity());
 
-
         if (Utils.isNetworkConnectedMainThred(getActivity())) {
-            HitGetAppointment("9960664553");
+            HitMyprofile("9960664553");
         } else {
             Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
         }
-
 
         //Back
         v.setFocusableInTouchMode(true);
@@ -125,9 +120,7 @@ public class MyProfileFragment extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     if (keyCode == KeyEvent.KEYCODE_BACK) {
-
                         replaceFragmentWithAnimation(new MyAccountFragment());
-
                         return true;
                     }
                 }
@@ -196,6 +189,7 @@ public class MyProfileFragment extends Fragment {
         tvDate.setText(sdf.format(myCalendar.getTime()));
     }
 
+
     public void replaceFragmentWithAnimation(Fragment fragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
@@ -208,7 +202,7 @@ public class MyProfileFragment extends Fragment {
 
 
     //API
-    private void HitGetAppointment( final String mobilenumber){
+    private void HitMyprofile( final String mobilenumber){
 
         ploader.setMessage("Getting List...");
         ploader.show();
@@ -306,6 +300,8 @@ public class MyProfileFragment extends Fragment {
         };
         queue.add(jsObjRequest);
     }
+
+
     private void HitUpdateProfile( final String mobilenumber,final String full_name,final String emailaddress,final String genderr,final String dob,final String height,final  String weight){
         ploader.setMessage("Please wait...");
         ploader.show();
@@ -341,9 +337,7 @@ public class MyProfileFragment extends Fragment {
                         {
 
                         }
-
                         System.out.println(response);
-
                     }
                 },
                 new Response.ErrorListener() {

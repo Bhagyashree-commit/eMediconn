@@ -96,6 +96,8 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
 
     ProgressDialog ploader;
 
+    PrefManager prefManager;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -106,6 +108,8 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
         mCompressor = new FileCompressor(getActivity());
 
         ploader = new ProgressDialog(getActivity());
+
+        prefManager=new PrefManager(getActivity());
 
         ivBack = v.findViewById(R.id.ivBack);
         ivBack.setOnClickListener(this);
@@ -146,9 +150,17 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
         });
 
         //Setting text
-//        tvName.setText(pref.get(AppSettings.firstName));
-//        tvPhone.setText(pref.get(AppSettings.Phone1));
-//        tvEmail.setText(pref.get(AppSettings.Email));
+        tvName.setText(prefManager.get("full_name"));
+        tvPhone.setText(prefManager.get("mobilenumber"));
+
+         if(prefManager.get("profile_photo").trim().length()>10)
+         {
+             Glide.with(getActivity())
+                     .load(prefManager.get("profile_photo"))
+                     .into(ivProfile).onLoadStarted(getResources().getDrawable(R.drawable.userr));
+         }
+
+
     return v;
     }
 
@@ -167,7 +179,6 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
 
             case R.id.ivProfile:
               //  selectImage();
-
                 showCameraGalleryDialog();
                 break;
         }
@@ -185,7 +196,6 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
     }
 
     public void showCameraGalleryDialog() {
-
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(true);
@@ -211,6 +221,7 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
                 dialog.dismiss();
             }
         });
+
 
         rrCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -424,21 +435,6 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
         }
     }
 
-    public Bitmap getBitmap(String path) {
-        Bitmap bitmap=null;
-        try {
-            File f= new File(path);
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-            bitmap = BitmapFactory.decodeStream(new FileInputStream(f), null, options);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return bitmap ;
-    }
-
-
     private void uploadBitmap(final Bitmap bitmap) {
 
         //getting the tag from the edittext
@@ -454,9 +450,15 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
                             ploader.dismiss();
                             JSONObject obj = new JSONObject(new String(response.data));
 
+                            Log.e("response",""+obj);
+
                                  if(obj.getString("status").equalsIgnoreCase("true"))
                                  {
+                                     String image_url="http://healthcare.blucorsys.in/account/"+obj.getString("photoPath");
+
                                       Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                      prefManager.set("profile_photo",image_url);
+                                      prefManager.commit();
                                  }
 
                         } catch (Exception e) {
@@ -468,6 +470,7 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         ploader.dismiss();
+
                         Log.e("testss",""+error);
                         Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -482,7 +485,7 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("mobilenumber", "9960664553");
+                params.put("mobilenumber", "8741937291");
                 return params;
             }
 
@@ -497,7 +500,6 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
                 return params;
             }
         };
-
 
         //adding the request to volley
         Volley.newRequestQueue(getActivity()).add(volleyMultipartRequest);

@@ -243,6 +243,45 @@
 
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date of Appointment"
+                    android:textColor="@color/red_900"
+                    android:textSize="@dimen/_12sdp" />
+
+                <RelativeLayout
+                    android:id="@+id/rrDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rectangle_blue">
+                    <TextView
+                        android:hint="Select Date"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/black"
+                        android:id="@+id/tvAppointmentDate"
+                        android:layout_width="match_parent"
+                        android:drawableRight="@drawable/ic_baseline_date_range_24"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+
+                        android:background="@null"
+                        android:paddingLeft="@dimen/_7sdp"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:scrollbars="none" />
+                </RelativeLayout>
+
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

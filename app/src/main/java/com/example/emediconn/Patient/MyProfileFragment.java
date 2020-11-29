@@ -103,11 +103,10 @@ public class MyProfileFragment extends Fragment {
         ivWomen = (ImageView)v. findViewById(R.id.imageView12);
         ivProfile = (ImageView)v. findViewById(R.id.ivProfile);
 
-
         ploader = new ProgressDialog(getActivity());
 
         if (Utils.isNetworkConnectedMainThred(getActivity())) {
-            HitMyprofile("9960664553");
+            HitMyprofile("8741937291");
         } else {
             Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
         }
@@ -188,7 +187,6 @@ public class MyProfileFragment extends Fragment {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
         tvDate.setText(sdf.format(myCalendar.getTime()));
     }
-
 
     public void replaceFragmentWithAnimation(Fragment fragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -272,7 +270,6 @@ public class MyProfileFragment extends Fragment {
                                      gender = "";
                                  }
                              }
-
                             }
 
                         } catch (JSONException e) {

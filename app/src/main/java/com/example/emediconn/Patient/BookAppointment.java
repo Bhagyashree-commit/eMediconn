@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -21,6 +22,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -53,6 +55,7 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -65,6 +68,7 @@ public class BookAppointment extends Fragment {
     static final int PICK_IMAGE_REQUEST = 1;
     Bitmap bitmap;
     RelativeLayout rrUpload;
+    RelativeLayout rrDate;
 
     Button btnBookAppointment;
 
@@ -75,6 +79,7 @@ public class BookAppointment extends Fragment {
     TextView tvSpeciality;
     TextView tvDoctorName;
     TextView tvFee;
+    TextView tvAppointmentDate;
 
     ImageView ivProfile;
 
@@ -108,9 +113,11 @@ public class BookAppointment extends Fragment {
         ploader = new ProgressDialog(getActivity());
 
         rrUpload = v.findViewById(R.id.rrUpload);
+        rrDate = v.findViewById(R.id.rrDate);
         tvSpeciality=v.findViewById(R.id.tvSpeciality);
         tvDoctorName=v.findViewById(R.id.tvDoctorName);
         tvFee=v.findViewById(R.id.tvFee);
+        tvAppointmentDate=v.findViewById(R.id.tvAppointmentDate);
         etPatientname = v.findViewById(R.id.etPatientname);
         etPatientPhone = v.findViewById(R.id.etPatientPhone);
         etPatientEmail = v.findViewById(R.id.etPatientEmail);
@@ -127,6 +134,15 @@ public class BookAppointment extends Fragment {
 
         tvDoctorName.setText(DoctorDiscriptionFragment.docname);
         tvFee.setText(DoctorDiscriptionFragment.fees);
+
+        rrDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(getActivity(), date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
 
         btnBookAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,11 +176,9 @@ public class BookAppointment extends Fragment {
                         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         String currentDateTime = dateFormat.format(new Date());
                         BookAppointment(DoctorDiscriptionFragment.doc_mobile, etPatientname.getText().toString(), currentDateTime, etPatientPhone.getText().toString(), etPatientEmail.getText().toString(),patientId);
-
                     } else {
                         Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
                     }
-
                 }
             }
         });
@@ -177,21 +191,19 @@ public class BookAppointment extends Fragment {
         });
         spTimeSlot = v.findViewById(R.id.spTimeSlot);
 
-        if (Utils.isNetworkConnectedMainThred(getActivity())) {
-            AppointmentTime(DoctorDiscriptionFragment.doc_mobile);
-        } else {
-            Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
-        }
 
         return v;
     }
 
-       private void AppointmentTime( final String mobilenumber){
-        ploader.setMessage("Logging in ...");
+       private void AppointmentTime( final String mobilenumber,final String dateOfBooking){
+        ploader.setMessage("Loading ...");
         ploader.show();
         JSONObject obj = new JSONObject();
         try {
             obj.put("mobilenumber", mobilenumber);
+            obj.put("dateOfBooking", dateOfBooking);
+
+            Log.e("objjjjj",""+obj);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -202,7 +214,8 @@ public class BookAppointment extends Fragment {
                     @Override
                     public void onResponse(JSONObject response) {
                         ploader.dismiss();
-                        Log.d("Response1233","TRYYYYYY"+response);
+                        arrayList.clear();
+                        Log.e("Response1233","TRYYYYYY"+response);
                         try {
                             if(response.getString("status").equalsIgnoreCase("true"))
                             {
@@ -210,9 +223,12 @@ public class BookAppointment extends Fragment {
                                 map=new HashMap<>();
                                 map.put("slot","Select Time Slot");
                                 arrayList.add(map);
+
                                 JSONArray jsonArray=response.getJSONArray("DoctorAppointments");
+
                                 for(int i=0;i<jsonArray.length();i++)
                                 {
+
                                     JSONObject object=jsonArray.getJSONObject(i);
                                     JSONArray array=object.getJSONArray("available_slots");
                                     for (int j=0;j<array.length();j++)
@@ -255,9 +271,7 @@ public class BookAppointment extends Fragment {
         };
 
         queue.add(jsObjRequest);
-
     }
-
     private void BookAppointment( final String mobilenumber,String patient_name,String startDate,String patient_phonenumber,String patient_emailaddress,String patientId){
         ploader.setMessage("Loading");
         ploader.show();
@@ -395,7 +409,34 @@ public class BookAppointment extends Fragment {
         transaction.commit();
     }
 
+    Calendar myCalendar = Calendar.getInstance();
 
+    final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear,
+                              int dayOfMonth) {
+            // TODO Auto-generated method stub
+            myCalendar.set(Calendar.YEAR, year);
+            myCalendar.set(Calendar.MONTH, monthOfYear);
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateLabel();
+            if (Utils.isNetworkConnectedMainThred(getActivity())) {
+                AppointmentTime(DoctorDiscriptionFragment.doc_mobile,tvAppointmentDate.getText().toString());
+            } else {
+                Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+    };
+
+    private void updateLabel() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        tvAppointmentDate.setText(sdf.format(myCalendar.getTime()));
+
+
+    }
 
 
 }

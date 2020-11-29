@@ -144,6 +144,14 @@ public class LoginPatient extends AppCompatActivity {
                                 prefManager.createUserLoginSession(name,usertype,userID,role,password);
                                 prefManager.setLogin(true,userID);
 
+
+                                String image_url="http://healthcare.blucorsys.in/"+response.getString("profile_photo");
+
+                                prefManager.set("mobilenumber",response.getString("mobilenumber"));
+                                prefManager.set("profile_photo",image_url);
+                                prefManager.set("full_name",response.getString("full_name"));
+                                prefManager.commit();
+
                                 Toast.makeText(LoginPatient.this, "Login Response" +message, Toast.LENGTH_SHORT).show();
                                 Log.d(TAG,"Name"+name);
                                 Log.d(TAG,"usertype"+usertype);

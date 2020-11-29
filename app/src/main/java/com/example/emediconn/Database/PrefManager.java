@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import com.example.emediconn.MainActivity;
 
 import java.util.HashMap;
+import java.util.prefs.Preferences;
 
 public class PrefManager {
     SharedPreferences pref;
@@ -125,6 +126,26 @@ public class PrefManager {
 
         // return user
         return user;
+    }
+
+
+
+    //=====
+    public PrefManager commit() {
+        editor.commit();
+        return this;
+    }
+
+    //=====
+    public PrefManager set(String key, String value) {
+
+        editor.putString(key, value);
+        return this;
+    }
+
+    //=====
+    public String get(String key) {
+        return pref.getString(key, "");
     }
 
     /**

@@ -1,8 +1,6 @@
 package com.example.emediconn.Doctor.ui;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.media.Rating;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -30,12 +28,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.emediconn.Database.AppConfig;
-import com.example.emediconn.Doctor.DrawerActivity;
 import com.example.emediconn.Extras.Utils;
 import com.example.emediconn.Model.DoctorListModel;
 import com.example.emediconn.Patient.DoctorCategory;
-import com.example.emediconn.Patient.LoginPatient;
-import com.example.emediconn.Patient.SearchActivity;
 import com.example.emediconn.R;
 
 import org.json.JSONArray;
@@ -89,7 +84,9 @@ public class DoctorListFragment extends Fragment {
 
         if (Utils.isNetworkConnectedMainThred(getActivity())) {
            // ploader.show();
-            HitDoctorListAPI("17");
+            HitDoctorListAPI(DoctorCategory.categoryId);
+
+
         } else {
             Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
         }

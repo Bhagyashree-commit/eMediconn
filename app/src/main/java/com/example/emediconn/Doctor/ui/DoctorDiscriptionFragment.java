@@ -130,6 +130,8 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
 
 
             getDoctorDiscription(DoctorListFragment.mobilenumber);
+
+            Log.e("Tesssstt",DoctorListFragment.mobilenumber);
         } else {
             Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
         }
@@ -170,7 +172,7 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
 
                             if(response.getString("status").equalsIgnoreCase("true"))
                             {
-                                JSONArray jsonArray = response .getJSONArray("DoctorDiscription");
+                                JSONArray jsonArray = response .getJSONArray("DoctorDescription");
                                 for(int i=0;i<jsonArray .length();i++)
                                 {
                                     JSONObject jsonObject=jsonArray.getJSONObject(i);

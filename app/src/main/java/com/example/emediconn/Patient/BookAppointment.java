@@ -176,6 +176,13 @@ public class BookAppointment extends Fragment {
                         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         String currentDateTime = dateFormat.format(new Date());
                         BookAppointment(DoctorDiscriptionFragment.doc_mobile, etPatientname.getText().toString(), currentDateTime, etPatientPhone.getText().toString(), etPatientEmail.getText().toString(),patientId);
+
+                        Log.e("TAG","TAG"+DoctorDiscriptionFragment.doc_mobile);
+                        Log.e("TAG","TAG"+etPatientname.getText().toString());
+                        Log.e("TAG","TAG"+currentDateTime);
+                        Log.e("TAG","TAG"+etPatientPhone.getText().toString());
+                        Log.e("TAG","TAG"+etPatientEmail.getText().toString());
+                        Log.e("TAG","TAG"+patientId);
                     } else {
                         Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
                     }
@@ -423,6 +430,7 @@ public class BookAppointment extends Fragment {
             updateLabel();
             if (Utils.isNetworkConnectedMainThred(getActivity())) {
                 AppointmentTime(DoctorDiscriptionFragment.doc_mobile,tvAppointmentDate.getText().toString());
+                Log.e("Sita","SITA"+DoctorDiscriptionFragment.doc_mobile);
             } else {
                 Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
             }

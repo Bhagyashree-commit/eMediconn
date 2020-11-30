@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.emediconn.ChooseRole;
 import com.example.emediconn.Doctor.ui.AboutUs;
 import com.example.emediconn.Doctor.ui.ContactUsFragment;
 import com.example.emediconn.Doctor.ui.DoctorListFragment;
@@ -166,7 +167,7 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DrawerActivity.this, LoginDoctor.class));
+                startActivity(new Intent(DrawerActivity.this, ChooseRole.class));
                 overridePendingTransition(R.anim.slide_left, R.anim.slide_right);
 //                pref.set(AppSettings.CustomerID, "");
 //                pref.commit();

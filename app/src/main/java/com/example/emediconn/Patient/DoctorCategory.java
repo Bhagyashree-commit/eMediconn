@@ -73,6 +73,7 @@ public class DoctorCategory extends Fragment {
     ProgressDialog ploader;
     LinearLayout lll;
     List<CategoryModel> categorymodel=new ArrayList<>();
+    public static String categoryId;
 
 
     @Override
@@ -166,6 +167,9 @@ public class DoctorCategory extends Fragment {
                 public void onClick(View view) {
 
                     replaceFragmentWithAnimation(new DoctorListFragment());
+                    categoryId=pu.speciality_id;
+
+                    Log.e(TAG,"BHAGYASHREE"+categoryId);
 //                    Intent intent = new Intent(getActivity(), DoctorDescription.class);
 //                    intent.putExtra("speciality_id", pu.getSpeciality_id());
 //                    intent.putExtra("speciality",pu.getSpeciality());

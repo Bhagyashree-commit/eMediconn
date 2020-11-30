@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import com.example.emediconn.Doctor.DoctorRegistration;
 import com.example.emediconn.Doctor.LoginDoctor;
-import com.example.emediconn.Fragment.SpecialityFragment;
 import com.example.emediconn.R;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 

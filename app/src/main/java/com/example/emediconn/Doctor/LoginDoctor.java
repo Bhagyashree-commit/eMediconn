@@ -140,7 +140,20 @@ public class LoginDoctor extends AppCompatActivity {
                                 Log.d(TAG,"usertype"+usertype);
                                 Log.d(TAG,"ID"+userID);
                                 Log.d(TAG,"ID"+role);
+
+
+
+
+                                String image_url="http://healthcare.blucorsys.in/"+response.getString("profile_photo");
+
+                                prefManager.set("mobilenumber",response.getString("mobilenumber"));
+                                prefManager.set("profile_photo",image_url);
+                                prefManager.set("full_name",response.getString("full_name"));
+                                prefManager.commit();
+
                                 Intent intent = new Intent(LoginDoctor.this, DoctorDashboard.class);
+                                intent.putExtra("page","Login");
+                                intent.putExtra("mobilenumber",mobilenum);
                                 startActivity(intent);
 
                             }

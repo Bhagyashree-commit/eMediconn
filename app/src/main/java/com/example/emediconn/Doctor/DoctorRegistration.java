@@ -1,16 +1,12 @@
 package com.example.emediconn.Doctor;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,15 +18,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.emediconn.Adapter.SpecialityAdapter;
 import com.example.emediconn.Database.AppConfig;
 import com.example.emediconn.Database.PrefManager;
-import com.example.emediconn.Fragment.SpecialityFragment;
-import com.example.emediconn.Patient.LoginPatient;
 import com.example.emediconn.Patient.PatientRegistration;
-import com.example.emediconn.Patient.otp_patient;
 import com.example.emediconn.R;
-import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import org.json.JSONException;
 import org.json.JSONObject;

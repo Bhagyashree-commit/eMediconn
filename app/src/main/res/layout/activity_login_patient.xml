@@ -54,6 +54,7 @@
             <EditText
                 android:imeOptions="actionDone"
                 android:maxLines="1"
+                android:maxLength="10"
                 android:textColorHint="@color/black"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp"
@@ -87,13 +88,13 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp"
                 android:fontFamily="sans-serif-condensed"
-                android:drawableLeft="@drawable/pass"
+                android:drawableStart="@drawable/password"
                 android:id="@+id/patient_password"
                 android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_10sdp"
-                />
+                android:drawableLeft="@drawable/password" />
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -28,10 +29,11 @@ import org.json.JSONObject;
 
 public class ForgetPassword extends AppCompatActivity {
     private static final String TAG = ForgetPassword.class.getSimpleName();
-Button opt_forgetpassbtn;
+Button opt_forgetpassbtn,sendotp;
 EditText et_otpforgetpassmobnum,otp_textbox_one,otp_textbox_two,otp_textbox_three,otp_textbox_five,otp_textbox_four,otp_textbox_six;
 PrefManager prefManager;
 ProgressDialog ploader;
+LinearLayout lin;
 int flag;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,8 @@ int flag;
         otp_textbox_four = findViewById(R.id.editTextfour4);
         otp_textbox_five= findViewById(R.id.editTextfive5);
         otp_textbox_six = findViewById(R.id.editTextsix6);
+        sendotp = findViewById(R.id.sendotp);
+        lin = findViewById(R.id.layout_otp);
 
         EditText[] edit = {otp_textbox_one, otp_textbox_two, otp_textbox_three, otp_textbox_four,otp_textbox_five,otp_textbox_six};
 
@@ -61,6 +65,24 @@ int flag;
 
         ploader = new ProgressDialog(ForgetPassword.this);
         prefManager=new PrefManager(ForgetPassword.this);
+
+        sendotp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                flag=0;
+                if(et_otpforgetpassmobnum.getText().toString().length() < 10){
+                    et_otpforgetpassmobnum.setError(" Mobile number should be valid");
+                    et_otpforgetpassmobnum.requestFocus();
+                    flag=1;
+                }
+                if(flag==0) {
+                    sendotp.setVisibility(View.INVISIBLE);
+                    lin.setVisibility(View.VISIBLE);
+                    opt_forgetpassbtn.setVisibility(View.VISIBLE);
+
+                }
+            }
+        });
 
         opt_forgetpassbtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -25,6 +25,7 @@ import com.example.emediconn.Doctor.DoctorDashboard;
 import com.example.emediconn.Doctor.DoctorRegistration;
 import com.example.emediconn.Doctor.DrawerActivity;
 import com.example.emediconn.Doctor.LoginDoctor;
+import com.example.emediconn.Extras.Utils;
 import com.example.emediconn.R;
 
 import org.json.JSONException;
@@ -84,6 +85,13 @@ public class LoginPatient extends AppCompatActivity {
             public void onClick(View view) {
                 String mobilenum = et_patient_mobilenum.getText().toString().trim();
                 String password = et_patient_password.getText().toString().trim();
+
+                if (Utils.isNetworkConnectedMainThred(getApplicationContext())) {
+                    loginpatient(mobilenum,password);
+                } else {
+                    Toast.makeText(getApplicationContext(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
+                }
+
                 flag=0;
                 if(et_patient_password.getText().toString().length()< 4 || et_patient_password.length()>10){
                     et_patient_password.setError(" Password should be between 4 to 10 character");
@@ -97,7 +105,14 @@ public class LoginPatient extends AppCompatActivity {
                     flag=1;
                 }
                 if(flag==0){
-                    loginpatient(mobilenum,password);
+
+                    if(prefManager.get("usertype")=="patient"){
+                        loginpatient(mobilenum,password);
+                    }
+                    else{
+                        Toast.makeText(LoginPatient.this, "Creadentials Wrong", Toast.LENGTH_SHORT).show();
+                    }
+
 
                    /* Intent intent = new Intent(LoginPatient.this, DrawerActivity.class);
                     startActivity(intent);*/
@@ -150,6 +165,8 @@ public class LoginPatient extends AppCompatActivity {
                                 prefManager.set("mobilenumber",response.getString("mobilenumber"));
                                 prefManager.set("profile_photo",image_url);
                                 prefManager.set("full_name",response.getString("full_name"));
+                                prefManager.set("user_id",response.getString("user_id"));
+                                prefManager.set("user_type",response.getString("user_type"));
                                 prefManager.commit();
 
                                 Toast.makeText(LoginPatient.this, "Login Response" +message, Toast.LENGTH_SHORT).show();

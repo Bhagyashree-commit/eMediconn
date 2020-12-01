@@ -52,6 +52,7 @@ import com.example.emediconn.Database.PrefManager;
 import com.example.emediconn.Extras.FileCompressor;
 import com.example.emediconn.Extras.Utils;
 import com.example.emediconn.Extras.VolleyMultipartRequest;
+import com.example.emediconn.Patient.LoginPatient;
 import com.example.emediconn.Patient.MyAppointmentFragment;
 import com.example.emediconn.Patient.MyProfileFragment;
 import com.example.emediconn.R;
@@ -459,6 +460,14 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
                                       Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                                       prefManager.set("profile_photo",image_url);
                                       prefManager.commit();
+
+
+                                     if(prefManager.get("profile_photo").trim().length()>10)
+                                     {
+                                         Glide.with(getActivity())
+                                                 .load(prefManager.get("profile_photo"))
+                                                 .into(ivProfile).onLoadStarted(getResources().getDrawable(R.drawable.userr));
+                                     }
                                  }
 
                         } catch (Exception e) {
@@ -485,7 +494,7 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("mobilenumber", "8741937291");
+                params.put("mobilenumber", prefManager.get("mobilenumber"));
                 return params;
             }
 
@@ -511,6 +520,15 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
         return byteArrayOutputStream.toByteArray();
     }
 
+    @Override
+    public void onResume() {
 
-
+        if(prefManager.get("profile_photo").trim().length()>10)
+        {
+            Glide.with(getActivity())
+                    .load(prefManager.get("profile_photo"))
+                    .into(ivProfile);
+        }
+        super.onResume();
+    }
 }

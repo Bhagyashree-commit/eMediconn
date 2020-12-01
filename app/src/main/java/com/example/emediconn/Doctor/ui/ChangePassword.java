@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,6 +56,7 @@ ProgressDialog ploader;
 Button btnchangepassword;
 int flag;
 ImageView backbtn,logout;
+LinearLayout linlay;
 
     public ChangePassword() {
         // Required empty public constructor
@@ -65,8 +67,23 @@ ImageView backbtn,logout;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        getActivity().setTitle("Change Password");
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_change_password, container, false);
+linlay=v.findViewById(R.id.heraderlinlay);
+        prefManager=new PrefManager(getContext());
+        prefManager.get("user_type");
+
+        if(prefManager.get("user_type").equalsIgnoreCase("patient")){
+            linlay.setVisibility(View.GONE);
+
+            Log.e("1111","Yes");
+        }
+        else {
+            linlay.setVisibility(View.VISIBLE);
+            Log.e("111111","NO");
+
+        }
 
         titletext=v.findViewById(R.id.titletext);
         titletext.setText("Change Password");

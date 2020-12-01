@@ -191,7 +191,7 @@
                         android:layout_height="wrap_content"
                         android:background="@null"
                         android:hint="Enter email address"
-                        android:inputType="phone"
+                        android:inputType="textEmailAddress"
                         android:paddingLeft="@dimen/_7sdp"
                         android:paddingRight="@dimen/_5sdp"
                         android:scrollbars="none"

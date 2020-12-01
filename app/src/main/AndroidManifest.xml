@@ -34,7 +34,6 @@
         <activity android:name=".Patient.otp_patient" />
         <activity android:name=".Patient.PatientRegistration" />
         <activity android:name=".Patient.LoginPatient" />
-        <activity android:name=".Patient.RegisterPatient" />
         <activity android:name=".Doctor.DoctorDashboard" >
 
         </activity>

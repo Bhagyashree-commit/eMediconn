@@ -30,6 +30,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.emediconn.Database.AppConfig;
+import com.example.emediconn.Database.PrefManager;
 import com.example.emediconn.Doctor.ui.DoctorDiscriptionFragment;
 import com.example.emediconn.Doctor.ui.MyAccountFragment;
 import com.example.emediconn.Extras.Utils;
@@ -65,6 +66,7 @@ public class MyProfileFragment extends Fragment {
     TextView tvName;
     TextView tvPhone;
     TextView tvMobile;
+    PrefManager prefManager;
 
 
 
@@ -104,9 +106,10 @@ public class MyProfileFragment extends Fragment {
         ivProfile = (ImageView)v. findViewById(R.id.ivProfile);
 
         ploader = new ProgressDialog(getActivity());
+        prefManager=new PrefManager(getActivity());
 
         if (Utils.isNetworkConnectedMainThred(getActivity())) {
-            HitMyprofile("8741937291");
+            HitMyprofile(prefManager.get("mobilenumber"));
         } else {
             Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
         }

@@ -17,7 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.emediconn.ChooseRole;
+import com.example.emediconn.Database.PrefManager;
 import com.example.emediconn.Doctor.ui.AboutUs;
+import com.example.emediconn.Doctor.ui.ChangePassword;
 import com.example.emediconn.Doctor.ui.ContactUsFragment;
 import com.example.emediconn.Doctor.ui.DoctorListFragment;
 import com.example.emediconn.Doctor.ui.MyAccountFragment;
@@ -45,6 +47,7 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
 
     private AppBarConfiguration mAppBarConfiguration;
     DrawerLayout drawer;
+    PrefManager prefManager;
     //other
     public static int backPressed = 0;
 
@@ -59,6 +62,8 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
+        prefManager=new PrefManager(this);
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -91,6 +96,9 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
         }
         else if (id == R.id.myProfile) {
             replaceFragmentWithAnimation( new MyAccountFragment());
+        }
+        else if (id == R.id.nav_changepass) {
+            replaceFragmentWithAnimation( new ChangePassword());
         }
         else if (id == R.id.nav_aboutus) {
             replaceFragmentWithAnimation(new AboutUs());
@@ -167,10 +175,10 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DrawerActivity.this, ChooseRole.class));
+                prefManager.logoutUser();
+                //startActivity(new Intent(DrawerActivity.this, ChooseRole.class));
                 overridePendingTransition(R.anim.slide_left, R.anim.slide_right);
-//                pref.set(AppSettings.CustomerID, "");
-//                pref.commit();
+
 
                // preferences.set("login","no");
               //  preferences.commit();

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -75,7 +76,7 @@ int flag=0;
                 String otp6= otp_textbox_six.getText().toString().trim();
 
                 String otp=(otp1+otp2+otp3+otp4+otp5+otp6);
-                String otpnew="123456";
+              //  String otpnew="123456";
 
 
                         flag=0;
@@ -85,12 +86,12 @@ int flag=0;
 
                         flag=1;
                     }
-                    flag=0;
+                    /*flag=0;
                     if (otp.isEmpty() || !otpnew.equals(otp)) {
 
                         Toast.makeText(otp_patient.this, "OTP Does Not Match..Please fill correct OTP!", Toast.LENGTH_SHORT).show();
                         flag=1;
-                    }
+                    }*/
 
                    if( flag==0){
                        HashMap<String, String> user = prefManager.getUserDetails();
@@ -105,7 +106,7 @@ int flag=0;
 
                        String usertype = user.get(PrefManager.KEY_ROLE);
 
-                       validateotp(username,mobilenum,password,usertype);
+                       validateotp(mobilenum,otp);
 
                    }
 
@@ -118,25 +119,24 @@ int flag=0;
             }
         });
     }
-    private void validateotp(final String username, final String mobilenum,
-                                 final String password,final String usertype){
+    private void validateotp( final String mobilenum,
+                                 final String otp){
         ploader.setMessage("Logging in ...");
         ploader.show();
-        final String role="patient";
 
         JSONObject obj = new JSONObject();
         try {
-            obj.put("fullname", username);
-            obj.put("mobilenumber", mobilenum);
-            obj.put("usertype", role);
-            obj.put("password", password);
+            obj.put("mobilenumber", getIntent().getStringExtra("mobilenumber"));
+            obj.put("OTP", otp);
+            Log.e("RAshmi","jghd"+obj);
+
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.POST, AppConfig.URL_VALIDATEMOBILENUM,obj,
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.POST, AppConfig.URL_FORGETPASSWORD,obj,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -150,6 +150,94 @@ int flag=0;
                                 String message = response.getString("message");
 
                                 Toast.makeText(otp_patient.this, "Mobile number validated sucessfully! Try login now!", Toast.LENGTH_SHORT).show();
+
+                               String fullname= prefManager.get("fullname");
+                               String password= prefManager.get("password");
+                               String usertype= prefManager.get("usertype");
+
+                                register(fullname, getIntent().getStringExtra("mobilenumber"),password,usertype);
+                               /* Intent intent = new Intent(otp_patient.this, LoginPatient.class);
+                                intent.putExtra("mobilenumber",mobilenum);
+                                startActivity(intent);*/
+                            }
+                            else
+                            {
+                                Toast.makeText(otp_patient.this, "Response" +response.getString("message"), Toast.LENGTH_SHORT).show();
+
+                            }
+
+
+                        } catch (JSONException e) {
+                            Log.d(TAG,"CATCHHHH"+e);
+                            e.printStackTrace();
+                        }
+
+                        Log.d(TAG,"Number"+mobilenum);
+
+                        System.out.println(response);
+                        ploader.dismiss();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        ploader.dismiss();
+                    }
+                });
+        queue.add(jsObjRequest);
+
+    }
+
+
+
+    private void register(final String fullname, final String mobilenum,
+                          final String password, final String usertype){
+        ploader.setMessage("Registering ...");
+        ploader.show();
+
+
+        JSONObject obj = new JSONObject();
+        try {
+            obj.put("fullname", fullname);
+            obj.put("mobilenumber", mobilenum);
+            obj.put("usertype", usertype);
+            obj.put("password", password);
+
+            Log.e("Register Object",""+obj);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.POST,AppConfig.URL_REGISTERPATIENT,obj,
+                new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        ploader.dismiss();
+                        Log.d(TAG,"Register"+response);
+                        try {
+
+                            if(response.getString("status").equalsIgnoreCase("true"))
+                            {
+
+                                String ab=response.getString("message");
+                                Toast.makeText(otp_patient.this, "Response" +response.getString("message"), Toast.LENGTH_SHORT).show();
+
+
+                                    prefManager.set("user_id",response.getString("user_id"));
+                                    prefManager.set("user_type", response.getString("user_type"));
+                                    prefManager.set("full_name",response.getString("full_name"));
+
+                                    prefManager.commit();
+
+
+                                    Log.d(TAG,"user_id"+response.getString("user_id"));
+                                    Log.d(TAG,"user_type"+response.getString("user_type"));
+                                    Log.d(TAG,"full_name"+response.getString("full_name"));
+
+
                                 Intent intent = new Intent(otp_patient.this, LoginPatient.class);
                                 intent.putExtra("mobilenumber",mobilenum);
                                 startActivity(intent);
@@ -181,5 +269,6 @@ int flag=0;
         queue.add(jsObjRequest);
 
     }
+
 
 }

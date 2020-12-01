@@ -5,14 +5,16 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
+import android.widget.Toast;
 
-import com.example.emediconn.Patient.PatientActivity;
+import com.example.emediconn.Doctor.DrawerActivity;
 import com.example.emediconn.Patient.PatientRegistration;
-import com.example.emediconn.Patient.RegisterPatient;
 
 public class ChooseRole extends AppCompatActivity {
     CardView cv1,cv2;
+    public static int backPressed = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,5 +39,24 @@ public class ChooseRole extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        backPressed = backPressed + 1;
+        if (backPressed == 1) {
+            Toast.makeText(ChooseRole.this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+            new CountDownTimer(5000, 1000) { // adjust the milli seconds here
+                public void onTick(long millisUntilFinished) {
+                }
+                public void onFinish() { backPressed = 0;
+                }
+            }.start();
+        }
+        if (backPressed == 2) {
+            backPressed = 0;
+            finishAffinity();
+            android.os.Process.killProcess(android.os.Process.myPid());
+        }
     }
 }

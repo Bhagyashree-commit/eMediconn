@@ -92,6 +92,18 @@ int flag;
                 String mobilenum = et_mobilenum.getText().toString().trim();
                 String password = et_password.getText().toString().trim();
                 String role="Patient";
+                prefManager.set("fullname",fullname);
+                prefManager.set("mobilenumber",mobilenum);
+                prefManager.set("usertype",role);
+                prefManager.set("password",password);
+                prefManager.commit();
+
+                Log.e("fullname", prefManager.get("fullname"));
+                Log.e("mobilenumber", prefManager.get("mobilenumber"));
+                Log.e("password", prefManager.get("password"));
+                Log.e("usertype", prefManager.get("usertype"));
+
+
 
                 flag=0;
                 if(et_userfullname.getText().toString().length()==0 || et_userfullname.getText().toString().trim().matches(namePattern)){
@@ -138,36 +150,49 @@ int flag;
                 obj.put("mobilenumber", mobilenum);
                 obj.put("usertype", role);
                 obj.put("password", password);
+                Log.e("OBJECT",""+obj);
 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
             RequestQueue queue = Volley.newRequestQueue(this);
-            JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.POST,AppConfig.URL_REGISTERPATIENT,obj,
+            JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.POST,AppConfig.URL_VALIDATEMOBILENUM,obj,
                     new Response.Listener<JSONObject>() {
 
                         @Override
                         public void onResponse(JSONObject response) {
                             ploader.dismiss();
-                            Log.d(TAG,"TRYYYYYY"+response);
+                            Log.d(TAG,"Validat123"+response);
                             try {
 
                                 if(response.getString("status").equalsIgnoreCase("true"))
                                 {
-                                    String name = response.getString("full_name");
+
+                                    String ab=response.getString("message");
+                                    Toast.makeText(PatientRegistration.this, "Response" +response.getString("message"), Toast.LENGTH_SHORT).show();
+                                   /* String name = response.getString("full_name");
                                     String usertype = response.getString("user_type");
                                     String userID = response.getString("user_id");
 
                                     prefManager.createUserLoginSession(name,usertype,userID,role,password);
                                     prefManager.setLogin(true,userID);
 
-                                    Log.d(TAG,"Name"+name);
-                                    Log.d(TAG,"usertype"+usertype);
-                                    Log.d(TAG,"ID"+userID);
-                                    Log.d(TAG,"UserType"+role);
-                                    Log.d(TAG,"Password"+password);
 
+
+
+                                    prefManager.set("mobilenumber",response.getString("mobilenumber"));
+                                    prefManager.set("usertype", response.getString("usertype"));
+                                    prefManager.set("Name",response.getString("fullname"));
+                                    prefManager.set("password",response.getString("password"));
+                                    prefManager.commit();
+
+
+                                    Log.d(TAG,"mobilenumber"+response.getString("mobilenumber"));
+                                    Log.d(TAG,"usertype"+response.getString("usertype"));
+                                    Log.d(TAG,"name"+response.getString("fullname"));
+                                    Log.d(TAG,"password"+response.getString("password"));
+*/
                                     Intent intent = new Intent(PatientRegistration.this, otp_patient.class);
                                     intent.putExtra("mobilenumber",mobilenum);
                                     startActivity(intent);

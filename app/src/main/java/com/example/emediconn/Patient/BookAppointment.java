@@ -172,7 +172,7 @@ public class BookAppointment extends Fragment {
                     if (Utils.isNetworkConnectedMainThred(getActivity())) {
                         // ploader.show();
                         HashMap<String, String> user = prefManager.getUserDetails();
-                        String patientId = user.get(PrefManager.KEY_ROLE);
+                        String patientId = prefManager.get("user_id");
                         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         String currentDateTime = dateFormat.format(new Date());
                         BookAppointment(DoctorDiscriptionFragment.doc_mobile, etPatientname.getText().toString(), currentDateTime, etPatientPhone.getText().toString(), etPatientEmail.getText().toString(),patientId);
@@ -182,7 +182,7 @@ public class BookAppointment extends Fragment {
                         Log.e("TAG","TAG"+currentDateTime);
                         Log.e("TAG","TAG"+etPatientPhone.getText().toString());
                         Log.e("TAG","TAG"+etPatientEmail.getText().toString());
-                        Log.e("TAG","TAG"+patientId);
+                        Log.e("TAG","Sitanshuuu" +prefManager.get("user_id"));
                     } else {
                         Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
                     }
@@ -290,8 +290,8 @@ public class BookAppointment extends Fragment {
             obj.put("startDate", startDate);
             obj.put("patient_phonenumber", patient_phonenumber);
             obj.put("patient_emailaddress", patient_emailaddress);
-            obj.put("patientId", patientId);
-            Log.e("objeeeeeee",""+obj);
+            obj.put("patientId", "PVgJT2Fhnh20201023070510936305");
+            Log.e("Leena",""+obj);
 
         } catch (JSONException e) {
             e.printStackTrace();

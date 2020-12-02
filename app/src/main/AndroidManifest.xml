@@ -25,7 +25,6 @@
 
 
         <activity android:name=".Patient.TimeSlot" />
-        <activity android:name=".Patient.PatientActivity" />
         <activity android:name=".Patient.DoctorDescription" />
         <activity android:name=".Patient.DoctorList" />
         <activity android:name=".Doctor.otp_doctor" />

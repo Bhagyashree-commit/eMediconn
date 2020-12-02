@@ -103,6 +103,7 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        getActivity().setTitle("My Profile");
 
         View v= inflater.inflate(R.layout.activity_my_account, container, false);
 
@@ -390,8 +391,9 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
                     String path = fileuri.toString();
                     Log.e("picture_path1111",""+bitmap);
 
+                    ivProfile.setImageBitmap(bitmap);
 
-
+                    //Glide.with(getActivity()).load(mPhotoFile).apply(new RequestOptions().centerCrop().circleCrop()).into(ivProfile);
 
                     if (Utils.isNetworkConnectedMainThred(getActivity())) {
                          ploader.show();
@@ -409,14 +411,16 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
                     e.printStackTrace();
                 }
 
-                Glide.with(getActivity()).load(mPhotoFile).apply(new RequestOptions().centerCrop().circleCrop()).into(ivProfile);
             } else if (requestCode == REQUEST_GALLERY_PHOTO) {
                 Uri selectedImage = data.getData();
                 try {
                     mPhotoFile = mCompressor.compressToFile(new File(getRealPathFromUri(selectedImage)));
                     String picture_path= mPhotoFile.getPath();
 
+
                     Bitmap bitmap = BitmapFactory.decodeFile(picture_path);
+
+                    ivProfile.setImageBitmap(bitmap);
 
                     if (Utils.isNetworkConnectedMainThred(getActivity())) {
                          ploader.show();
@@ -431,7 +435,6 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Glide.with(getActivity()).load(mPhotoFile).apply(new RequestOptions().centerCrop().circleCrop()).into(ivProfile);
             }
         }
     }
@@ -461,13 +464,8 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
                                       prefManager.set("profile_photo",image_url);
                                       prefManager.commit();
 
+                                      onResume();
 
-                                     if(prefManager.get("profile_photo").trim().length()>10)
-                                     {
-                                         Glide.with(getActivity())
-                                                 .load(prefManager.get("profile_photo"))
-                                                 .into(ivProfile).onLoadStarted(getResources().getDrawable(R.drawable.userr));
-                                     }
                                  }
 
                         } catch (Exception e) {

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +36,6 @@ import com.example.emediconn.Database.AppConfig;
 import com.example.emediconn.Extras.Utils;
 import com.example.emediconn.Model.DoctorListModel;
 import com.example.emediconn.Patient.DoctorCategory;
-import com.example.emediconn.Patient.PatientActivity;
 import com.example.emediconn.Patient.SearchActivity;
 import com.example.emediconn.R;
 
@@ -51,17 +49,14 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PatientDashboard#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class PatientDashboard extends Fragment {
 
     RecyclerView recyclerView;
     RecyclerView rvDoctor;
     TextView viewdoctor;
     ProgressDialog ploader;
+    public static String mobilenumber;
 
     ArrayList<DoctorListModel> arrayList=new ArrayList<>();
     RelativeLayout rlsearchview;
@@ -69,41 +64,8 @@ public class PatientDashboard extends Fragment {
     public PatientDashboard() {
         // Required empty public constructor
     }
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PatientDashboard.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PatientDashboard newInstance(String param1, String param2) {
-        PatientDashboard fragment = new PatientDashboard();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -286,6 +248,7 @@ public class PatientDashboard extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull final PatientDashboard.DocHolder holder, final int position) {
 
+            holder.itemView.setTag(arrayList.get(position));
 
             String image_url="http://healthcare.blucorsys.in/daccount/"+arrayList.get(position).getProfile_photo();
             Glide.with(getActivity())
@@ -296,6 +259,17 @@ public class PatientDashboard extends Fragment {
             holder.tvDoctorName.setText(arrayList.get(position).getDoctor_name());
             holder.tvExperience.setText(arrayList.get(position).getExperience()+ " Years Exp");
             holder.tvLocation.setText(arrayList.get(position).getHospitalname());
+            holder.tvmobilenum.setText(arrayList.get(position).getMobilenumber());
+            Log.e("RAshmiii",""+arrayList.get(position).getMobilenumber());
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AppConfig.Status="1";
+                    mobilenumber=arrayList.get(position).getMobilenumber();
+
+                    replaceFragmentWithAnimation(new DoctorDiscriptionFragment());
+                }
+            });
 
         }
 
@@ -314,7 +288,7 @@ public class PatientDashboard extends Fragment {
         TextView tvDoctorName;
         TextView tvSpeciality;
         TextView tvLocation;
-        TextView tvExperience;
+        TextView tvExperience,tvmobilenum;
         RatingBar ratingbar;
 
         public DocHolder(View itemView) {
@@ -326,6 +300,7 @@ public class PatientDashboard extends Fragment {
             tvLocation=itemView.findViewById(R.id.tvLocation);
             tvExperience=itemView.findViewById(R.id.tvExperience);
             ratingbar=itemView.findViewById(R.id.ratingbar);
+            tvmobilenum=itemView.findViewById(R.id.tvdocmobilenum);
 
 
         }
@@ -369,6 +344,7 @@ public class PatientDashboard extends Fragment {
                                     model.setHospitalname(jsonObject.getString("hospitalname"));
                                     model.setExperience(jsonObject.getString("experience"));
                                     model.setFees(jsonObject.getString("fees"));
+                                    model.setMobilenumber(jsonObject.getString("mobilenumber"));
 
                                     arrayList.add(model);
                                 }

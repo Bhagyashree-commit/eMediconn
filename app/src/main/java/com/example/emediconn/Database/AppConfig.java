@@ -1,6 +1,7 @@
 package com.example.emediconn.Database;
 
 public class AppConfig {
+    public static String Status="status";
 
     public static String BASE_URL="http://healthcare.blucorsys.in/api/user/";
 
@@ -46,6 +47,7 @@ public class AppConfig {
 
     public static String URL_CHANGEPASSWORD= "http://healthcare.blucorsys.in/api/user/changePasswordAPI.php";
 
+    public static String URL_RESETPASSWORD= "http://healthcare.blucorsys.in/api/user/forgotPasswordAPI.php";
 
 
 }

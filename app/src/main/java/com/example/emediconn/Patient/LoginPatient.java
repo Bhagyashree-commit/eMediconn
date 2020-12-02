@@ -110,7 +110,7 @@ public class LoginPatient extends AppCompatActivity {
                         loginpatient(mobilenum,password);
                     }
                     else{
-                        Toast.makeText(LoginPatient.this, "Creadentials Wrong", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(LoginPatient.this, "Creadentials Wrong", Toast.LENGTH_SHORT).show();
                     }
 
 

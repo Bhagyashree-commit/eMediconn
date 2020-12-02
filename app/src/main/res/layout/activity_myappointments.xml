@@ -14,7 +14,7 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_weight=".5"
+            android:layout_weight=".6"
             android:layout_width="0dp"
             android:layout_height="match_parent">
 
@@ -27,21 +27,22 @@
                 android:text="WED"
                 android:textColor="@color/grey_600"
                 android:textSize="@dimen/_13sdp" />
+
+
             <TextView
                 android:id="@+id/tvDate"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:textColor="@color/red_900"
-                android:layout_gravity="center"
-                android:textSize="@dimen/_27sdp"
-                android:text="14"
-                android:textStyle="bold"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="14"
+                android:textColor="@color/red_900"
+                android:textSize="@dimen/_27sdp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvTime"
-                android:layout_width="57dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_10sdp"
@@ -53,7 +54,7 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_weight="1.5"
+            android:layout_weight="1.4"
             android:layout_width="0dp"
             android:layout_height="match_parent">
             
@@ -129,7 +130,7 @@
                         android:textStyle="bold"
                         android:textSize="@dimen/_12sdp"
                         android:textColor="@color/grey_700"
-                        android:text="Newyork"
+                        android:text="Pune"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
@@ -193,7 +194,7 @@
                         android:gravity="center"
                         android:textStyle="bold"
                         android:textSize="@dimen/_12sdp"
-                        android:textColor="@color/red_900"
+                        android:textColor="@color/green_600"
                         android:text="Received"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>

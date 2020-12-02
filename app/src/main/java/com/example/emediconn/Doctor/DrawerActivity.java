@@ -13,9 +13,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.emediconn.ChooseRole;
 import com.example.emediconn.Database.PrefManager;
 import com.example.emediconn.Doctor.ui.AboutUs;
@@ -48,6 +50,8 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
     private AppBarConfiguration mAppBarConfiguration;
     DrawerLayout drawer;
     PrefManager prefManager;
+    ImageView iv_patienpropic;
+    TextView tv_patientname;
     //other
     public static int backPressed = 0;
 
@@ -60,11 +64,34 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerview = navigationView.getHeaderView(0);
 
         drawer = findViewById(R.id.drawer_layout);
+        iv_patienpropic = headerview.findViewById(R.id.iv_patientpropic);
+        tv_patientname = headerview.findViewById(R.id.tv_patientname);
+        prefManager=new PrefManager(DrawerActivity.this);
+        String name=prefManager.get("full_name");
+        //prefManager.get("full_name");
+           // tv_patientname.setText(prefManager.get("full_name"));
+        if(prefManager.get("profile_photo").equalsIgnoreCase(""))
+        {
+            iv_patienpropic.setImageDrawable(getResources().getDrawable(R.drawable.userr));
+        }
+        else
+        {
+            String image_url=prefManager.get("profile_photo");
+            Log.e("url",image_url);
+            Glide.with(getApplicationContext())
+                    .load(image_url)
+                    .into(iv_patienpropic);
+        }
+
+  tv_patientname.setText(name);
+
         prefManager=new PrefManager(this);
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -104,7 +131,7 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
             replaceFragmentWithAnimation(new AboutUs());
         }
         else if (id == R.id.nav_category) {
-            replaceFragmentWithAnimation(new DoctorListFragment());
+            replaceFragmentWithAnimation(new DoctorCategory());
         }
         else if (id == R.id.nav_termsOfservice) {
             replaceFragmentWithAnimation(new TermsOfService());

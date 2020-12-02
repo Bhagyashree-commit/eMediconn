@@ -82,6 +82,7 @@ public class BookAppointment extends Fragment {
     TextView tvAppointmentDate;
 
     ImageView ivProfile;
+    LinearLayout linearLayout;
 
     PrefManager prefManager;
 
@@ -113,6 +114,7 @@ public class BookAppointment extends Fragment {
         ploader = new ProgressDialog(getActivity());
 
         rrUpload = v.findViewById(R.id.rrUpload);
+        linearLayout = v.findViewById(R.id.linearspinner);
         rrDate = v.findViewById(R.id.rrDate);
         tvSpeciality=v.findViewById(R.id.tvSpeciality);
         tvDoctorName=v.findViewById(R.id.tvDoctorName);
@@ -147,12 +149,16 @@ public class BookAppointment extends Fragment {
         btnBookAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                String slot= arrayList.get(spTimeSlot.getSelectedItemPosition()).get("slot");
+                Log.e("TIMESLOT",""+slot);
                 if(etPatientname.getText().toString().trim().isEmpty())
                 {
                     etPatientname.setError("Enter Patient Name");
                     etPatientname.requestFocus();
                 }
-                else if(etPatientPhone.getText().toString().trim().isEmpty())
+                else if(etPatientPhone.getText().toString().length() < 10)
                 {
                     etPatientPhone.setError("Enter Patient Contact Number");
                     etPatientPhone.requestFocus();
@@ -173,16 +179,13 @@ public class BookAppointment extends Fragment {
                         // ploader.show();
                         HashMap<String, String> user = prefManager.getUserDetails();
                         String patientId = prefManager.get("user_id");
-                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                        String currentDateTime = dateFormat.format(new Date());
-                        BookAppointment(DoctorDiscriptionFragment.doc_mobile, etPatientname.getText().toString(), currentDateTime, etPatientPhone.getText().toString(), etPatientEmail.getText().toString(),patientId);
+                        String time=tvAppointmentDate.getText().toString()+" "+slot;
 
-                        Log.e("TAG","TAG"+DoctorDiscriptionFragment.doc_mobile);
-                        Log.e("TAG","TAG"+etPatientname.getText().toString());
-                        Log.e("TAG","TAG"+currentDateTime);
-                        Log.e("TAG","TAG"+etPatientPhone.getText().toString());
-                        Log.e("TAG","TAG"+etPatientEmail.getText().toString());
-                        Log.e("TAG","Sitanshuuu" +prefManager.get("user_id"));
+
+
+                        BookAppointment(DoctorDiscriptionFragment.doc_mobile, etPatientname.getText().toString(), time, etPatientPhone.getText().toString(), etPatientEmail.getText().toString(),patientId);
+
+
                     } else {
                         Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
                     }
@@ -244,13 +247,16 @@ public class BookAppointment extends Fragment {
                                         map=new HashMap<>();
                                         map.put("slot",jObject.getString("slot"));
                                         arrayList.add(map);
+
                                     }
                                     spTimeSlot.setAdapter(new SpinnerAdapter(getActivity(),R.layout.spinner_adapter,arrayList));
+
                                 }
                             }
                             else
                             {
-                                Toast.makeText(getActivity(), "Creadentials Wrong" +response.getString("message"), Toast.LENGTH_SHORT).show();
+                                linearLayout.setVisibility(View.INVISIBLE);
+                                Toast.makeText(getActivity(), "Sorry No Appoitments Available", Toast.LENGTH_SHORT).show();
 
                             }
 
@@ -290,7 +296,7 @@ public class BookAppointment extends Fragment {
             obj.put("startDate", startDate);
             obj.put("patient_phonenumber", patient_phonenumber);
             obj.put("patient_emailaddress", patient_emailaddress);
-            obj.put("patientId", "PVgJT2Fhnh20201023070510936305");
+            obj.put("user_id", patientId);
             Log.e("Leena",""+obj);
 
         } catch (JSONException e) {

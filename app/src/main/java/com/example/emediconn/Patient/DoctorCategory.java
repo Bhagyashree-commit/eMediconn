@@ -170,11 +170,7 @@ public class DoctorCategory extends Fragment {
                     categoryId=pu.speciality_id;
 
                     Log.e(TAG,"BHAGYASHREE"+categoryId);
-//                    Intent intent = new Intent(getActivity(), DoctorDescription.class);
-//                    intent.putExtra("speciality_id", pu.getSpeciality_id());
-//                    intent.putExtra("speciality",pu.getSpeciality());
-//                    intent.putExtra("imagepath",pu.getImagepath());
-//                    startActivity(intent);
+
                 }
             });
 

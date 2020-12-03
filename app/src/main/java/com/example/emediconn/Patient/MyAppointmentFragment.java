@@ -1,7 +1,6 @@
 
 package com.example.emediconn.Patient;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -32,7 +31,6 @@ import com.example.emediconn.Database.AppConfig;
 import com.example.emediconn.Database.PrefManager;
 
 import com.example.emediconn.Doctor.ui.MyAccountFragment;
-import com.example.emediconn.Doctor.ui.PatientDashboard;
 import com.example.emediconn.Extras.Utils;
 import com.example.emediconn.Model.MyAppointmentModel;
 
@@ -41,6 +39,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -85,7 +85,7 @@ public class MyAppointmentFragment extends Fragment {
         if (Utils.isNetworkConnectedMainThred(getActivity())) {
             // ploader.show();
             HashMap<String, String> user = prefManager.getUserDetails();
-            String patientId = user.get(PrefManager.KEY_ROLE);
+            String patientId = prefManager.get("user_id");
 
 
             HitGetAppointment(patientId);
@@ -132,26 +132,67 @@ public class MyAppointmentFragment extends Fragment {
             //DoctorListModel dm = arrayList.get(position);
 
             holder.tvFee.setText(arrayList.get(position).getFees());
-            holder.tvLocation.setText(arrayList.get(position).getHospital_location());
+           // holder.tvLocation.setText(arrayList.get(position).getHospital_location());
             holder.tvName.setText(arrayList.get(position).getDoctor_name());
             holder.tvSpeciality.setText(arrayList.get(position).getSpeciality());
-            holder.tvStatus.setText(arrayList.get(position).getStatus());
-           // holder.tvTime.setText(arrayList.get(position).getStartTime());
+            holder.tvStatus.setText("Received");
+            holder.tvTime.setText(arrayList.get(position).getStartTime());
 
 
-            Calendar c = Calendar.getInstance();
-            c.setTimeInMillis(Long.parseLong(arrayList.get(position).getStartTime()));
 
 
-            String dayOfWeek = c.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US);
-            Log.e("ddddd",""+dayOfWeek);
+            String[] separated = (arrayList.get(position).getStartTime()).split(" ");
 
-            holder.tvDayName.setText(dayOfWeek);
+            holder.tvTime.setText(separated[1] +" " +separated[2]);
+            String[] separateddate = separated[0].split("-");
+            holder.tvDate.setText(separateddate[0]);
+            Log.e("",""+separated[0]);
 
 
-            System.out.println(c.get(Calendar.DAY_OF_WEEK));
-            String[] separated = getDate(Long.parseLong(arrayList.get(position).getStartTime())).split("-");
-            holder.tvDate.setText(separated[0]);
+
+            String dateString = separated[0];
+
+
+            SimpleDateFormat inFormat = new SimpleDateFormat("dd-MM-yyyy");
+            Date date = null;
+            try {
+                date = inFormat.parse(dateString);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            SimpleDateFormat outFormat = new SimpleDateFormat("EEE");
+            String goal = outFormat.format(date);
+
+            holder.tvDayName.setText(goal);
+
+//            Date readDate = null;
+//            try {
+//                readDate = df.parse(dateString);
+//                Calendar cal = Calendar.getInstance();
+//                cal.setTimeInMillis(readDate.getTime());
+//            } catch (ParseException e) {
+//                e.printStackTrace();
+//            }
+
+
+            Log.e("",""+separated[0]);
+
+//            String dayOfTheWeek = (String) DateFormat.format("EEEE", Long.parseLong(separated[0])); // Thursday
+//
+//            Log.e("defsdf","blanck"+dayOfTheWeek);
+//            Calendar c = Calendar.getInstance();
+//            c.setTimeInMillis(Long.parseLong(arrayList.get(position).getStartTime()));
+//
+//
+//            String dayOfWeek = c.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US);
+//            Log.e("ddddd",""+dayOfWeek);
+//
+//            holder.tvDayName.setText(dayOfWeek);
+//
+//
+//            System.out.println(c.get(Calendar.DAY_OF_WEEK));
+//            String[] separated = getDate(Long.parseLong(arrayList.get(position).getStartTime())).split("-");
+//            holder.tvDate.setText(separated[0]);
 
             if(arrayList.get(position).getDoctor_image().isEmpty())
             {
@@ -241,7 +282,7 @@ public class MyAppointmentFragment extends Fragment {
                                     patientModel=new MyAppointmentModel();
                                     patientModel.setPhonenumber(jsonObject.getString("phonenumber"));
                                     patientModel.setDoctor_name(jsonObject.getString("doctor_name"));
-                                    patientModel.setStatus(jsonObject.getString("status"));
+                                   // patientModel.setStatus(jsonObject.getString("status"));
                                     patientModel.setHospital_location(jsonObject.getString("hospital_location"));
 
                                     if(jsonObject.getString("doctor_image").isEmpty())

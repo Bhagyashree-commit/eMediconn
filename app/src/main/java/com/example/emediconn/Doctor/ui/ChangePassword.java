@@ -171,7 +171,7 @@ cp_mobilenumber.setText(prefManager.get("mobilenumber"));
 
 
     private void changePassword( ){
-        ploader.setMessage("Logging in ...");
+        ploader.setMessage("Loading ...");
         ploader.show();
 
         prefManager = new PrefManager(getContext());

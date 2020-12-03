@@ -104,7 +104,12 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     if (keyCode == KeyEvent.KEYCODE_BACK) {
-                        replaceFragmentWithAnimation(new DoctorListFragment());
+                        if(AppConfig.Status.equalsIgnoreCase("1")){
+                            replaceFragmentWithAnimation(new PatientDashboard());
+                        }else {
+                            replaceFragmentWithAnimation(new DoctorListFragment());
+                        }
+
                         return true;
                     }
                 }
@@ -128,10 +133,15 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
 
             HashMap<String, String> user = prefManager.getUserDetails();
 
+if(AppConfig.Status.equalsIgnoreCase("1")){
+    getDoctorDiscription(PatientDashboard.mobilenumber);
+}
+else {
+    getDoctorDiscription(DoctorListFragment.mobilenumber);
+}
 
-            getDoctorDiscription(DoctorListFragment.mobilenumber);
 
-            Log.e("Tesssstt",DoctorListFragment.mobilenumber);
+           // Log.e("Tesssstt",DoctorListFragment.mobilenumber);
         } else {
             Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
         }

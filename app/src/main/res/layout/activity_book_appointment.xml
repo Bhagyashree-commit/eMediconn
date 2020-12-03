@@ -283,6 +283,7 @@
 
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/linearspinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_10sdp"
@@ -360,7 +361,8 @@
                         android:textSize="@dimen/_12sdp"
                         android:layout_alignParentTop="true"
                         android:layout_alignRight="@+id/imageView"
-                        android:layout_alignEnd="@+id/imageView" />
+                        android:layout_alignEnd="@+id/imageView"
+                        tools:ignore="UnknownId" />
 
                 </RelativeLayout>
             </LinearLayout>

@@ -144,6 +144,7 @@ public class DoctorListFragment extends Fragment {
           holder.itemView.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
+                  AppConfig.Status="2";
                   mobilenumber=arrayList.get(position).getMobilenumber();
 
                   replaceFragmentWithAnimation(new DoctorDiscriptionFragment());

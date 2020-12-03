@@ -1,9 +1,6 @@
 package com.example.emediconn.Doctor;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -24,10 +21,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.emediconn.Database.AppConfig;
 import com.example.emediconn.Database.PrefManager;
-import com.example.emediconn.Doctor.ui.DoctorProfile;
-import com.example.emediconn.Patient.ForgetPassword;
 import com.example.emediconn.Patient.LoginPatient;
-import com.example.emediconn.Patient.PatientRegistration;
 import com.example.emediconn.R;
 
 import org.json.JSONException;

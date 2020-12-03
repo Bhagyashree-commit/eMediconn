@@ -12,7 +12,7 @@
 
     <fragment
         android:id="@+id/nav_searchpatient"
-        android:name="com.example.emediconn.Doctor.ui.SearchPatient"
+        android:name="com.example.emediconn.Doctor.ui.SearchPatientFragment"
         android:label="@string/menu_searchpatient"
         tools:layout="@layout/fragment_search_patient" />
 

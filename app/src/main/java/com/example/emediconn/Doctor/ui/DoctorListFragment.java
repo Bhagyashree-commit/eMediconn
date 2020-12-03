@@ -30,7 +30,7 @@ import com.bumptech.glide.Glide;
 import com.example.emediconn.Database.AppConfig;
 import com.example.emediconn.Extras.Utils;
 import com.example.emediconn.Model.DoctorListModel;
-import com.example.emediconn.Patient.DoctorCategory;
+import com.example.emediconn.Patient.DoctorCategoryFragment;
 import com.example.emediconn.R;
 
 import org.json.JSONArray;
@@ -68,7 +68,7 @@ public class DoctorListFragment extends Fragment {
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     if (keyCode == KeyEvent.KEYCODE_BACK) {
 
-                        replaceFragmentWithAnimation(new DoctorCategory());
+                        replaceFragmentWithAnimation(new DoctorCategoryFragment());
 
                         return true;
                     }
@@ -84,7 +84,7 @@ public class DoctorListFragment extends Fragment {
 
         if (Utils.isNetworkConnectedMainThred(getActivity())) {
            // ploader.show();
-            HitDoctorListAPI(DoctorCategory.categoryId);
+            HitDoctorListAPI(DoctorCategoryFragment.categoryId);
 
 
         } else {

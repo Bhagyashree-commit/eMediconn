@@ -92,7 +92,7 @@
 
             <ImageView
                 android:layout_marginTop="@dimen/_5sdp"
-                android:src="@drawable/ic_calendar"
+                android:src="@drawable/appoitment"
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_60sdp"
                 android:layout_height="@dimen/_60sdp"/>
@@ -120,7 +120,7 @@
 
             <ImageView
                 android:layout_marginTop="@dimen/_5sdp"
-                android:src="@drawable/ic_patient"
+                android:src="@drawable/todays_patient"
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_60sdp"
                 android:layout_height="@dimen/_60sdp"/>
@@ -147,7 +147,7 @@
         android:layout_height="@dimen/_100sdp">
 
         <LinearLayout
-            android:id="@+id/linlaydoctormyprofile"
+            android:id="@+id/linlayprofile"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:orientation="vertical"
@@ -157,7 +157,7 @@
 
             <ImageView
                 android:layout_marginTop="@dimen/_5sdp"
-                android:src="@drawable/ic_man"
+                android:src="@drawable/bankdetails"
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_60sdp"
                 android:layout_height="@dimen/_60sdp"/>
@@ -166,7 +166,7 @@
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textColor="@color/grey_700"
-                android:text="Profile"
+                android:text="Bank Details"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:textSize="@dimen/_12sdp"
                 android:layout_width="match_parent"
@@ -183,7 +183,7 @@
 
             <ImageView
                 android:layout_marginTop="@dimen/_5sdp"
-                android:src="@drawable/ic_password"
+                android:src="@drawable/history"
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_68sdp"
                 android:layout_height="@dimen/_60sdp"/>
@@ -192,7 +192,7 @@
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textColor="@color/grey_700"
-                android:text="Bank Details"
+                android:text="History"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:textSize="@dimen/_12sdp"
                 android:layout_width="match_parent"
@@ -219,7 +219,7 @@
 
             <ImageView
                 android:layout_marginTop="@dimen/_5sdp"
-                android:src="@drawable/ic_man"
+                android:src="@drawable/doc_profile"
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_60sdp"
                 android:layout_height="@dimen/_60sdp"/>
@@ -228,7 +228,7 @@
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textColor="@color/grey_700"
-                android:text="History"
+                android:text="Profile"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:textSize="@dimen/_12sdp"
                 android:layout_width="match_parent"
@@ -248,7 +248,7 @@
 
             <ImageView
                 android:layout_marginTop="@dimen/_5sdp"
-                android:src="@drawable/ic_password"
+                android:src="@drawable/changepas"
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_68sdp"
                 android:layout_height="@dimen/_60sdp"/>

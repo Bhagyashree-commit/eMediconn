@@ -30,7 +30,6 @@ import com.bumptech.glide.Glide;
 import com.example.emediconn.Database.AppConfig;
 import com.example.emediconn.Database.PrefManager;
 
-import com.example.emediconn.Doctor.ui.MyAccountFragment;
 import com.example.emediconn.Extras.Utils;
 import com.example.emediconn.Model.MyAppointmentModel;
 

@@ -18,21 +18,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.emediconn.ChooseRole;
 import com.example.emediconn.Database.PrefManager;
-import com.example.emediconn.Doctor.ui.AboutUs;
-import com.example.emediconn.Doctor.ui.ChangePassword;
-import com.example.emediconn.Doctor.ui.ContactUsFragment;
+import com.example.emediconn.Patient.AboutUsFragment;
+import com.example.emediconn.Doctor.ui.ChangePasswordFragment;
+import com.example.emediconn.Patient.ContactUsFragment;
 import com.example.emediconn.Doctor.ui.DoctorListFragment;
-import com.example.emediconn.Doctor.ui.MyAccountFragment;
-import com.example.emediconn.Doctor.ui.MyProfile;
-import com.example.emediconn.Doctor.ui.PatientDashboard;
-import com.example.emediconn.Doctor.ui.TermsOfService;
-import com.example.emediconn.Patient.DoctorCategory;
-import com.example.emediconn.Patient.MyProfileFragment;
+import com.example.emediconn.Patient.MyAccountFragment;
+import com.example.emediconn.Patient.PatientDashboardFragment;
+import com.example.emediconn.Patient.TermsOfServiceFragment;
+import com.example.emediconn.Patient.DoctorCategoryFragment;
 import com.example.emediconn.R;
 import com.google.android.material.navigation.NavigationView;
-import com.example.emediconn.Doctor.ui.SearchPatient;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -111,7 +108,7 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
             // do whatever
             replaceFragmentWithAnimation(new DoctorListFragment());
         } else {
-            replaceFragmentWithAnimation(new PatientDashboard());
+            replaceFragmentWithAnimation(new PatientDashboardFragment());
             // do whatever
         }
     }
@@ -119,22 +116,22 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
         if (id == R.id.nav_patientdashboard) {
-            replaceFragmentWithAnimation( new PatientDashboard());
+            replaceFragmentWithAnimation( new PatientDashboardFragment());
         }
         else if (id == R.id.myProfile) {
             replaceFragmentWithAnimation( new MyAccountFragment());
         }
         else if (id == R.id.nav_changepass) {
-            replaceFragmentWithAnimation( new ChangePassword());
+            replaceFragmentWithAnimation( new ChangePasswordFragment());
         }
         else if (id == R.id.nav_aboutus) {
-            replaceFragmentWithAnimation(new AboutUs());
+            replaceFragmentWithAnimation(new AboutUsFragment());
         }
         else if (id == R.id.nav_category) {
-            replaceFragmentWithAnimation(new DoctorCategory());
+            replaceFragmentWithAnimation(new DoctorCategoryFragment());
         }
         else if (id == R.id.nav_termsOfservice) {
-            replaceFragmentWithAnimation(new TermsOfService());
+            replaceFragmentWithAnimation(new TermsOfServiceFragment());
         }
 
         else if (id == R.id.nav_appshare) {

@@ -20,7 +20,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.emediconn.Database.AppConfig;
 import com.example.emediconn.Database.PrefManager;
-import com.example.emediconn.Doctor.ui.ChangePassword;
 import com.example.emediconn.R;
 
 import org.json.JSONException;

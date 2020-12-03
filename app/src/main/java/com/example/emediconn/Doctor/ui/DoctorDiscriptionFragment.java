@@ -29,9 +29,8 @@ import com.bumptech.glide.Glide;
 import com.example.emediconn.Database.AppConfig;
 import com.example.emediconn.Database.PrefManager;
 import com.example.emediconn.Extras.Utils;
-import com.example.emediconn.Model.DoctorListModel;
-import com.example.emediconn.Patient.BookAppointment;
-import com.example.emediconn.Patient.DoctorCategory;
+import com.example.emediconn.Patient.BookAppointmentFragment;
+import com.example.emediconn.Patient.PatientDashboardFragment;
 import com.example.emediconn.R;
 
 import org.json.JSONArray;
@@ -105,7 +104,7 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     if (keyCode == KeyEvent.KEYCODE_BACK) {
                         if(AppConfig.Status.equalsIgnoreCase("1")){
-                            replaceFragmentWithAnimation(new PatientDashboard());
+                            replaceFragmentWithAnimation(new PatientDashboardFragment());
                         }else {
                             replaceFragmentWithAnimation(new DoctorListFragment());
                         }
@@ -121,7 +120,7 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
         btnBookAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragmentWithAnimation(new BookAppointment());
+                replaceFragmentWithAnimation(new BookAppointmentFragment());
             }
         });
 
@@ -134,7 +133,7 @@ tv_servicesofdoctor=v.findViewById(R.id.doctorservice);
             HashMap<String, String> user = prefManager.getUserDetails();
 
 if(AppConfig.Status.equalsIgnoreCase("1")){
-    getDoctorDiscription(PatientDashboard.mobilenumber);
+    getDoctorDiscription(PatientDashboardFragment.mobilenumber);
 }
 else {
     getDoctorDiscription(DoctorListFragment.mobilenumber);

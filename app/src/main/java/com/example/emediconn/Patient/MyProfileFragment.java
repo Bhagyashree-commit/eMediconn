@@ -1,6 +1,5 @@
 package com.example.emediconn.Patient;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -31,10 +30,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.emediconn.Database.AppConfig;
 import com.example.emediconn.Database.PrefManager;
-import com.example.emediconn.Doctor.ui.DoctorDiscriptionFragment;
-import com.example.emediconn.Doctor.ui.MyAccountFragment;
 import com.example.emediconn.Extras.Utils;
-import com.example.emediconn.Model.MyAppointmentModel;
 import com.example.emediconn.R;
 
 import org.json.JSONArray;

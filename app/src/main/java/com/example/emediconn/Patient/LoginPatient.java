@@ -105,7 +105,6 @@ public class LoginPatient extends AppCompatActivity {
                     flag=1;
                 }
                 if(flag==0){
-
                     if(prefManager.get("usertype")=="patient"){
                         loginpatient(mobilenum,password);
                     }

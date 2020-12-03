@@ -22,8 +22,6 @@
 
         <activity android:name=".Doctor.ui.MyProfile" />
         <activity android:name=".Doctor.ui.Appointments" />
-
-
         <activity android:name=".Patient.TimeSlot" />
         <activity android:name=".Patient.PatientActivity" />
         <activity android:name=".Patient.DoctorDescription" />
@@ -35,7 +33,10 @@
         <activity android:name=".Patient.PatientRegistration" />
         <activity android:name=".Patient.LoginPatient" />
         <activity android:name=".Doctor.DoctorDashboard" >
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Doctor.DrawerActivity"
@@ -49,11 +50,7 @@
         <activity android:name=".Patient.SearchActivity" />
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".MainActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
 

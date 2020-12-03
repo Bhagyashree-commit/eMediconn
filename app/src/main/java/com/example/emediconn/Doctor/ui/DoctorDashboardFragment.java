@@ -40,7 +40,6 @@ public class DoctorDashboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
         View v= inflater.inflate(R.layout.doctor_dashboard_fragment, container, false);
         linlayappointment=v.findViewById(R.id.linlayappointment);
         linlaydoctormyprofile=v.findViewById(R.id.linlayprofile);
@@ -55,27 +54,27 @@ public class DoctorDashboardFragment extends Fragment {
                 logout();
             }
         });
-        linlayappointment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getActivity(), Appointments.class);
-                getActivity().startActivity(myIntent);
-            }
-        });
-
-        linlaydoctormyprofile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                replaceFragmentWithAnimation(new MyDoctorProfileFragment());
-            }
-        });
-
-        linlaychangepassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                replaceFragmentWithAnimation(new ChangePassword());
-            }
-        });
+//        linlayappointment.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent myIntent = new Intent(getActivity(), Appointments.class);
+//                getActivity().startActivity(myIntent);
+//            }
+//        });
+//
+//        linlaydoctormyprofile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                replaceFragmentWithAnimation(new MyDoctorProfileFragment());
+//            }
+//        });
+//
+//        linlaychangepassword.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                replaceFragmentWithAnimation(new ChangePassword());
+//            }
+//        });
 
 
         //Back

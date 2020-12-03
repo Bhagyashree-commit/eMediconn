@@ -2,107 +2,133 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <include
         layout="@layout/custom_header"
         />
 
-    <RelativeLayout
-        android:background="@drawable/gradient"
+    <LinearLayout
+        android:orientation="vertical"
+
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_190sdp">
+        android:layout_height="wrap_content">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_marginTop="@dimen/_25sdp"
-          android:layout_centerHorizontal="true"
-            app:civ_border_width="@dimen/_5sdp"
-            app:civ_border_color="@color/white"
-            android:outlineSpotShadowColor="@color/white"
-            app:civ_circle_background_color="@color/white"
-            android:src="@drawable/doctorr"
-            android:id="@+id/ivProfile"
-            android:layout_gravity="center_vertical"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_70sdp"/>
-        <TextView
-            android:layout_below="@id/ivProfile"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:id="@+id/tvName"
-            android:textColor="@color/white"
-            android:text="Dr. Rashmi Dwivedi"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:textSize="@dimen/_16sdp"
+        <com.flaviofaria.kenburnsview.KenBurnsView
+            android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:layout_below="@+id/tvName"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:gravity="center"
-            android:id="@+id/tvPhone"
-            android:textColor="@color/white"
-            android:text="Cardiologist"
-            android:textSize="@dimen/_13sdp"
+            android:layout_height="@dimen/_180sdp"
+            android:fadeScrollbars="true"
+            android:fadingEdge="vertical"
+            android:src="@drawable/baground" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_minus40sdp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:src="@drawable/doctrrrr" />
 
 
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dr.Tom Cruise"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cardiac Surgeon"
+
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:maxLines="2"
+                    android:text="MBBS MD DNB Cardiologist "
+                    android:textColor="@color/grey_900"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_margin="@dimen/_10sdp"
-        android:weightSum="3"
+        android:weightSum="2"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_100sdp">
 
-
         <LinearLayout
             android:id="@+id/linlayappointment"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
             android:orientation="vertical"
-            android:elevation="@dimen/_10sdp"
-            android:background="@drawable/rectangle_black"
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-
-                 <ImageView
-                     android:layout_marginTop="@dimen/_5sdp"
-                     android:src="@drawable/ic_baseline_date_red"
-                     android:layout_gravity="center"
-                     android:layout_width="@dimen/_50sdp"
-                     android:layout_height="@dimen/_50sdp"/>
-
-            <TextView
-                android:gravity="center"
-                android:textColor="@color/black_trans"
-                android:text="Appointemnt Request"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:textSize="@dimen/_12sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:elevation="@dimen/_10sdp"
-            android:background="@drawable/rectangle_black"
-            android:layout_margin="@dimen/_5sdp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent">
 
             <ImageView
                 android:layout_marginTop="@dimen/_5sdp"
-                android:src="@drawable/ic_baseline_supervised_user_circle_24"
+                android:src="@drawable/ic_calendar"
                 android:layout_gravity="center"
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_50sdp"/>
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"/>
 
             <TextView
+                android:textStyle="bold"
                 android:gravity="center"
-                android:textColor="@color/black_trans"
+                android:textColor="@color/grey_700"
+                android:text="Appointments"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textSize="@dimen/_12sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_marginTop="@dimen/_5sdp"
+                android:src="@drawable/ic_patient"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/grey_700"
                 android:text="Today's Patient"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:textSize="@dimen/_12sdp"
@@ -110,125 +136,137 @@
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:elevation="@dimen/_10sdp"
-            android:background="@drawable/rectangle_black"
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:layout_marginTop="@dimen/_5sdp"
-                android:src="@drawable/ic_baseline_history_24"
-                android:layout_gravity="center"
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_50sdp"/>
-            <TextView
-                android:gravity="center"
-                android:textColor="@color/black_trans"
-                android:text="Histoy"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:textSize="@dimen/_12sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_margin="@dimen/_10sdp"
-        android:weightSum="3"
+        android:weightSum="2"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_100sdp">
 
         <LinearLayout
-            android:id="@+id/linlayprofile"
+            android:id="@+id/linlaydoctormyprofile"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
             android:orientation="vertical"
-            android:elevation="@dimen/_10sdp"
-            android:background="@drawable/rectangle_black"
-            android:layout_margin="@dimen/_5sdp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent">
 
             <ImageView
                 android:layout_marginTop="@dimen/_5sdp"
-                android:src="@drawable/ic_baseline_account_box_24"
+                android:src="@drawable/ic_man"
                 android:layout_gravity="center"
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_50sdp"/>
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"/>
 
             <TextView
+                android:textStyle="bold"
                 android:gravity="center"
-
-                android:textColor="@color/black_trans"
+                android:textColor="@color/grey_700"
                 android:text="Profile"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:textSize="@dimen/_12sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-
         </LinearLayout>
         <LinearLayout
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
             android:orientation="vertical"
-            android:elevation="@dimen/_10sdp"
-            android:background="@drawable/rectangle_black"
-            android:layout_margin="@dimen/_5sdp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent">
 
             <ImageView
                 android:layout_marginTop="@dimen/_5sdp"
-                android:src="@drawable/ic_baseline_account_balance_24"
+                android:src="@drawable/ic_password"
                 android:layout_gravity="center"
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_50sdp"/>
+                android:layout_width="@dimen/_68sdp"
+                android:layout_height="@dimen/_60sdp"/>
 
             <TextView
+                android:textStyle="bold"
                 android:gravity="center"
-
-                android:textColor="@color/black_trans"
+                android:textColor="@color/grey_700"
                 android:text="Bank Details"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:textSize="@dimen/_12sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp">
+
         <LinearLayout
-            android:id="@+id/linlaychangepassword"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
             android:orientation="vertical"
-            android:elevation="@dimen/_10sdp"
-            android:background="@drawable/rectangle_black"
-            android:layout_margin="@dimen/_5sdp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent">
 
             <ImageView
                 android:layout_marginTop="@dimen/_5sdp"
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_50sdp"
+                android:src="@drawable/ic_man"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_baseline_vpn_key_24" />
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"/>
 
             <TextView
+                android:textStyle="bold"
                 android:gravity="center"
+                android:textColor="@color/grey_700"
+                android:text="History"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textSize="@dimen/_12sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-                android:textColor="@color/black_trans"
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linlaychangepassword"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_marginTop="@dimen/_5sdp"
+                android:src="@drawable/ic_password"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_68sdp"
+                android:layout_height="@dimen/_60sdp"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/grey_700"
                 android:text="Change Password"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:textSize="@dimen/_12sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-
         </LinearLayout>
-
     </LinearLayout>
+
+
+
 
 </LinearLayout>

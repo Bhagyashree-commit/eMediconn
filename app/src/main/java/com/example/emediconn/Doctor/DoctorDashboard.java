@@ -17,7 +17,8 @@ public class DoctorDashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_dashboard);
-     replaceFragmentWithAnimation(new DoctorDashboardFragment());
+
+        replaceFragmentWithAnimation(new DoctorDashboardFragment());
     }
 
     public void replaceFragmentWithAnimation(Fragment fragment) {
@@ -29,4 +30,5 @@ public class DoctorDashboard extends AppCompatActivity {
         // transaction.addToBackStack(null);
         transaction.commit();
     }
+
 }

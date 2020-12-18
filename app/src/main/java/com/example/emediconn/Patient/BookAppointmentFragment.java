@@ -72,6 +72,7 @@ public class BookAppointmentFragment extends Fragment {
     TextView tvDoctorName;
     TextView tvFee;
     TextView tvAppointmentDate;
+    TextView tvConsultation;
 
     ImageView ivProfile;
     LinearLayout linearLayout;
@@ -112,6 +113,7 @@ public class BookAppointmentFragment extends Fragment {
         tvDoctorName=v.findViewById(R.id.tvDoctorName);
         tvFee=v.findViewById(R.id.tvFee);
         tvAppointmentDate=v.findViewById(R.id.tvAppointmentDate);
+        tvConsultation=v.findViewById(R.id.tvConsultation);
         etPatientname = v.findViewById(R.id.etPatientname);
         etPatientPhone = v.findViewById(R.id.etPatientPhone);
         etPatientEmail = v.findViewById(R.id.etPatientEmail);
@@ -125,7 +127,6 @@ public class BookAppointmentFragment extends Fragment {
                 .load(DoctorDiscriptionFragment.proimage)
                 .into(ivProfile);
 
-
         tvDoctorName.setText(DoctorDiscriptionFragment.docname);
         tvFee.setText(DoctorDiscriptionFragment.fees);
 
@@ -138,10 +139,16 @@ public class BookAppointmentFragment extends Fragment {
             }
         });
 
+        tvConsultation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         btnBookAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 String slot= arrayList.get(spTimeSlot.getSelectedItemPosition()).get("slot");
                 Log.e("TIMESLOT",""+slot);
@@ -166,18 +173,12 @@ public class BookAppointmentFragment extends Fragment {
                 }
                 else
                 {
-
                     if (Utils.isNetworkConnectedMainThred(getActivity())) {
                         // ploader.show();
                         HashMap<String, String> user = prefManager.getUserDetails();
                         String patientId = prefManager.get("user_id");
                         String time=tvAppointmentDate.getText().toString()+" "+slot;
-
-
-
                         BookAppointment(DoctorDiscriptionFragment.doc_mobile, etPatientname.getText().toString(), time, etPatientPhone.getText().toString(), etPatientEmail.getText().toString(),patientId);
-
-
                     } else {
                         Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
                     }
@@ -192,8 +193,6 @@ public class BookAppointmentFragment extends Fragment {
             }
         });
         spTimeSlot = v.findViewById(R.id.spTimeSlot);
-
-
         return v;
     }
 
@@ -288,6 +287,7 @@ public class BookAppointmentFragment extends Fragment {
             obj.put("startDate", startDate);
             obj.put("patient_phonenumber", patient_phonenumber);
             obj.put("patient_emailaddress", patient_emailaddress);
+            obj.put("appointmentType", "");
             obj.put("user_id", patientId);
             Log.e("Leena",""+obj);
 

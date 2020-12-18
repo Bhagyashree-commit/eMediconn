@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/grey_200"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <noman.weekcalendar.WeekCalendar
+        android:id="@+id/weekCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:selectedBgColor="@color/orange_500"
+        android:background="@color/colorPrimary"
+        app:numOfPages="2"
+        app:dayNameLength="threeLetters"
+
+        />
+
+
+
+
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_centerVertical="true"
+        android:id="@+id/recyclerView"
+        android:background="@color/white"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        />
+
+
+    <androidx.cardview.widget.CardView
+        app:cardElevation="@dimen/_5sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp">
+
+
+        <TextView
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/blue_900"
+            android:textSize="@dimen/_12sdp"
+            android:text="+ Add Address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <Button
+        android:id="@+id/btnBookNow"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/_20sdp"
+        android:background="@drawable/capsule"
+        android:padding="@dimen/_5sdp"
+        android:text="Book Now"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10sdp" />
+</LinearLayout>

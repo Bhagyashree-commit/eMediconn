@@ -77,7 +77,7 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
     TextView tvAppointments;
     TextView tvWallet;
     TextView tvViewProfile;
-    TextView tvViewAddress;
+    TextView tvConsultation;
     RelativeLayout rlEdit;
 
     static final int REQUEST_TAKE_PHOTO = 1;
@@ -88,7 +88,6 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
     ProgressDialog ploader;
 
     PrefManager prefManager;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -118,10 +117,10 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
         tvAppointments.setOnClickListener(this);
 
         tvViewProfile = v.findViewById(R.id.tvViewProfile);
-        tvViewAddress = v.findViewById(R.id.tvViewAddress);
+        tvConsultation = v.findViewById(R.id.tvConsultation);
 
         tvViewProfile.setOnClickListener(this);
-        tvViewAddress.setOnClickListener(this);
+        tvConsultation.setOnClickListener(this);
 
         ivProfile.setOnClickListener(this);
 
@@ -156,7 +155,6 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
     return v;
     }
 
-
     @Override
     public void onClick(View view) {
 
@@ -172,6 +170,11 @@ public class MyAccountFragment extends Fragment implements View.OnClickListener 
             case R.id.ivProfile:
               //  selectImage();
                 showCameraGalleryDialog();
+                break;
+
+            case R.id.tvConsultation:
+                replaceFragmentWithAnimation(new ConsultationFragment());
+
                 break;
         }
     }

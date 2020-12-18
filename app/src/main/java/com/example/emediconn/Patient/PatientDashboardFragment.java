@@ -64,15 +64,12 @@ public class PatientDashboardFragment extends Fragment {
         // Required empty public constructor
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         getActivity().setTitle("Dashboard");
         View v= inflater.inflate(R.layout.fragment_patient_dashboard, container, false);
         ploader = new ProgressDialog(getActivity());
-
         // Inflate the layout for this fragment
         recyclerView=v.findViewById(R.id.recyclerView);
         rvDoctor=v.findViewById(R.id.rvDoctor);
@@ -265,7 +262,6 @@ public class PatientDashboardFragment extends Fragment {
                 public void onClick(View view) {
                     AppConfig.Status="1";
                     mobilenumber=arrayList.get(position).getMobilenumber();
-
                     replaceFragmentWithAnimation(new DoctorDiscriptionFragment());
                 }
             });

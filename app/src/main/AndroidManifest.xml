@@ -6,11 +6,27 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature android:name="android.hardware.camera.flash" />
+
+
+
+
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,17 +35,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Lab.MyReports">
 
-        <activity android:name=".Patient.TimeSlot" />
+        </activity>
+        <activity android:name=".Lab.Address" />
+
+
+        <activity android:name=".Lab.LabTest">
+
+        </activity>
+        <activity android:name=".Lab.TimeSlot"></activity>
         <activity android:name=".Doctor.otp_doctor" />
         <activity android:name=".Patient.ResetPassword" />
         <activity android:name=".Patient.ForgetPassword" />
         <activity android:name=".Patient.otp_patient" />
         <activity android:name=".Patient.PatientRegistration" />
         <activity android:name=".Patient.LoginPatient" />
-        <activity android:name=".Doctor.DoctorDashboard" >
-
-        </activity>
+        <activity android:name=".Doctor.DoctorDashboard" />
         <activity
             android:name=".Doctor.DrawerActivity"
             android:label="@string/title_activity_drawer"
@@ -46,8 +68,9 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <activity android:name=".Patient.VideoConferenceActivity"
+            android:screenOrientation="portrait"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -56,7 +79,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_provider_paths"/>
+                android:resource="@xml/file_provider_paths" />
         </provider>
     </application>
 

@@ -5,10 +5,20 @@ public class MyAppointmentModel {
     private String  doctor_name;
     private String  startTime;
     private String  phonenumber;
+
+    public String getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
+
     private String  fees;
     private String  status;
     private String  doctor_image;
     private String  hospital_location;
+    private String  roomId;
 
     public String getSpeciality() {
         return speciality;

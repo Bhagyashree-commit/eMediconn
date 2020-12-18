@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="@dimen/_5sdp"
+        app:cardElevation="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textColor="@color/blue_900"
+                android:textSize="@dimen/_12sdp"
+                android:maxLines="2"
+                android:text="Master Full Body Health Checkup-Female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RelativeLayout
+               android:layout_marginTop="@dimen/_5sdp"
+                android:background="@color/blue_100"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_25sdp">
+
+            <TextView
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:maxLines="2"
+                android:text="Test Include: 52"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/tvViewReport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:gravity="right"
+                    android:text="View Tests"
+                    android:textColor="@color/red_700"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+            <TextView
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="@color/black_trans"
+                android:textSize="@dimen/_12sdp"
+                android:maxLines="2"
+                android:text="by Thyrocare "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_test_tube"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"/>
+                <TextView
+
+                   android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/green_600"
+                    android:textSize="@dimen/_10sdp"
+                    android:maxLines="2"
+                    android:text="Free Home Sample"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/red_700"
+                    android:textStyle="normal"
+                    android:text="\u20b9 1800"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+                <TextView
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/black_trans"
+                    android:textStyle="normal"
+                    android:text="@string/line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+
+                <LinearLayout
+                    android:backgroundTint="@color/red_600"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:background="@drawable/tag"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_15sdp">
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/_7sdp"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:text="25% Off"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnBookNow"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="33dp"
+               android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/capsule"
+                android:padding="@dimen/_5sdp"
+                android:text="Book Package"
+                   android:layout_gravity="right"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10sdp" />
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.emediconn.Patient;
+package com.example.emediconn.Lab;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -7,6 +7,7 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.emediconn.R;
@@ -32,25 +34,37 @@ public class TimeSlot extends AppCompatActivity implements  OnDateClickListener 
 
     public String isSelected;
 
+    Button btnBookNow;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_time_slot);
+        setContentView(R.layout.selecttime);
         WeekCalendar weekCalendar=findViewById(R.id.weekCalendar);
 
         recyclerView=findViewById(R.id.recyclerView);
-        recyclerEvening=findViewById(R.id.recyclerEvening);
-        recyclerAfternoon=findViewById(R.id.recyclerAfternoon);
+
+        btnBookNow=findViewById(R.id.btnBookNow);
+
+        btnBookNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TimeSlot.this,Address.class));
+            }
+        });
+//        recyclerEvening=findViewById(R.id.recyclerEvening);
+//        recyclerAfternoon=findViewById(R.id.recyclerAfternoon);
         setAdapter(recyclerView);
-        setAdapter(recyclerEvening);
-        setAdapter(recyclerAfternoon);
+//        setAdapter(recyclerEvening);
+//        setAdapter(recyclerAfternoon);
 
         weekCalendar.setOnDateClickListener(this);
 
     }
     @Override
     public void onDateClick(DateTime dateTime) {
-        Log.e("jjddjd",""+dateTime.getDayOfWeek());
+       // Log.e("jjddjd",""+dateTime.getDayOfWeek());
+        Log.e("jjddjd",""+dateTime.toLocalDate());
     }
     public void setAdapter(RecyclerView mRecyclerview)
     {

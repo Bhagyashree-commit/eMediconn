@@ -61,6 +61,7 @@ public class MyAppointmentFragment extends Fragment {
         View v= inflater.inflate(R.layout.activity_appointments, container, false);
         getActivity().setTitle("My Appointments");
 
+
         //Back
         v.setFocusableInTouchMode(true);
         v.requestFocus();
@@ -85,17 +86,13 @@ public class MyAppointmentFragment extends Fragment {
             // ploader.show();
             HashMap<String, String> user = prefManager.getUserDetails();
             String patientId = prefManager.get("user_id");
-
-
             HitGetAppointment(patientId);
         }
         else {
             Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
         }
-
         return v;
     }
-
 
     public void replaceFragmentWithAnimation(Fragment fragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -106,6 +103,7 @@ public class MyAppointmentFragment extends Fragment {
         // transaction.addToBackStack(null);
         transaction.commit();
     }
+
 
     public void setAdapter(RecyclerView mRecyclerview,ArrayList<MyAppointmentModel> arrayList)
     {

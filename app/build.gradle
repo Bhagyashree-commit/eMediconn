@@ -2,21 +2,19 @@ apply plugin: 'com.android.application'
 
 android {
 
-    dataBinding {
-        enabled = true
-    }
-
+    android.buildFeatures.dataBinding=true
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.example.emediconn"
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -24,6 +22,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        disable 'RestrictedApi'
     }
 }
 
@@ -75,10 +82,12 @@ dependencies {
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.1.0'
 
     implementation 'net.gotev:uploadservice:2.1'
-
     //loader
     implementation 'com.agrawalsuneet.androidlibs:loaderspack:1.2.3'
 
     implementation 'com.karumi:dexter:4.2.0'
+    implementation 'com.enxrtc:Enx-Rtc-Android:1.7.2'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation 'com.google.code.gson:gson:2.8.5'
 
 }

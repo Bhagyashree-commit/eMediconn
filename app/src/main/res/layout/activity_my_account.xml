@@ -143,7 +143,7 @@
                     android:layout_height="@dimen/_20sdp"
                     android:layout_margin="@dimen/_10sdp"
                     android:gravity="center_vertical"
-                    android:text="My Prescriptions"
+                    android:text="My Consultation"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_13sdp" />
 
@@ -162,8 +162,8 @@
                     android:layout_alignParentBottom="true"
                     android:layout_margin="@dimen/_10sdp"
                     android:gravity="center_vertical"
-                    android:id="@+id/tvViewAddress"
-                    android:text="View All Prescriptions"
+                    android:id="@+id/tvConsultation"
+                    android:text="View All Consultation"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/_13sdp" />
             </RelativeLayout>

@@ -125,7 +125,6 @@ public class DoctorDiscriptionFragment extends Fragment implements WebResponse, 
         tv_servicesofdoctor = v.findViewById(R.id.doctorservice);
         btnVideo = v.findViewById(R.id.btnVideo);
 
-
         //Back
         v.setFocusableInTouchMode(true);
         v.requestFocus();
@@ -139,7 +138,6 @@ public class DoctorDiscriptionFragment extends Fragment implements WebResponse, 
                         } else {
                             replaceFragmentWithAnimation(new DoctorListFragment());
                         }
-
                         return true;
                     }
                 }

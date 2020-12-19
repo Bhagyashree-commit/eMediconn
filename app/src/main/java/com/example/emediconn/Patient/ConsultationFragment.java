@@ -1,6 +1,7 @@
 package com.example.emediconn.Patient;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -41,8 +42,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -63,7 +66,6 @@ public class ConsultationFragment extends Fragment {
         getActivity().setTitle("My Profile");
 
         ploader = new ProgressDialog(getActivity());
-
         prefManager=new PrefManager(getActivity());
 
         View v= inflater.inflate(R.layout.activity_appointments, container, false);
@@ -75,6 +77,7 @@ public class ConsultationFragment extends Fragment {
             String patientId = prefManager.get("user_id");
             HitGetAppointment(patientId);
         }
+
         else {
             Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
         }
@@ -94,13 +97,11 @@ public class ConsultationFragment extends Fragment {
                 return false;
             }
         });
-
         return v;
     }
 
     //API
     private void HitGetAppointment( final String patientId){
-
         ploader.setMessage("Getting List...");
         ploader.show();
 
@@ -131,7 +132,6 @@ public class ConsultationFragment extends Fragment {
 
                                     patientModel.setDoctor_name(jsonObject.getString("doctor_name"));
                                     // patientModel.setStatus(jsonObject.getString("status"));
-
                                     if(jsonObject.getString("doctor_image").isEmpty())
                                     {
                                         patientModel.setDoctor_image("");
@@ -141,14 +141,14 @@ public class ConsultationFragment extends Fragment {
                                         String proimage="http://healthcare.blucorsys.in/daccount/"+jsonObject.getString("doctor_image");
                                         patientModel.setDoctor_image(proimage);
                                     }
-
                                     patientModel.setFees(jsonObject.getString("fees"));
                                     patientModel.setStartTime(jsonObject.getString("startTime"));
                                     patientModel.setSpeciality(jsonObject.getString("speciality"));
                                     arrayList.add(patientModel);
                                 }
-
                                 setAdapter(recyclerView,arrayList);
+                               // ArrayList<MyAppointmentModel> list = arrayList();
+                                Collections.reverse(arrayList);
                             }
 
                         } catch (JSONException e) {
@@ -158,8 +158,7 @@ public class ConsultationFragment extends Fragment {
                         System.out.println(response);
                         ploader.dismiss();
                     }
-                },
-                new Response.ErrorListener() {
+                }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         ploader.dismiss();
@@ -180,6 +179,7 @@ public class ConsultationFragment extends Fragment {
     public void setAdapter(RecyclerView mRecyclerview, ArrayList<MyAppointmentModel> arrayList)
     {
         mRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(),1));
+
         mRecyclerview.setAdapter(new PatientAdapter(arrayList));
     }
     //Doctor Recyclerview
@@ -199,7 +199,12 @@ public class ConsultationFragment extends Fragment {
 
             holder.itemView.setTag(arrayList.get(position));
 
-
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getActivity(),ChatActivity.class));
+                }
+            });
             if(arrayList.get(position).getDoctor_image().isEmpty())
             {
                 holder.ivProfile.setImageDrawable(getResources().getDrawable(R.drawable.doctorr));
@@ -216,21 +221,38 @@ public class ConsultationFragment extends Fragment {
 
             String[] separated = (arrayList.get(position).getStartTime()).split(" ");
 
+            String valid_until=separated[0];
+
+            String date_current = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
+
             DateFormat dateFormat = new SimpleDateFormat("hh:mm a");
 
             Long value=diffTime(dateFormat.format(new Date()),separated[1] +" " +separated[2]);
+            if(date_current.equalsIgnoreCase(valid_until))
+            {
 
-            if(value <= 0)
+                if((value <= 0))
+                {
+                    holder.tvTime.setVisibility(View.GONE);
+                    holder.tvConsultnow.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    holder.tvTime.setVisibility(View.VISIBLE);
+                    holder.tvConsultnow.setVisibility(View.GONE);
+                    startTimer(diffTime(dateFormat.format(new Date()),separated[1] +" " +separated[2]),holder.tvTime,holder.tvConsultnow);
+                }
+            }
+            else
             {
                 holder.tvTime.setVisibility(View.GONE);
                 holder.tvConsultnow.setVisibility(View.VISIBLE);
             }
-            else
-            {
-                holder.tvTime.setVisibility(View.VISIBLE);
-                holder.tvConsultnow.setVisibility(View.GONE);
-                startTimer(diffTime(dateFormat.format(new Date()),separated[1] +" " +separated[2]),holder.tvTime,holder.tvConsultnow);
-            }
+
+
+
+
 
             holder.tvTime.setText(separated[1] +" " +separated[2]);
 

@@ -10,8 +10,6 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp">
-
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:outlineSpotShadowColor="@color/blue_900"
             app:civ_circle_background_color="@color/blue_900"
@@ -19,7 +17,6 @@
             android:id="@+id/ivProfile"
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_50sdp"/>
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_marginLeft="@dimen/_5sdp"
@@ -60,7 +57,16 @@
                 android:layout_height="wrap_content">
             </TextView>
         </LinearLayout>
+        <ImageView
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/join"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_30sdp"/>
     </LinearLayout>
+
+
+
     <View
         android:background="@color/grey_700"
         android:layout_width="match_parent"

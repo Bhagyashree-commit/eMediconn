@@ -241,6 +241,7 @@ public class BookAppointmentFragment extends Fragment {
 
                                     }
                                     spTimeSlot.setAdapter(new SpinnerAdapter(getActivity(),R.layout.spinner_adapter,arrayList));
+                                   // spTimeSlot.clearFocus();
 
                                 }
                             }

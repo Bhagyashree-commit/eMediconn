@@ -91,39 +91,36 @@ int flag;
                 String fullname = et_userfullname.getText().toString().trim();
                 String mobilenum = et_mobilenum.getText().toString().trim();
                 String password = et_password.getText().toString().trim();
-                String role="Patient";
+                String role="patient";
                 prefManager.set("fullname",fullname);
                 prefManager.set("mobilenumber",mobilenum);
-                prefManager.set("usertype",role);
+                prefManager.set("user_type",role);
                 prefManager.set("password",password);
                 prefManager.commit();
 
                 Log.e("fullname", prefManager.get("fullname"));
                 Log.e("mobilenumber", prefManager.get("mobilenumber"));
                 Log.e("password", prefManager.get("password"));
-                Log.e("usertype", prefManager.get("usertype"));
+                Log.e("user_type", prefManager.get("user_type"));
 
-
-
-                flag=0;
                 if(et_userfullname.getText().toString().length()==0 || et_userfullname.getText().toString().trim().matches(namePattern)){
                     et_userfullname.setError(" User Name should be valid");
                     et_userfullname.requestFocus();
-                    flag=1;
+
                 }
-                flag=0;
-                if(et_password.getText().toString().length()< 4 || et_password.length()>10){
+
+                else if(et_password.getText().toString().length()< 4 || et_password.length()>10){
                     et_password.setError(" Password should be between 4 to 10 character");
                     et_password.requestFocus();
-                    flag=1;
+
                 }
-                flag=0;
-                if(et_mobilenum.getText().toString().length() < 10){
+
+               else if(et_mobilenum.getText().toString().length() < 10){
                     et_mobilenum.setError(" Mobile number should be valid");
                     et_mobilenum.requestFocus();
-                    flag=1;
+
                 }
-                if(flag==0){
+               else {
                     registerPatient(fullname,mobilenum,password);
 
                    /* Intent intent = new Intent(PatientRegistration.this, otp_patient.class);
@@ -171,28 +168,7 @@ int flag;
 
                                     String ab=response.getString("message");
                                     Toast.makeText(PatientRegistration.this, "Response" +response.getString("message"), Toast.LENGTH_SHORT).show();
-                                   /* String name = response.getString("full_name");
-                                    String usertype = response.getString("user_type");
-                                    String userID = response.getString("user_id");
 
-                                    prefManager.createUserLoginSession(name,usertype,userID,role,password);
-                                    prefManager.setLogin(true,userID);
-
-
-
-
-                                    prefManager.set("mobilenumber",response.getString("mobilenumber"));
-                                    prefManager.set("usertype", response.getString("usertype"));
-                                    prefManager.set("Name",response.getString("fullname"));
-                                    prefManager.set("password",response.getString("password"));
-                                    prefManager.commit();
-
-
-                                    Log.d(TAG,"mobilenumber"+response.getString("mobilenumber"));
-                                    Log.d(TAG,"usertype"+response.getString("usertype"));
-                                    Log.d(TAG,"name"+response.getString("fullname"));
-                                    Log.d(TAG,"password"+response.getString("password"));
-*/
                                     Intent intent = new Intent(PatientRegistration.this, otp_patient.class);
                                     intent.putExtra("mobilenumber",mobilenum);
                                     startActivity(intent);

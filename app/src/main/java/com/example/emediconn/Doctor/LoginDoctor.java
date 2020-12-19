@@ -72,24 +72,29 @@ public class LoginDoctor extends AppCompatActivity {
             public void onClick(View view) {
                 String mobilenum = et_doc_mobilenum.getText().toString().trim();
                 String password = et_doc_password.getText().toString().trim();
-                flag=0;
+
                 if(et_doc_password.getText().toString().length()< 4 || et_doc_password.length()>10){
                     et_doc_password.setError(" Password should be between 4 to 10 character");
                     et_doc_password.requestFocus();
-                    flag=1;
+
                 }
-                flag=0;
-                if(et_doc_mobilenum.getText().toString().length() < 10){
+
+             else if(et_doc_mobilenum.getText().toString().length() < 10){
                     et_doc_mobilenum.setError(" Mobile number should be valid");
                     et_doc_mobilenum.requestFocus();
-                    flag=1;
+
                 }
-                if(flag==0){
+               else {
                     logindoctor(mobilenum,password);
-
-                   /* */
-
-                }
+//                    if(prefManager.get("user_type")=="doctor"){
+//
+//                    }
+//
+//                    else{
+//                      // Toast.makeText(LoginDoctor.this, "Creadentials Wrong", Toast.LENGTH_SHORT).show();
+//
+//                    }
+                 }
             }
         });
     }
@@ -131,7 +136,7 @@ public class LoginDoctor extends AppCompatActivity {
 
                                 Toast.makeText(LoginDoctor.this, "Login Response" +message, Toast.LENGTH_SHORT).show();
                                 Log.d(TAG,"Name"+name);
-                                Log.d(TAG,"usertype"+usertype);
+                                Log.d(TAG,"user_type"+usertype);
                                 Log.d(TAG,"ID"+userID);
                                 Log.d(TAG,"ID"+role);
 

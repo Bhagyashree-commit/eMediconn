@@ -734,7 +734,7 @@ public class DoctorDiscriptionFragment extends Fragment implements WebResponse, 
             obj.put("appointmentType", "video");
             obj.put("patient_emailaddress", patient_emailaddress);
             obj.put("user_id", patientId);
-            Log.e("Leena",""+obj);
+
 
         } catch (JSONException e) {
             e.printStackTrace();

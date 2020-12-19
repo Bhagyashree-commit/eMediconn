@@ -1,3 +1,4 @@
+
 package com.example.emediconn.Doctor.ui;
 
 import android.os.Bundle;
@@ -5,19 +6,35 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.emediconn.Database.PrefManager;
+import com.example.emediconn.Extras.Utils;
 import com.example.emediconn.R;
 
 
 public class MyDoctorProfileFragment extends Fragment {
-    TextView tv_name;
+
+    //text view
+    TextView tv_name,doctor_name,tvdp_phonenumber,doctor_mobilenum;
+
+    //edit text
+    EditText etdp_doctorname;
+
+    //image view
     ImageView iv_logout;
+
+
+    //prefrence
+    PrefManager prefManager;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -25,8 +42,25 @@ public class MyDoctorProfileFragment extends Fragment {
         View v= inflater.inflate(R.layout.fragment_my_doctor_profile, container, false);
         tv_name=v.findViewById(R.id.titletext);
         iv_logout=v.findViewById(R.id.logout_doctor);
+        etdp_doctorname=v.findViewById(R.id.etdp_doctorname);
+        doctor_name=v.findViewById(R.id.doctor_name);
+        tvdp_phonenumber=v.findViewById(R.id.tvdp_phonenumber);
+        doctor_mobilenum=v.findViewById(R.id.doctor_mobilenum);
         iv_logout.setVisibility(View.GONE);
         tv_name.setText("Doctor Profile");
+        prefManager=new PrefManager(getContext());
+
+
+        if (Utils.isNetworkConnectedMainThred(getActivity())) {
+            //getDoctorDetails(prefManager.get("mobilenumber"));
+        } else {
+            Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
+        }
+
+        etdp_doctorname.setText(prefManager.get("full_name"));
+        doctor_name.setText(prefManager.get("full_name"));
+        tvdp_phonenumber.setText(prefManager.get("mobilenumber"));
+        doctor_mobilenum.setText(prefManager.get("mobilenumber"));
         //Back
         v.setFocusableInTouchMode(true);
         v.requestFocus();

@@ -64,7 +64,7 @@ public class AppointmentsFragment extends Fragment {
         ploader = new ProgressDialog(getActivity());
 
         HashMap<String, String> user = prefManager.getUserDetails();
-        String patientId = user.get(PrefManager.KEY_ROLE);
+        String patientId = prefManager.get("mobilenumber");
         if (Utils.isNetworkConnectedMainThred(getActivity())) {
             HitGetAppointment(patientId);
         } else {
@@ -151,7 +151,7 @@ return v;
         JSONObject obj = new JSONObject();
         try {
 
-            obj.put("mobilenumber", "9960664554");
+            obj.put("mobilenumber", prefManager.get("mobilenumber"));
            // Log.e("objj",""+obj);
 
         } catch (JSONException e) {
@@ -185,6 +185,9 @@ return v;
                                  arrayList.add(patientModel);
                              }
                          setAdapter(recyclerView,arrayList);
+                            }
+                            else{
+                                Toast.makeText(getActivity(), "Sorry No Record Found", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {

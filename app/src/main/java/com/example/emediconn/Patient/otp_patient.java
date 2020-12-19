@@ -86,12 +86,6 @@ int flag=0;
 
                         flag=1;
                     }
-                    /*flag=0;
-                    if (otp.isEmpty() || !otpnew.equals(otp)) {
-
-                        Toast.makeText(otp_patient.this, "OTP Does Not Match..Please fill correct OTP!", Toast.LENGTH_SHORT).show();
-                        flag=1;
-                    }*/
 
                    if( flag==0){
                        HashMap<String, String> user = prefManager.getUserDetails();
@@ -156,9 +150,7 @@ int flag=0;
                                String usertype= prefManager.get("usertype");
 
                                 register(fullname, getIntent().getStringExtra("mobilenumber"),password,usertype);
-                               /* Intent intent = new Intent(otp_patient.this, LoginPatient.class);
-                                intent.putExtra("mobilenumber",mobilenum);
-                                startActivity(intent);*/
+
                             }
                             else
                             {

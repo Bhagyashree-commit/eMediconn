@@ -129,7 +129,7 @@ public class MyAppointmentFragment extends Fragment {
             //DoctorListModel dm = arrayList.get(position);
 
             holder.tvFee.setText(arrayList.get(position).getFees());
-           // holder.tvLocation.setText(arrayList.get(position).getHospital_location());
+            holder.tvLocation.setText(arrayList.get(position).getHospital_location());
             holder.tvName.setText(arrayList.get(position).getDoctor_name());
             holder.tvSpeciality.setText(arrayList.get(position).getSpeciality());
             holder.tvStatus.setText("Received");

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <include
         layout="@layout/custom_header"
         />
@@ -28,6 +32,7 @@
             android:layout_marginTop="@dimen/_minus40sdp">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivProfilepic"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
                 android:layout_marginLeft="@dimen/_20sdp"
@@ -35,13 +40,13 @@
 
 
             <LinearLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/doctor_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dr.Tom Cruise"
@@ -50,6 +55,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tv_speciality"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cardiac Surgeon"
@@ -58,6 +64,7 @@
                     android:textSize="@dimen/_12sdp" />
 
                 <TextView
+                    android:id="@+id/tv_docotoreducation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -146,7 +153,7 @@
         android:layout_height="@dimen/_100sdp">
 
         <LinearLayout
-            android:id="@+id/linlayprofile"
+            android:id="@+id/linbank_details"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:orientation="vertical"
@@ -209,6 +216,7 @@
         android:layout_height="@dimen/_100sdp">
 
         <LinearLayout
+            android:id="@+id/linlayprofile"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:orientation="vertical"
@@ -266,6 +274,6 @@
     </LinearLayout>
 
 
+    </LinearLayout>
 
-
-</LinearLayout>
+</ScrollView>

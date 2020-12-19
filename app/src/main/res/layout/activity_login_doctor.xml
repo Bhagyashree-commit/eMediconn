@@ -68,9 +68,11 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="  Password">
+                android:hint="  Password"
+                app:passwordToggleEnabled="true">
 
                 <EditText
+                    android:drawableStart="@drawable/password"
                     android:imeOptions="actionDone"
                     android:textColorHint="@color/black"
                     android:drawableLeft="@drawable/pass"
@@ -146,16 +148,16 @@
                 android:layout_height="wrap_content"
                 android:text="@string/terms"></TextView>
         </RelativeLayout>
+
         <Button
-            android:text="Register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/btn_logindoctor"
-            android:layout_margin="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_40sdp"
             android:layout_gravity="center"
-            android:textColor="#ffffff"
+            android:layout_margin="@dimen/_15sdp"
             android:background="@drawable/gradient"
-            ></Button>
+            android:text="Log in"
+            android:textColor="#ffffff"></Button>
         <LinearLayout
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"

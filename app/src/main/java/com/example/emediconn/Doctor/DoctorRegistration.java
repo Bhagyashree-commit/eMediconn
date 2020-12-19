@@ -75,32 +75,35 @@ public class DoctorRegistration extends AppCompatActivity {
                 String fullname = et_doctor_name.getText().toString().trim();
                 String mobilenum = et_doctor_mobilenum.getText().toString().trim();
                 String password = et_doctor_password.getText().toString().trim();
-                String role="Doctor";
+                String role="doctor";
+                prefManager.set("fullname",fullname);
+                prefManager.set("mobilenumber",mobilenum);
+                prefManager.set("usertype",role);
+                prefManager.set("password",password);
+                prefManager.commit();
 
-                flag=0;
+                Log.e("fullname", prefManager.get("fullname"));
+                Log.e("mobilenumber", prefManager.get("mobilenumber"));
+                Log.e("password", prefManager.get("password"));
+                Log.e("usertype", prefManager.get("usertype"));
+
                 if(et_doctor_name.getText().toString().length()==0 || et_doctor_name.getText().toString().trim().matches(namePattern)){
                     et_doctor_name.setError(" User Name should be valid");
                     et_doctor_name.requestFocus();
-                    flag=1;
+
                 }
-                flag=0;
-                if(et_doctor_password.getText().toString().length()< 4 || et_doctor_password.length()>10){
+               else if(et_doctor_password.getText().toString().length()< 4 || et_doctor_password.length()>10){
                     et_doctor_password.setError(" Password should be between 4 to 10 character");
                     et_doctor_password.requestFocus();
-                    flag=1;
+
                 }
-                flag=0;
-                if(et_doctor_mobilenum.getText().toString().length() < 10){
+                else if(et_doctor_mobilenum.getText().toString().length() < 10){
                     et_doctor_mobilenum.setError(" Mobile number should be valid");
                     et_doctor_mobilenum.requestFocus();
-                    flag=1;
-                }
-                if(flag==0){
-                    registerPatient(fullname,mobilenum,password);
 
-                   /* Intent intent = new Intent(PatientRegistration.this, otp_patient.class);
-                    startActivity(intent);
-*/
+                }
+               else{
+                    registerPatient(fullname,mobilenum,password);
                 }
             }
         });
@@ -118,13 +121,14 @@ public class DoctorRegistration extends AppCompatActivity {
             obj.put("mobilenumber", mobilenum);
             obj.put("usertype", role);
             obj.put("password", password);
+            Log.e("OBJECTRTTT","" +obj);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.POST, AppConfig.URL_REGISTERPATIENT,obj,
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.POST, AppConfig.URL_VALIDATEMOBILENUM,obj,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -135,19 +139,8 @@ public class DoctorRegistration extends AppCompatActivity {
 
                             if(response.getString("status").equalsIgnoreCase("true"))
                             {
-                                String name = response.getString("full_name");
-                                String usertype = response.getString("user_type");
-                                String userID = response.getString("user_id");
-
-                                prefManager.createUserLoginSession(name,usertype,userID,role,password);
-                                prefManager.setLogin(true,userID);
-
-                                Log.d(TAG,"Name"+name);
-                                Log.d(TAG,"usertype"+usertype);
-                                Log.d(TAG,"ID"+userID);
-                                Log.d(TAG,"UserType"+role);
-                                Log.d(TAG,"Password"+password);
-
+                                String ab=response.getString("message");
+                                Toast.makeText(DoctorRegistration.this, "Response" +response.getString("message"), Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(DoctorRegistration.this, otp_doctor.class);
                                 intent.putExtra("mobilenumber",mobilenum);
                                 startActivity(intent);
@@ -157,8 +150,6 @@ public class DoctorRegistration extends AppCompatActivity {
                                 Toast.makeText(DoctorRegistration.this, "Response" +response.getString("message"), Toast.LENGTH_SHORT).show();
 
                             }
-
-
                         } catch (JSONException e) {
                             Log.d(TAG,"CATCHHHH"+e);
                             e.printStackTrace();

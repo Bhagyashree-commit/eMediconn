@@ -92,29 +92,25 @@ public class LoginPatient extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
                 }
 
-                flag=0;
+
                 if(et_patient_password.getText().toString().length()< 4 || et_patient_password.length()>10){
                     et_patient_password.setError(" Password should be between 4 to 10 character");
                     et_patient_password.requestFocus();
-                    flag=1;
+
                 }
-                flag=0;
-                if(et_patient_mobilenum.getText().toString().length() < 10){
+
+               else if(et_patient_mobilenum.getText().toString().length() < 10){
                     et_patient_mobilenum.setError(" Mobile number should be valid");
                     et_patient_mobilenum.requestFocus();
-                    flag=1;
+
                 }
-                if(flag==0){
-                    if(prefManager.get("usertype")=="patient"){
+               else{
+                    if(prefManager.get("user_type")=="patient"){
                         loginpatient(mobilenum,password);
                     }
                     else{
-                        //Toast.makeText(LoginPatient.this, "Creadentials Wrong", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(LoginPatient.this, "Creadentials Wrong", Toast.LENGTH_SHORT).show();
                     }
-
-
-                   /* Intent intent = new Intent(LoginPatient.this, DrawerActivity.class);
-                    startActivity(intent);*/
 
                 }
             }

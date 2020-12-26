@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <noman.weekcalendar.WeekCalendar
+        android:id="@+id/weekCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:selectedBgColor="@color/orange_500"
+        android:background="@color/colorPrimary"
+        app:numOfPages="2"
+        app:dayNameLength="threeLetters"
+        />
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:background="@drawable/square_box"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:imeOptions="actionDone"
+                android:text="  Morning"
+                android:textColor="@color/black"
+                android:maxLines="1"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="sans-serif-condensed"
+                android:drawableLeft="@drawable/email"
+                android:id="@+id/et_morningtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+
+                />
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="On/Off"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_toRightOf="@+id/et_morningtime"
+                android:layout_marginLeft="@dimen/_60sdp"
+                ></Switch>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:weightSum="2"
+            android:layout_marginRight="@dimen/_13sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_13sdp"
+            >
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/rectangle_black">
+                        <TextView
+                            android:hint="Start Time"
+                            android:textSize="@dimen/_12sdp"
+                            android:textColor="@color/black"
+                            android:layout_width="match_parent"
+                            android:drawableRight="@drawable/ic_baseline_date_range_24"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@null"
+                            android:paddingLeft="@dimen/_7sdp"
+                            android:paddingRight="@dimen/_5sdp"
+                            android:scrollbars="none" />
+                    </RelativeLayout>
+
+
+
+
+                </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:id="@+id/rrDat"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rectangle_black">
+                    <TextView
+                        android:hint="End Time"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/black"
+                        android:id="@+id/tvAppointmentDat"
+                        android:layout_width="match_parent"
+                        android:drawableRight="@drawable/ic_baseline_date_range_24"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:paddingLeft="@dimen/_7sdp"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:scrollbars="none" />
+                </RelativeLayout>
+
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:paddingLeft="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_weight=".8"
+            android:imeOptions="actionDone"
+            android:text="  End Time"
+            android:maxLines="1"
+            android:fontFamily="sans-serif-condensed"
+            android:drawableLeft="@drawable/time"
+            android:id="@+id/et_mendtime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/et_mstartime"
+
+
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:background="@drawable/square_box"
+        >
+
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:imeOptions="actionDone"
+                android:text="  Evening"
+                android:textColor="@color/black"
+                android:maxLines="1"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="sans-serif-condensed"
+                android:drawableLeft="@drawable/email"
+                android:id="@+id/et_eveningtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+
+                />
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="On/Off"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_toRightOf="@+id/et_eveningtime"
+                android:layout_marginLeft="@dimen/_60sdp"
+                ></Switch>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:weightSum="2"
+            android:layout_marginRight="@dimen/_13sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_13sdp"
+            >
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:id="@+id/rrDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rectangle_black">
+                    <TextView
+                        android:hint="Start Time"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/black"
+                        android:id="@+id/tvAppointmentDate"
+                        android:layout_width="match_parent"
+                        android:drawableRight="@drawable/ic_baseline_date_range_24"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:paddingLeft="@dimen/_7sdp"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:scrollbars="none" />
+                </RelativeLayout>
+
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:id="@+id/rrDat"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rectangle_black">
+                    <TextView
+                        android:hint="End Time"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/black"
+                        android:id="@+id/tvAppointmentDat"
+                        android:layout_width="match_parent"
+                        android:drawableRight="@drawable/ic_baseline_date_range_24"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:paddingLeft="@dimen/_7sdp"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:scrollbars="none" />
+                </RelativeLayout>
+
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:paddingLeft="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_weight=".8"
+            android:imeOptions="actionDone"
+            android:text="  End Time"
+            android:maxLines="1"
+            android:fontFamily="sans-serif-condensed"
+            android:drawableLeft="@drawable/time"
+            android:id="@+id/et_mendtime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/et_mstartime"
+
+
+
+            />
+    </LinearLayout>
+</LinearLayout>

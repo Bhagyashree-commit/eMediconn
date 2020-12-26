@@ -50,6 +50,7 @@ public class DoctorDashboardFragment extends Fragment {
     TextView tv_name,doctor_name,tv_docotoreducation,tv_speciality;
     ImageView iv_logout,ivProfilepic;
     LinearLayout linlayappointment;
+    LinearLayout ll_schdule;
     PrefManager prefManager;
     LinearLayout linlaydoctormyprofile,linlaychangepassword,llVideoConsulation;
     ProgressDialog ploader;
@@ -63,6 +64,7 @@ public class DoctorDashboardFragment extends Fragment {
         linlaydoctormyprofile=v.findViewById(R.id.linlayprofile);
         linlaychangepassword=v.findViewById(R.id.linlaychangepassword);
         llVideoConsulation=v.findViewById(R.id.llVideoConsulation);
+        ll_schdule=v.findViewById(R.id.ll_schdule);
         tv_name=v.findViewById(R.id.titletext);
         doctor_name=v.findViewById(R.id.doctor_name);
         iv_logout=v.findViewById(R.id.logout_doctor);
@@ -92,6 +94,14 @@ public class DoctorDashboardFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 replaceFragmentWithAnimation(new AppointmentsFragment());
+            }
+        });
+
+
+        ll_schdule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                replaceFragmentWithAnimation(new DailySchedule());
             }
         });
 

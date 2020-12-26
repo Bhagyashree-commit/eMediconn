@@ -140,9 +140,6 @@ public class LoginDoctor extends AppCompatActivity {
                                 Log.d(TAG,"ID"+userID);
                                 Log.d(TAG,"ID"+role);
 
-
-
-
                                 String image_url="http://healthcare.blucorsys.in/"+response.getString("profile_photo");
 
                                 prefManager.set("mobilenumber",response.getString("mobilenumber"));

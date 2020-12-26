@@ -44,13 +44,12 @@
                 android:elevation="@dimen/_20sdp"
                 android:weightSum="0.7"
                 android:layout_marginLeft="@dimen/_5sdp"
-
                 android:id="@+id/LL1">
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
                     android:layout_gravity="center"
-                    android:background="@drawable/doctor_new"></ImageButton>
+                    android:background="@drawable/doct"></ImageView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -74,11 +73,11 @@
                 android:layout_marginLeft="@dimen/_5sdp"
 
                 android:layout_toRightOf="@+id/LL1">
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
                     android:layout_gravity="center"
-                    android:background="@drawable/clinic_new"></ImageButton>
+                    app:srcCompat="@drawable/hospiitt"></ImageView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -110,10 +109,10 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
                     android:layout_gravity="center"
-                    android:background="@drawable/ambulance_new"></ImageView>
+                    android:background="@drawable/amb"></ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -138,10 +137,10 @@
                 android:id="@+id/LL4"
                 android:layout_toRightOf="@+id/LL3">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
                     android:layout_gravity="center"
-                    android:background="@drawable/laboratory_new"></ImageView>
+                    android:background="@drawable/lbo"></ImageView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -172,10 +171,10 @@
 
                 android:id="@+id/LL5">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
                     android:layout_gravity="center"
-                    android:background="@drawable/pharmacy_new"></ImageView>
+                    android:background="@drawable/pharm"></ImageView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -199,10 +198,10 @@
                 android:id="@+id/LL6"
                 android:layout_toRightOf="@+id/LL5">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
                     android:layout_gravity="center"
-                    android:background="@drawable/insurance_new"></ImageView>
+                    android:background="@drawable/insu"></ImageView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

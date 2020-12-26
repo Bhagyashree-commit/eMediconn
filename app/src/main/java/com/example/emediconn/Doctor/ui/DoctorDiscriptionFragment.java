@@ -230,6 +230,8 @@ public class DoctorDiscriptionFragment extends Fragment implements WebResponse, 
                                     proimage = "http://healthcare.blucorsys.in/daccount/" + jsonObject.getString("profile_photo");
 
 
+                                    tv_docname.setText(docname);
+
                                     tv_education.setText(degree);
                                     tv_hospname.setText(hospitalname);
                                     tv_destination.setText(hospitalcity);

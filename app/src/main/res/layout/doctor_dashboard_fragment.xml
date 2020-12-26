@@ -117,6 +117,7 @@
 
 
         <LinearLayout
+            android:id="@+id/llVideoConsulation"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:orientation="vertical"

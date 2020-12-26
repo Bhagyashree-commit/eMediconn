@@ -43,7 +43,7 @@
                 android:id="@+id/tvTime"
                 android:textColor="@color/red_800"
                 android:textSize="@dimen/_12sdp"
-
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
@@ -58,6 +58,7 @@
             </TextView>
         </LinearLayout>
         <ImageView
+            android:id="@+id/ivJoinNow"
             android:layout_marginLeft="@dimen/_50sdp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/join"

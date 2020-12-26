@@ -32,6 +32,9 @@ import com.example.emediconn.Extras.FileCompressor;
 import com.example.emediconn.Extras.Utils;
 import com.example.emediconn.Model.MyAppointmentModel;
 import com.example.emediconn.R;
+import com.example.emediconn.web_communication.WebCall;
+import com.example.emediconn.web_communication.WebConstants;
+import com.example.emediconn.web_communication.WebResponse;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,7 +53,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 
-public class ConsultationFragment extends Fragment {
+public class ConsultationFragment extends Fragment implements WebResponse {
 
     ProgressDialog ploader;
 
@@ -59,6 +62,9 @@ public class ConsultationFragment extends Fragment {
     RecyclerView recyclerView;
 
     PrefManager prefManager;
+
+    String room_Id;
+    String token;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,7 +83,6 @@ public class ConsultationFragment extends Fragment {
             String patientId = prefManager.get("user_id");
             HitGetAppointment(patientId);
         }
-
         else {
             Toast.makeText(getActivity(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
         }
@@ -129,9 +134,9 @@ public class ConsultationFragment extends Fragment {
                                 {
                                     JSONObject jsonObject=dailyAppointments.getJSONObject(i);
                                     patientModel=new MyAppointmentModel();
-
                                     patientModel.setDoctor_name(jsonObject.getString("doctor_name"));
-                                    // patientModel.setStatus(jsonObject.getString("status"));
+                                    patientModel.setRoomId(jsonObject.getString("roomId"));
+
                                     if(jsonObject.getString("doctor_image").isEmpty())
                                     {
                                         patientModel.setDoctor_image("");
@@ -141,14 +146,17 @@ public class ConsultationFragment extends Fragment {
                                         String proimage="http://healthcare.blucorsys.in/daccount/"+jsonObject.getString("doctor_image");
                                         patientModel.setDoctor_image(proimage);
                                     }
+
                                     patientModel.setFees(jsonObject.getString("fees"));
                                     patientModel.setStartTime(jsonObject.getString("startTime"));
                                     patientModel.setSpeciality(jsonObject.getString("speciality"));
                                     arrayList.add(patientModel);
                                 }
+
+                                Collections.reverse(arrayList);
                                 setAdapter(recyclerView,arrayList);
                                // ArrayList<MyAppointmentModel> list = arrayList();
-                                Collections.reverse(arrayList);
+
                             }
 
                         } catch (JSONException e) {
@@ -173,15 +181,81 @@ public class ConsultationFragment extends Fragment {
                 return headers;
             }
         };
+
         queue.add(jsObjRequest);
     }
 
     public void setAdapter(RecyclerView mRecyclerview, ArrayList<MyAppointmentModel> arrayList)
     {
         mRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(),1));
-
         mRecyclerview.setAdapter(new PatientAdapter(arrayList));
     }
+
+    @Override
+    public void onWebResponse(String response, int callCode) {
+        switch (callCode) {
+            case WebConstants.getTokenURLCode:
+                onGetTokenSuccess(response);
+                break;
+            case WebConstants.validateRoomIdCode:
+                onVaidateRoomIdSuccess(response);
+                break;
+        }
+    }
+
+    @Override
+    public void onWebResponseError(String error, int callCode) {
+        Log.e("errorDashboard", error);
+    }
+
+    private void getRoomTokenWebCall() {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("name", "user");// Change it
+            jsonObject.put("role", "participant");
+            jsonObject.put("user_ref", "2236");
+            jsonObject.put("roomId", room_Id);
+
+            new WebCall(getActivity(), this, jsonObject, WebConstants.getTokenURL, WebConstants.getTokenURLCode, false, false).execute();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    private void onVaidateRoomIdSuccess(String response) {
+        Log.e("responsevalidate", response);
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            if (jsonObject.optString("result").trim().equalsIgnoreCase("40001")) {
+                Toast.makeText(getActivity(), jsonObject.optString("error"), Toast.LENGTH_SHORT).show();
+            } else {
+
+                getRoomTokenWebCall();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    private void onGetTokenSuccess(String response) {
+        Log.e("responseToken", response);
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            if (jsonObject.optString("result").equalsIgnoreCase("0")) {
+                token = jsonObject.optString("token");
+                Log.e("token", token);
+                Intent intent = new Intent(getActivity(), VideoConferenceActivity.class);
+                intent.putExtra("token", token);
+                intent.putExtra("name", "User");
+                startActivity(intent);
+            } else {
+                Toast.makeText(getActivity(), jsonObject.optString("error"), Toast.LENGTH_SHORT).show();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     //Doctor Recyclerview
     private class PatientAdapter extends RecyclerView.Adapter<DocHolder> {
 
@@ -197,14 +271,14 @@ public class ConsultationFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull final DocHolder holder, final int position) {
 
-            holder.itemView.setTag(arrayList.get(position));
-
+            holder.itemView.setTag(arrayList.get(position).getRoomId());
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     startActivity(new Intent(getActivity(),ChatActivity.class));
                 }
             });
+
             if(arrayList.get(position).getDoctor_image().isEmpty())
             {
                 holder.ivProfile.setImageDrawable(getResources().getDrawable(R.drawable.doctorr));
@@ -219,19 +293,34 @@ public class ConsultationFragment extends Fragment {
 
             holder.tvSpeciality.setText(arrayList.get(position).getSpeciality());
 
+            if(arrayList.get(position).getRoomId().isEmpty() || arrayList.get(position).getRoomId().equalsIgnoreCase("null"))
+            {
+                holder.ivJoinNow.setVisibility(View.GONE);
+            }
+            else
+                {
+                    holder.ivJoinNow.setVisibility(View.VISIBLE);
+            }
+
+            holder.ivJoinNow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    room_Id =arrayList.get(position).getRoomId() ;
+                    validateRoomIDWebCall();
+                }
+            });
+
             String[] separated = (arrayList.get(position).getStartTime()).split(" ");
 
             String valid_until=separated[0];
 
             String date_current = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-
-
             DateFormat dateFormat = new SimpleDateFormat("hh:mm a");
 
             Long value=diffTime(dateFormat.format(new Date()),separated[1] +" " +separated[2]);
+
             if(date_current.equalsIgnoreCase(valid_until))
             {
-
                 if((value <= 0))
                 {
                     holder.tvTime.setVisibility(View.GONE);
@@ -250,15 +339,8 @@ public class ConsultationFragment extends Fragment {
                 holder.tvConsultnow.setVisibility(View.VISIBLE);
             }
 
-
-
-
-
-            holder.tvTime.setText(separated[1] +" " +separated[2]);
-
+            holder.tvTime.setText("Time Left: "+separated[1] +" " +separated[2]);
         }
-
-
 
         public int getItemCount() {
             return arrayList.size();
@@ -268,7 +350,6 @@ public class ConsultationFragment extends Fragment {
             return position;
         }
     }
-
     private class DocHolder extends RecyclerView.ViewHolder {
 
         TextView tvTime;
@@ -281,6 +362,7 @@ public class ConsultationFragment extends Fragment {
         TextView tvDayName;
         TextView tvConsultnow;
         ImageView ivProfile;
+        ImageView ivJoinNow;
 
         public DocHolder(View itemView) {
             super(itemView);
@@ -295,15 +377,17 @@ public class ConsultationFragment extends Fragment {
             tvDayName=itemView.findViewById(R.id.tvDayName);
             tvConsultnow=itemView.findViewById(R.id.tvConsultnow);
             ivProfile=itemView.findViewById(R.id.ivProfile);
+            ivJoinNow=itemView.findViewById(R.id.ivJoinNow);
         }
     }
-
+    private void validateRoomIDWebCall() {
+        new WebCall(getActivity(), this, null, WebConstants.validateRoomId + room_Id, WebConstants.validateRoomIdCode, true, false).execute();
+    }
     public long diffTime(String time1,String time2) {
         long min = 0;
         long difference ;
 
-        Log.e("tee",time1);
-        Log.e("tee1",time2);
+
         try {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm aa"); // for 12-hour system, hh should be used instead of HH
             // There is no minute different between the two, only 8 hours difference. We are not considering Date, So minute will always remain 0
@@ -322,7 +406,6 @@ public class ConsultationFragment extends Fragment {
         }
         return TimeUnit.MINUTES.toMillis(min);
     }
-
     private void startTimer(long millisec,TextView countdownTimerText,TextView tvConsultnow) {
         new CountDownTimer(millisec, 1000){
             @Override
@@ -336,11 +419,13 @@ public class ConsultationFragment extends Fragment {
                                 TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(millis))),
                         (TimeUnit.MILLISECONDS.toMinutes(millis) -
                                 TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis))), (TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis))));
-                countdownTimerText.setText(hms);//set text
+                countdownTimerText.setText("Time left: "+hms);//set text
             }
 
             @Override
             public void onFinish() {
+
+                countdownTimerText.setVisibility(View.GONE);
                 /*clearing all fields and displaying countdown finished message          */
                 tvConsultnow.setVisibility(View.VISIBLE);
             }

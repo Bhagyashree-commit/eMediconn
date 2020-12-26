@@ -5,9 +5,19 @@ public class PatientModel {
     private String patient_name;
     private String startTime;
     private String phonenumber;
+
+    public String getAppointmentId() {
+        return appointmentId;
+    }
+
+    public void setAppointmentId(String appointmentId) {
+        this.appointmentId = appointmentId;
+    }
+
     private String emailaddress;
     private String status;
     private String patient_image;
+    private String appointmentId;
 
     public String getPatient_image() {
         return patient_image;

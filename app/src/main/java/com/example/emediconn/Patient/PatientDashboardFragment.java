@@ -60,6 +60,8 @@ public class PatientDashboardFragment extends Fragment {
     ArrayList<DoctorListModel> arrayList=new ArrayList<>();
     RelativeLayout rlsearchview;
 
+
+
     public PatientDashboardFragment() {
         // Required empty public constructor
     }
@@ -91,7 +93,6 @@ public class PatientDashboardFragment extends Fragment {
                 startActivity(new Intent(getActivity(), SearchActivity.class));
             }
         });
-
 
         if (Utils.isNetworkConnectedMainThred(getActivity())) {
             // ploader.show();

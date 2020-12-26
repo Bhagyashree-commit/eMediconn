@@ -147,6 +147,7 @@ public class LoginDoctor extends AppCompatActivity {
 
                                 prefManager.set("mobilenumber",response.getString("mobilenumber"));
                                 prefManager.set("profile_photo",image_url);
+                                prefManager.set("usertype",usertype);
                                 prefManager.set("full_name",response.getString("full_name"));
                                 prefManager.commit();
 

@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
         app:cardElevation="@dimen/_10sdp"
-        android:layout_margin="@dimen/_10sdp"
+        android:layout_margin="@dimen/_6sdp"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sdp">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
+            android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_marginLeft="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_10sdp"
@@ -51,22 +50,19 @@
                             android:textStyle="bold" />
 
                         <ImageView
+                            android:visibility="gone"
                             android:id="@+id/ivCall"
-                            android:src="@drawable/ic_baseline_phone_24"
+                            app:srcCompat="@drawable/ic_baseline_phone_24"
                             android:layout_marginRight="@dimen/_5sdp"
                             android:layout_alignParentRight="true"
                             android:layout_width="@dimen/_20sdp"
                             android:layout_height="@dimen/_20sdp"/>
-
                     </RelativeLayout>
-
                    <LinearLayout
                        android:orientation="horizontal"
                        android:layout_marginTop="@dimen/_3sdp"
                        android:layout_width="match_parent"
                        android:layout_height="@dimen/_30sdp">
-
-
 
                        <TextView
                            android:id="@+id/tvDate"
@@ -96,16 +92,29 @@
                 </LinearLayout>
 
             </LinearLayout>
+            <TextView
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="right"
+                android:text="1hr"
+                android:textStyle="bold"
+                android:layout_gravity="right"
+                android:id="@+id/tvTimer"
+                android:textColor="@color/red_800"
+                android:textSize="@dimen/_12sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
 
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:weightSum="2"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_5sdp"
                     android:background="@drawable/rectangle_green"
@@ -144,6 +153,8 @@
 
 
         </LinearLayout>
+
+
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>

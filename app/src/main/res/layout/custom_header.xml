@@ -16,7 +16,7 @@
             android:layout_gravity="center"
             android:id="@+id/backbutton"
             android:layout_height="wrap_content"
-            android:src="@drawable/backarrow"></ImageView>
+            app:srcCompat="@drawable/backarrow"></ImageView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             android:layout_marginLeft="@dimen/_150sdp"
             android:id="@+id/logout_doctor"
             android:layout_height="wrap_content"
-            android:src="@drawable/logout"
+            app:srcCompat="@drawable/logout"
             app:tint="@color/white"></ImageView>
 
     </LinearLayout>

@@ -38,7 +38,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Dr.Tom Cruise"
+
                         android:id="@+id/doctornameondescrip"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_14sdp"
@@ -47,7 +47,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cardiac Surgeon"
+
                         android:id="@+id/doctorspecializationondescrip"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12sdp" />
@@ -59,7 +59,7 @@
                         android:layout_marginRight="@dimen/_5sdp"
                         android:maxLines="2"
                         android:id="@+id/doctordeegreeondescrip"
-                        android:text="MBBS MD DNB Cardiologist "
+
                         android:textColor="@color/grey_900"
                         android:textSize="@dimen/_12sdp" />
                 </LinearLayout>
@@ -144,7 +144,7 @@
                                 android:layout_width="@dimen/_20sdp"
                                 android:layout_height="@dimen/_20sdp"
                                 android:layout_marginLeft="@dimen/_10sdp"
-                                android:src="@drawable/ic_baseline_thumb_up_alt_24" />
+                                app:srcCompat="@drawable/ic_baseline_thumb_up_alt_24" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -417,6 +417,7 @@
 
 
             <LinearLayout
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:weightSum="2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

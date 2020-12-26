@@ -52,7 +52,7 @@ public class AppointmentsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)  {
 
-        getActivity().setTitle("Appoitments");
+        getActivity().setTitle("Appointments");
         prefManager=new PrefManager(getActivity());
 
         View v= inflater.inflate(R.layout.activity_appointments, container, false);
@@ -64,7 +64,9 @@ public class AppointmentsFragment extends Fragment {
         ploader = new ProgressDialog(getActivity());
 
         HashMap<String, String> user = prefManager.getUserDetails();
+
         String patientId = prefManager.get("mobilenumber");
+
         if (Utils.isNetworkConnectedMainThred(getActivity())) {
             HitGetAppointment(patientId);
         } else {

@@ -117,6 +117,7 @@
 
 
         <LinearLayout
+            android:id="@+id/llVideoConsulation"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:orientation="vertical"
@@ -153,7 +154,7 @@
         android:layout_height="@dimen/_100sdp">
 
         <LinearLayout
-            android:id="@+id/linbank_details"
+            android:id="@+id/ll_schdule"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:orientation="vertical"
@@ -172,7 +173,7 @@
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textColor="@color/grey_700"
-                android:text="Bank Details"
+                android:text="Schdule"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:textSize="@dimen/_12sdp"
                 android:layout_width="match_parent"

@@ -104,23 +104,21 @@ public class EstablishmentDetailsFragment extends Fragment {
         btn_continuehospdetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 flag=0;
                 if(et_hospname.getText().toString().length() == 0){
-                    et_hospname.setError(" This Feild is Compulsary");
+                    et_hospname.setError(" This Field is Compulsary");
                     et_hospname.requestFocus();
                     flag=1;
                 }
                 flag=0;
                 if(et_hospcity.getText().toString().length() == 0){
-                    et_hospcity.setError("  This Feild is Compulsary");
+                    et_hospcity.setError("  This Field is Compulsary");
                     et_hospcity.requestFocus();
                     flag=1;
                 }
                 flag=0;
                 if(et_hosplocality.getText().toString().length() == 0){
-                    et_hosplocality.setError("  This Feild is Compulsary");
+                    et_hosplocality.setError("  This Field is Compulsary");
                     et_hosplocality.requestFocus();
                     flag=1;
                 }

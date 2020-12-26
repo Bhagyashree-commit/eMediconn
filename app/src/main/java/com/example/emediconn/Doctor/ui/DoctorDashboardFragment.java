@@ -50,8 +50,9 @@ public class DoctorDashboardFragment extends Fragment {
     TextView tv_name,doctor_name,tv_docotoreducation,tv_speciality;
     ImageView iv_logout,ivProfilepic;
     LinearLayout linlayappointment;
+    LinearLayout ll_schdule;
     PrefManager prefManager;
-    LinearLayout linlaydoctormyprofile,linlaychangepassword;
+    LinearLayout linlaydoctormyprofile,linlaychangepassword,llVideoConsulation;
     ProgressDialog ploader;
     public static String speciality;
     @Override
@@ -62,6 +63,8 @@ public class DoctorDashboardFragment extends Fragment {
         linlayappointment=v.findViewById(R.id.linlayappointment);
         linlaydoctormyprofile=v.findViewById(R.id.linlayprofile);
         linlaychangepassword=v.findViewById(R.id.linlaychangepassword);
+        llVideoConsulation=v.findViewById(R.id.llVideoConsulation);
+        ll_schdule=v.findViewById(R.id.ll_schdule);
         tv_name=v.findViewById(R.id.titletext);
         doctor_name=v.findViewById(R.id.doctor_name);
         iv_logout=v.findViewById(R.id.logout_doctor);
@@ -73,7 +76,6 @@ public class DoctorDashboardFragment extends Fragment {
 
         tv_name.setText("Doctor Dashboard");
         doctor_name.setText(prefManager.get("full_name"));
-
 
         if (Utils.isNetworkConnectedMainThred(getActivity())) {
             HitMyprofile(prefManager.get("mobilenumber"));
@@ -95,6 +97,14 @@ public class DoctorDashboardFragment extends Fragment {
             }
         });
 
+
+        ll_schdule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                replaceFragmentWithAnimation(new DailySchedule());
+            }
+        });
+
         linlaydoctormyprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -110,7 +120,15 @@ public class DoctorDashboardFragment extends Fragment {
         });
 
 
-        //Back
+        llVideoConsulation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                replaceFragmentWithAnimation(new VideoConsultFragment());
+            }
+        });
+
+
+//        //Back
 //        v.setFocusableInTouchMode(true);
 //        v.requestFocus();
 //        v.setOnKeyListener(new View.OnKeyListener() {
@@ -118,9 +136,7 @@ public class DoctorDashboardFragment extends Fragment {
 //            public boolean onKey(View v, int keyCode, KeyEvent event) {
 //                if (event.getAction() == KeyEvent.ACTION_DOWN) {
 //                    if (keyCode == KeyEvent.KEYCODE_BACK) {
-//
 //                        replaceFragmentWithAnimation(new DoctorDashboardFragment());
-//
 //                        return true;
 //                    }
 //                }
@@ -129,7 +145,6 @@ public class DoctorDashboardFragment extends Fragment {
 //
 //        });
         // Inflate the layout for this fragment
-
 
         return v;
     }
@@ -143,6 +158,7 @@ public class DoctorDashboardFragment extends Fragment {
         // transaction.addToBackStack(null);
         transaction.commit();
     }
+
     public void logout() {
         //Dialog
         final Dialog dialog = new Dialog(getActivity(), android.R.style.Theme_Translucent_NoTitleBar);
@@ -223,6 +239,8 @@ public class DoctorDashboardFragment extends Fragment {
                         ploader.dismiss();
                         try {
 
+                            Log.e("response1111111",""+response);
+
                             if(response.getString("status").equalsIgnoreCase("true"))
                             {
                                 JSONArray jsonArray=response.getJSONArray("DoctorDescription");
@@ -271,44 +289,44 @@ public class DoctorDashboardFragment extends Fragment {
 //                                        gender = "";
 //                                    }
 
-                                    prefManager.set("user_id",response.getString("user_id"));
-                                    prefManager.set("doctor_id",response.getString("doctor_id"));
-                                    prefManager.set("doctor_name",response.getString("doctor_name"));
-                                    prefManager.set("mobilenumber",response.getString("mobilenumber"));
-                                    prefManager.set("emailaddress",response.getString("emailaddress"));
-                                    prefManager.set("profile_photo",response.getString("profile_photo"));
-                                    prefManager.set("gender",response.getString("gender"));
-                                    prefManager.set("dob",response.getString("dob"));
-                                    prefManager.set("address",response.getString("address"));
-                                    prefManager.set("city",response.getString("city"));
-                                    prefManager.set("state",response.getString("state"));
-                                    prefManager.set("country",response.getString("country"));
-                                    prefManager.set("pincode",response.getString("pincode"));
-                                    prefManager.set("specialization",response.getString("specialization"));
-                                    prefManager.set("registrationnumber",response.getString("registrationnumber"));
-                                    prefManager.set("registrationcouncil",response.getString("registrationcouncil"));
-                                    prefManager.set("registrationyear",response.getString("registrationyear"));
-                                    prefManager.set("degree",response.getString("degree"));
-                                    prefManager.set("collegename",response.getString("collegename"));
-                                    prefManager.set("completionYear",response.getString("completionYear"));
-                                    prefManager.set("experience",response.getString("experience"));
-                                    prefManager.set("hospitalname",response.getString("hospitalname"));
-                                    prefManager.set("hospitalcity",response.getString("hospitalcity"));
-                                    prefManager.set("locality",response.getString("locality"));
-                                    prefManager.set("fees",response.getString("fees"));
-                                    prefManager.set("session1_startTime",response.getString("session1_startTime"));
-                                    prefManager.set("session1_endTime",response.getString("session1_endTime"));
-                                    prefManager.set("session2_startTime",response.getString("session2_startTime"));
-                                    prefManager.set("session2_endTime",response.getString("session2_endTime"));
-                                    prefManager.set("identity_documentName",response.getString("identity_documentName"));
-                                    prefManager.set("identity_documentPath",response.getString("identity_documentPath"));
-                                    prefManager.set("medical_documentName",response.getString("medical_documentName"));
-                                    prefManager.set("medical_documentPath",response.getString("medical_documentPath"));
-                                    prefManager.set("hospital_documentName",response.getString("hospital_documentName"));
-                                    prefManager.set("hospital_documentPath",response.getString("hospital_documentPath"));
-                                    prefManager.set("patient_stories",response.getString("patient_stories"));
+                                    prefManager.set("user_id",jsonObject.getString("user_id"));
+                                    prefManager.set("doctor_id",jsonObject.getString("doctor_id"));
+                                    prefManager.set("doctor_name",jsonObject.getString("doctor_name"));
+                                    prefManager.set("mobilenumber",jsonObject.getString("mobilenumber"));
+                                    prefManager.set("emailaddress",jsonObject.getString("emailaddress"));
+                                    prefManager.set("profile_photo",jsonObject.getString("profile_photo"));
+                                    prefManager.set("gender",jsonObject.getString("gender"));
+                                    prefManager.set("dob",jsonObject.getString("dob"));
+                                    prefManager.set("address",jsonObject.getString("address"));
+                                    prefManager.set("city",jsonObject.getString("city"));
+                                    prefManager.set("state",jsonObject.getString("state"));
+                                    prefManager.set("country",jsonObject.getString("country"));
+                                    prefManager.set("pincode",jsonObject.getString("pincode"));
+                                    prefManager.set("specialization",jsonObject.getString("specialization"));
+                                    prefManager.set("registrationnumber",jsonObject.getString("registrationnumber"));
+                                    prefManager.set("registrationcouncil",jsonObject.getString("registrationcouncil"));
+                                    prefManager.set("registrationyear",jsonObject.getString("registrationyear"));
+                                    prefManager.set("degree",jsonObject.getString("degree"));
+                                    prefManager.set("collegename",jsonObject.getString("collegename"));
+                                    prefManager.set("completionYear",jsonObject.getString("completionYear"));
+                                    prefManager.set("experience",jsonObject.getString("experience"));
+                                    prefManager.set("hospitalname",jsonObject.getString("hospitalname"));
+                                    prefManager.set("hospitalcity",jsonObject.getString("hospitalcity"));
+                                    prefManager.set("locality",jsonObject.getString("locality"));
+                                    prefManager.set("fees",jsonObject.getString("fees"));
+                                    prefManager.set("session1_startTime",jsonObject.getString("session1_startTime"));
+                                    prefManager.set("session1_endTime",jsonObject.getString("session1_endTime"));
+                                    prefManager.set("session2_startTime",jsonObject.getString("session2_startTime"));
+                                    prefManager.set("session2_endTime",jsonObject.getString("session2_endTime"));
+                                    prefManager.set("identity_documentName",jsonObject.getString("identity_documentName"));
+                                    prefManager.set("identity_documentPath",jsonObject.getString("identity_documentPath"));
+                                    prefManager.set("medical_documentName",jsonObject.getString("medical_documentName"));
+                                    prefManager.set("medical_documentPath",jsonObject.getString("medical_documentPath"));
+                                    prefManager.set("hospital_documentName",jsonObject.getString("hospital_documentName"));
+                                    prefManager.set("hospital_documentPath",jsonObject.getString("hospital_documentPath"));
+                                    prefManager.set("patient_stories",jsonObject.getString("patient_stories"));
                                     prefManager.commit();
-                                    Log.e("userid",""+response.get("user_id"));
+
 
                                     tv_docotoreducation.setText(jsonObject.getString("degree"));
                                     JSONArray jsonA = jsonObject.getJSONArray("specialization");

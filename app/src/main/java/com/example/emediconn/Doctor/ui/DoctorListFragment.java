@@ -28,6 +28,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.emediconn.Database.AppConfig;
+import com.example.emediconn.Doctor.DrawerActivity;
 import com.example.emediconn.Extras.Utils;
 import com.example.emediconn.Model.DoctorListModel;
 import com.example.emediconn.Patient.DoctorCategoryFragment;
@@ -54,7 +55,6 @@ public class DoctorListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         getActivity().setTitle("Choose Doctor");
-
         View v= inflater.inflate(R.layout.doctorfragment, container, false);
         recyclerView=v.findViewById(R.id.recyclerView);
 
@@ -84,7 +84,16 @@ public class DoctorListFragment extends Fragment {
 
         if (Utils.isNetworkConnectedMainThred(getActivity())) {
            // ploader.show();
-            HitDoctorListAPI(DoctorCategoryFragment.categoryId);
+
+            if(DrawerActivity.cat_id.equalsIgnoreCase("0"))
+            {
+                HitDoctorListAPI(DoctorCategoryFragment.categoryId);
+            }
+            else
+            {
+                HitDoctorListAPI(DrawerActivity.cat_id);
+            }
+
 
 
         } else {

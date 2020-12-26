@@ -51,6 +51,7 @@ public class SearchActivity extends AppCompatActivity {
     ActivitySearchBinding activitySearchBinding;
     ListAdapter adapter;
     List<String> arrayList= new ArrayList<>();
+    List<String> arrayListid= new ArrayList<>();
     String SubcatId;
 
     ProgressDialog ploader;
@@ -96,6 +97,7 @@ public class SearchActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent=new Intent(SearchActivity.this,DrawerActivity.class);
                 intent.putExtra("page","Search");
+                intent.putExtra("cat_id",arrayListid.get(i));
                 startActivity(intent);
 
             }
@@ -137,7 +139,9 @@ public class SearchActivity extends AppCompatActivity {
                             catModel.setSpeciality_id(job.getString("speciality_id"));
                             catModel.setSpeciality(job.getString("speciality"));
 
+
                             arrayList.add(job.getString("speciality"));
+                            arrayListid.add(job.getString("speciality_id"));
                         }
                         adapter= new ListAdapter(arrayList);
                         activitySearchBinding.listView.setAdapter(adapter);

@@ -42,6 +42,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -81,6 +82,7 @@ public class MyAppointmentFragment extends Fragment {
         recyclerView=v.findViewById(R.id.recyclerView);
         ploader = new ProgressDialog(getActivity());
         prefManager=new PrefManager(getActivity());
+
 
         if (Utils.isNetworkConnectedMainThred(getActivity())) {
             // ploader.show();
@@ -136,20 +138,13 @@ public class MyAppointmentFragment extends Fragment {
             holder.tvTime.setText(arrayList.get(position).getStartTime());
 
 
-
-
             String[] separated = (arrayList.get(position).getStartTime()).split(" ");
-
             holder.tvTime.setText(separated[1] +" " +separated[2]);
             String[] separateddate = separated[0].split("-");
             holder.tvDate.setText(separateddate[0]);
             Log.e("",""+separated[0]);
 
-
-
             String dateString = separated[0];
-
-
             SimpleDateFormat inFormat = new SimpleDateFormat("dd-MM-yyyy");
             Date date = null;
             try {
@@ -170,7 +165,6 @@ public class MyAppointmentFragment extends Fragment {
 //            } catch (ParseException e) {
 //                e.printStackTrace();
 //            }
-
 
             Log.e("",""+separated[0]);
 
@@ -297,6 +291,8 @@ public class MyAppointmentFragment extends Fragment {
                                     patientModel.setSpeciality(jsonObject.getString("speciality"));
                                     arrayList.add(patientModel);
                                 }
+
+                                Collections.reverse(arrayList);
                                 setAdapter(recyclerView,arrayList);
                             }
 

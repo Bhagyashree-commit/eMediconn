@@ -113,7 +113,7 @@ public class BookAppointmentFragment extends Fragment {
         tvDoctorName=v.findViewById(R.id.tvDoctorName);
         tvFee=v.findViewById(R.id.tvFee);
         tvAppointmentDate=v.findViewById(R.id.tvAppointmentDate);
-        tvConsultation=v.findViewById(R.id.tvConsultation);
+//        tvConsultation=v.findViewById(R.id.tvConsultation);
         etPatientname = v.findViewById(R.id.etPatientname);
         etPatientPhone = v.findViewById(R.id.etPatientPhone);
         etPatientEmail = v.findViewById(R.id.etPatientEmail);
@@ -139,12 +139,7 @@ public class BookAppointmentFragment extends Fragment {
             }
         });
 
-        tvConsultation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
 
         btnBookAppointment.setOnClickListener(new View.OnClickListener() {
             @Override

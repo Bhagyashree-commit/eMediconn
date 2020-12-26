@@ -39,6 +39,7 @@ public class AppConfig {
 
     public static String URL_GETMYAPPOINTMENT= "http://healthcare.blucorsys.in/api/other/getPatientAppointments.php";
 
+    public static String URL_GETVideoConsult= "http://healthcare.blucorsys.in/api/other/getDoctorsVideoAppointments.php";
 
     public static String URL_GETVIDEOAPPOINTMENT= "http://healthcare.blucorsys.in/api/other/getPatientVideoAppointments.php";
 

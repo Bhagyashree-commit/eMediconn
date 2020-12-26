@@ -172,9 +172,9 @@ public class VideoConferenceActivity extends AppCompatActivity
             participant.removeAllViews();
 
         } else {
+
             participant.removeAllViews();
             participant.addView(recyclerView);
-
         }
     }
 

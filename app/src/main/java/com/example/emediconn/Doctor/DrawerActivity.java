@@ -52,6 +52,8 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
     //other
     public static int backPressed = 0;
 
+    public static String cat_id="0";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,7 +108,11 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
         }
         if (called_from.equalsIgnoreCase("Search")) {
             // do whatever
+
+            cat_id=getIntent().getStringExtra("cat_id");
             replaceFragmentWithAnimation(new DoctorListFragment());
+
+
         } else {
             replaceFragmentWithAnimation(new PatientDashboardFragment());
             // do whatever

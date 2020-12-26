@@ -125,7 +125,6 @@ public class DoctorDiscriptionFragment extends Fragment implements WebResponse, 
         tv_servicesofdoctor = v.findViewById(R.id.doctorservice);
         btnVideo = v.findViewById(R.id.btnVideo);
 
-
         //Back
         v.setFocusableInTouchMode(true);
         v.requestFocus();
@@ -139,7 +138,6 @@ public class DoctorDiscriptionFragment extends Fragment implements WebResponse, 
                         } else {
                             replaceFragmentWithAnimation(new DoctorListFragment());
                         }
-
                         return true;
                     }
                 }
@@ -231,6 +229,8 @@ public class DoctorDiscriptionFragment extends Fragment implements WebResponse, 
                                     String degree = jsonObject.getString("degree");
                                     proimage = "http://healthcare.blucorsys.in/daccount/" + jsonObject.getString("profile_photo");
 
+
+                                    tv_docname.setText(docname);
 
                                     tv_education.setText(degree);
                                     tv_hospname.setText(hospitalname);

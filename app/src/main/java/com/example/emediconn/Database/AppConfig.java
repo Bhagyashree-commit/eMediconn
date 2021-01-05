@@ -3,7 +3,7 @@ package com.example.emediconn.Database;
 public class AppConfig {
     public static String Status="status";
 
-    public static String BASE_URL="http://healthcare.blucorsys.in/api/user/";
+    public static String BASE_URL="https://healthcare.blucorsys.in/api/user/";
 
     public static String URL_REGISTERPATIENT=BASE_URL+"register.php";
 

@@ -4,73 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:fitsSystemWindows="true"
-    android:adjustViewBounds="true"
-android:background="@drawable/mobile"
-    tools:context=".Patient.PatientRegistration">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
-<ImageView
-    android:layout_width="@dimen/_110sdp"
-    android:layout_height="@dimen/_110sdp"
-  android:layout_marginLeft="@dimen/_160sdp"
-    android:layout_marginTop="@dimen/_90sdp"
-    android:background="@drawable/circlelogo"></ImageView>
-
+    tools:context=".Patient.PatientRegistration"
+    android:background="@color/white">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center|left"
-        android:layout_marginTop="@dimen/_20sdp"
         android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:textSize="@dimen/_20sdp"
-            android:textColor="@color/blue_800"
-            android:textStyle="bold"
-        android:layout_gravity="center"
-            android:fontFamily="sans-serif-condensed"></TextView>
+            android:background="@drawable/doctor_login"></ImageView>
+
+        <ImageView
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_minus40sdp"
+            android:layout_gravity="right|center"
+            android:src="@drawable/emedican"></ImageView>
+
 
         <LinearLayout
-            android:layout_marginLeft="@dimen/_55sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginRight="@dimen/_15sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-
+            android:layout_marginTop="@dimen/_60sdp"
             >
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/black_trans"
-                android:hint="  User Full Name">
+                android:hint="   Your Name Please">
 
                 <EditText
                     android:imeOptions="actionDone"
                     android:maxLines="1"
-                    android:textSize="@dimen/_15sdp"
-                    android:textColor="@color/black"
+                    android:inputType="text"
                     android:textColorHint="@color/black"
-                    android:inputType="textCapWords"
+                    android:textColor="@color/black"
                     android:drawableLeft="@drawable/per"
                     android:id="@+id/edit_fullname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10sdp"
                     android:fontFamily="sans-serif-condensed"
+                    android:textSize="@dimen/_15sdp"
+
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
+
         <LinearLayout
-            android:layout_marginLeft="@dimen/_55sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginRight="@dimen/_15sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,30 +65,30 @@ android:background="@drawable/mobile"
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/black_trans"
-                android:hint="  Mobile Number">
-
+                android:hint="   Mobile Number">
 
                 <EditText
                     android:imeOptions="actionDone"
                     android:maxLines="1"
-                    android:inputType="phone"
-                    android:textSize="@dimen/_15sdp"
-                    android:maxLength="10"
-                    android:textColorHint="@color/black"
-                    android:textColor="@color/black"
                     android:drawableLeft="@drawable/phone"
                     android:id="@+id/edit_mobilenum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10sdp"
+                    android:digits="0123456789"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/black"
                     android:fontFamily="sans-serif-condensed"
+                    android:maxLength="10"
+                    android:inputType="number"
+                    android:textColorHint="@color/black"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
+
         </LinearLayout>
         <LinearLayout
-            android:layout_marginLeft="@dimen/_55sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginRight="@dimen/_15sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -111,41 +97,67 @@ android:background="@drawable/mobile"
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/black_trans"
-                app:passwordToggleEnabled="true"
-                android:hint="  Password">
+                android:hint="  Password"
+                app:passwordToggleEnabled="true">
 
                 <EditText
                     android:imeOptions="actionDone"
-                    android:maxLines="1"
-                    android:inputType="textPassword"
-                    android:textSize="@dimen/_15sdp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:drawableStart="@drawable/password"
+                    android:drawableStart="@drawable/pass"
                     android:id="@+id/edit_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
                     android:fontFamily="sans-serif-condensed"
-                    android:drawableLeft="@drawable/password" />
+                    android:inputType="textPassword"
+                    android:textSize="@dimen/_15sdp"
+
+                    tools:ignore="RtlCompat" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
         </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_15sdp">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_minus5sdp"
+                android:id="@+id/cb"></CheckBox>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:id="@+id/tv1"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_toRightOf="@+id/cb"
+                android:text="I agree to the ">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tv2"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/red_400"
+                android:layout_toRightOf="@+id/tv1"
+                android:layout_height="wrap_content"
+                android:text="@string/terms"></TextView>
+        </RelativeLayout>
         <Button
-            android:text="Create Account"
+            android:text="Register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btn_registepaitent"
             android:layout_margin="25dp"
             android:layout_gravity="center"
-            android:textStyle="bold"
-            android:padding="@dimen/_10sdp"
-            android:fontFamily="sans-serif-condensed"
             android:textColor="#ffffff"
             android:background="@drawable/gradient"
             ></Button>
-
         <LinearLayout
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
@@ -179,5 +191,6 @@ android:background="@drawable/mobile"
         </LinearLayout>
 
     </LinearLayout>
-</LinearLayout>
+
+
 </ScrollView>

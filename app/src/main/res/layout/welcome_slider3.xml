@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:alpha="0.9"
     android:id="@+id/RL"
-    android:background="@drawable/doctor_banner3">
+    android:background="@drawable/doctor_banner2">
 
     <LinearLayout
         android:layout_width="wrap_content"

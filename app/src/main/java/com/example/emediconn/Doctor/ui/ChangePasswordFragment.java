@@ -27,6 +27,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.emediconn.Database.AppConfig;
 import com.example.emediconn.Database.PrefManager;
+import com.example.emediconn.Patient.PatientDashboardFragment;
 import com.example.emediconn.R;
 
 import org.json.JSONException;
@@ -85,7 +86,17 @@ linlay=v.findViewById(R.id.heraderlinlay);
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     if (keyCode == KeyEvent.KEYCODE_BACK) {
-                        replaceFragmentWithAnimation(new DoctorDashboardFragment());
+                        if(prefManager.get("user_type").equalsIgnoreCase("patient")){
+                            replaceFragmentWithAnimation(new PatientDashboardFragment());
+
+                            Log.e("1111","Yes");
+                        }
+                        else {
+                            replaceFragmentWithAnimation(new DoctorDashboardFragment());
+                            Log.e("111111","NO");
+
+                        }
+                        //
                         return true;
                     }
                 }

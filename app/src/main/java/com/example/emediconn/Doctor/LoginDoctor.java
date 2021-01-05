@@ -73,28 +73,30 @@ public class LoginDoctor extends AppCompatActivity {
                 String mobilenum = et_doc_mobilenum.getText().toString().trim();
                 String password = et_doc_password.getText().toString().trim();
 
-                if(et_doc_password.getText().toString().length()< 4 || et_doc_password.length()>10){
-                    et_doc_password.setError(" Password should be between 4 to 10 character");
-                    et_doc_password.requestFocus();
-
-                }
-
-             else if(et_doc_mobilenum.getText().toString().length() < 10){
+                if(et_doc_mobilenum.getText().toString().length() < 10){
                     et_doc_mobilenum.setError(" Mobile number should be valid");
                     et_doc_mobilenum.requestFocus();
 
                 }
-               else {
-                    logindoctor(mobilenum,password);
-//                    if(prefManager.get("user_type")=="doctor"){
+                else if(et_doc_password.getText().toString().length()< 4 || et_doc_password.length()>10){
+                    et_doc_password.setError(" Password should be between 4 to 10 character");
+                    et_doc_password.requestFocus();
+
+                }
+                else
+                {
+                    logindoctor(mobilenum, password);
+//                   if(prefManager.get("user_type")=="doctor")
+//                    {
+//                        logindoctor(mobilenum, password);
+//                       }
 //
-//                    }
-//
-//                    else{
-//                      // Toast.makeText(LoginDoctor.this, "Creadentials Wrong", Toast.LENGTH_SHORT).show();
-//
-//                    }
-                 }
+//                        else{
+//                            // Toast.makeText(LoginPatient.this, "Creadentials Wrong", Toast.LENGTH_SHORT).show();
+//                        }
+
+
+                    }
             }
         });
     }
@@ -144,7 +146,7 @@ public class LoginDoctor extends AppCompatActivity {
 
                                 prefManager.set("mobilenumber",response.getString("mobilenumber"));
                                 prefManager.set("profile_photo",image_url);
-                                prefManager.set("usertype",usertype);
+                                prefManager.set("user_type",usertype);
                                 prefManager.set("full_name",response.getString("full_name"));
                                 prefManager.commit();
 

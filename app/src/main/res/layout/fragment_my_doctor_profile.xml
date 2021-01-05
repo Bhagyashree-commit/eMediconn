@@ -17,7 +17,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_180sdp"
+                android:layout_height="@dimen/_150sdp"
                 android:background="@drawable/gradient"
                 android:orientation="vertical">
 
@@ -73,19 +73,6 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/_11sdp" />
 
-                <RelativeLayout
-                    android:id="@+id/rlEdit"
-                    android:layout_width="@dimen/_30sdp"
-                    android:layout_height="@dimen/_30sdp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/_130sdp">
-
-                    <ImageView
-                        android:layout_width="@dimen/_15sdp"
-                        android:layout_height="@dimen/_16sdp"
-                        android:background="@drawable/pencil_edit"
-                        android:visibility="gone" />
-                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -132,7 +119,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Phone Number"
+                    android:text="Experiance"
                     android:textColor="@color/red_900"
                     android:textSize="@dimen/_12sdp" />
 
@@ -142,14 +129,51 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:background="@drawable/rectangle_blue">
 
-                    <TextView
-                        android:id="@+id/tvdp_phonenumber"
+                    <EditText
+                        android:id="@+id/tvdp_experience"
                         android:textSize="@dimen/_12sdp"
-                        android:textColor="@color/black_trans"
+                        android:textColor="@color/black"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="8585858585"
+                        android:background="@null"
+                        android:hint="Enter Year Of Experiance"
+                        android:paddingLeft="@dimen/_7sdp"
+                        android:textColorHint="@color/black"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:scrollbars="none" />
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Specialization"
+                    android:textColor="@color/red_900"
+                    android:textSize="@dimen/_12sdp" />
+
+                <RelativeLayout
+                    android:id="@+id/rr_spec"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rectangle_blue">
+
+                    <TextView
+                        android:id="@+id/tvdp_specialization"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/black"
+                        android:drawableEnd="@drawable/aro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Speciality"
                         android:background="@null"
                         android:paddingLeft="@dimen/_7sdp"
                         android:paddingRight="@dimen/_5sdp"
@@ -183,8 +207,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="dwivedirashmi321@gmail.com"
+                        android:hint="example@gmail.com"
                         android:background="@null"
+                        android:textColorHint="@color/black"
                         android:paddingLeft="@dimen/_7sdp"
                         android:paddingRight="@dimen/_5sdp"
                         android:scrollbars="none" />
@@ -255,7 +280,7 @@
                         android:layout_toLeftOf="@+id/v1">
 
                         <ImageView
-                            android:id="@+id/imageView11"
+                            android:id="@+id/imageView112"
                             android:layout_width="@dimen/_20sdp"
                             android:layout_height="@dimen/_20sdp"
                             app:srcCompat="@drawable/ic_check_box_unselected"
@@ -275,7 +300,7 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/v1">
                         <ImageView
-                            android:id="@+id/imageView12"
+                            android:id="@+id/imageView123"
                             android:layout_width="@dimen/_20sdp"
                             android:layout_height="@dimen/_20sdp"
                             app:srcCompat="@drawable/ic_check_box_unselected"
@@ -290,84 +315,111 @@
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
-                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:orientation="horizontal"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Education Details"
+                    android:textColor="@color/red_900"
+                    android:textSize="@dimen/_12sdp" />
+
+                <RelativeLayout
+                    android:id="@+id/rr_educationdetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rectangle_blue">
+
+                    <TextView
+                        android:id="@+id/tvdp_education"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:drawableEnd="@drawable/aro"
+                        android:text="Enter Education Deatails"
+                        android:paddingLeft="@dimen/_7sdp"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:scrollbars="none" />
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Registration Details"
+                    android:textColor="@color/red_900"
+                    android:textSize="@dimen/_12sdp" />
 
-                    android:orientation="vertical">
+                <RelativeLayout
+                    android:id="@+id/rr_registrationdeatils"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rectangle_blue">
+
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Height (inch)"
-                        android:textColor="@color/red_900"
-                        android:textSize="@dimen/_12sdp" />
-
-                    <RelativeLayout
+                        android:id="@+id/tvdp_registrationdeatails"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/black"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:background="@drawable/rectangle_blue">
-
-                        <EditText
-                            android:id="@+id/etdp_height"
-                            android:inputType="numberDecimal"
-                            android:textSize="@dimen/_12sdp"
-                            android:textColor="@color/black"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:text="5.2"
-                            android:background="@null"
-                            android:paddingLeft="@dimen/_7sdp"
-                            android:paddingRight="@dimen/_5sdp"
-                            android:scrollbars="none" />
-                    </RelativeLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginLeft="@dimen/_5sdp"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:drawableEnd="@drawable/aro"
+                        android:text="Enter Education Deatails"
+                        android:paddingLeft="@dimen/_7sdp"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:scrollbars="none" />
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Clinic Name"
+                    android:textColor="@color/red_900"
+                    android:textSize="@dimen/_12sdp" />
 
-                    android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rectangle_blue">
+
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Weight (Kg)"
-                        android:textColor="@color/red_900"
-                        android:textSize="@dimen/_12sdp" />
-
-                    <RelativeLayout
+                        android:id="@+id/tvdp_clinicname"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/black"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:background="@drawable/rectangle_blue">
-
-                        <EditText
-                            android:id="@+id/etdp_weight"
-                            android:inputType="numberDecimal"
-                            android:textSize="@dimen/_12sdp"
-                            android:textColor="@color/black"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:text="55"
-                            android:background="@null"
-                            android:paddingLeft="@dimen/_7sdp"
-                            android:paddingRight="@dimen/_5sdp"
-                            android:scrollbars="none" />
-                    </RelativeLayout>
-                </LinearLayout>
-
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:drawableEnd="@drawable/aro"
+                        android:text="Clinic Name"
+                        android:background="@null"
+                        android:paddingLeft="@dimen/_7sdp"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:scrollbars="none" />
+                </RelativeLayout>
             </LinearLayout>
             <Button
                 android:id="@+id/btn_upatedoctorprofile"

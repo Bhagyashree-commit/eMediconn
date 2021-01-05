@@ -193,17 +193,12 @@ public class DoctorDashboardFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
-                prefManager.logoutUser();
+               // prefManager.logoutUser();
+                prefManager.set("user_type","");
+                prefManager.commit();
                 startActivity(new Intent(getActivity(), ChooseRole.class));
                 getActivity().finishAffinity();
-                //  overridePendingTransition(R.anim.slide_left, R.anim.slide_right);
-//                pref.set(AppSettings.CustomerID, "");
-//                pref.commit();
 
-                // preferences.set("login","no");
-                //  preferences.commit();
-//                Toasty.success(DrawerActivity.this, "Logged out..!!!", Toast.LENGTH_SHORT).show();
-                //  Finish();
                 dialog.dismiss();
             }
         });

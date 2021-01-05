@@ -62,6 +62,7 @@ public class BookAppointmentFragment extends Fragment {
     RelativeLayout rrUpload;
     RelativeLayout rrDate;
 
+
     Button btnBookAppointment;
 
     EditText etPatientname;

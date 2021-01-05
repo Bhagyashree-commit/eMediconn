@@ -1,145 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:layout_marginTop="@dimen/_minus10sdp"
-    android:layout_marginBottom="@dimen/_minus20sdp"
-    android:layout_marginRight="@dimen/_minus50sdp"
-    android:layout_marginLeft="@dimen/_minus20sdp"
-    android:background="@drawable/mobile"
-    tools:context=".Patient.LoginPatient"
-    android:padding="@dimen/_15sdp">
-    <ImageView
-        android:layout_width="@dimen/_110sdp"
-        android:layout_height="@dimen/_110sdp"
-        android:layout_marginLeft="@dimen/_60sdp"
-        android:layout_marginTop="@dimen/_90sdp"
-        android:background="@drawable/circlelogo"></ImageView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign IN"
-        android:textSize="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_50sdp"
-        android:textColor="@color/blue_800"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:fontFamily="sans-serif-condensed"></TextView>
-
-
+    tools:context=".Patient.LoginPatient">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center|left"
         android:orientation="vertical">
-
-
-    <LinearLayout
-        android:layout_marginLeft="@dimen/_45sdp"
-        android:layout_marginRight="@dimen/_45sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
-        <com.google.android.material.textfield.TextInputLayout
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="   Email/Mobile Number">
+            android:background="@drawable/doctor_login"></ImageView>
 
-            <EditText
-                android:imeOptions="actionDone"
-                android:maxLines="1"
-                android:maxLength="10"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp"
-                android:drawableLeft="@drawable/per"
-                android:id="@+id/patient_mobilenum"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
-                />
+        <ImageView
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_minus40sdp"
+            android:layout_gravity="right|center"
+            android:src="@drawable/emedican"></ImageView>
 
-        </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginLeft="@dimen/_45sdp"
-        android:layout_marginRight="@dimen/_45sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
 
-        <com.google.android.material.textfield.TextInputLayout
+
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true"
-            android:hint="   Password">
+            android:layout_marginTop="@dimen/_60sdp"
+            >
 
-            <EditText
-                android:imeOptions="actionDone"
-                android:maxLines="1"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp"
-                android:fontFamily="sans-serif-condensed"
-                android:drawableStart="@drawable/password"
-                android:id="@+id/patient_password"
-                android:inputType="textPassword"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
-                android:drawableLeft="@drawable/password" />
+                android:hint="   Email/Mobile Number">
 
-        </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:maxLength="10"
+                    android:inputType="phone"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"
+                    android:drawableLeft="@drawable/per"
+                    android:id="@+id/patient_mobilenum"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    />
 
-        <CheckBox
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true"
+                android:hint="   Password">
+
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:drawableStart="@drawable/password"
+                    android:id="@+id/patient_password"
+                    android:inputType="textPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:drawableLeft="@drawable/password" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remember Me"
+                android:layout_marginLeft="@dimen/_45sdp"
+                android:textColor="@color/black"
+                android:buttonTint="@color/black"
+                android:fontFamily="sans-serif-condensed"
+                android:checked="true"/>
+            <TextView
+                android:id="@+id/forgetpassword_patient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Forget Password?"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginLeft="@dimen/_35sdp"
+                android:textColor="@color/black"
+                android:drawableLeft="@drawable/pass"
+                android:drawablePadding="6dp"
+                android:padding="4dp"/>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Remember Me"
-            android:layout_marginLeft="@dimen/_45sdp"
-            android:textColor="@color/black"
-            android:buttonTint="@color/black"
-            android:fontFamily="sans-serif-condensed"
-            android:checked="true"/>
-        <TextView
-            android:id="@+id/forgetpassword_patient"
-            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_15sdp">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_minus5sdp"
+                android:id="@+id/cb"></CheckBox>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:id="@+id/tv1"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_toRightOf="@+id/cb"
+                android:text="I agree to the ">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tv2"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/red_400"
+                android:layout_toRightOf="@+id/tv1"
+                android:layout_height="wrap_content"
+                android:text="@string/terms"></TextView>
+        </RelativeLayout>
+
+        <Button
+            android:text="LOG IN"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Forget Password?"
+            android:id="@+id/btn_loginpatient"
+            android:layout_margin="@dimen/_15sdp"
+            android:textColor="#ffffff"
+            android:layout_gravity="center"
             android:fontFamily="sans-serif-condensed"
-            android:layout_marginLeft="@dimen/_35sdp"
-            android:textColor="@color/black"
-            android:drawableLeft="@drawable/pass"
-            android:drawablePadding="6dp"
-            android:padding="4dp"/>
-
-
-    </LinearLayout>
-
-    <Button
-        android:text="LOG IN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_loginpatient"
-        android:layout_margin="@dimen/_15sdp"
-        android:textColor="#ffffff"
-        android:layout_gravity="center"
-        android:fontFamily="sans-serif-condensed"
-        android:background="@drawable/gradient"
-        ></Button>
-
-
+            android:background="@drawable/gradient"
+            ></Button>
         <LinearLayout
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
@@ -153,7 +173,7 @@
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Not a Member ?"
+                android:text="Not A Member?"
                 android:fontFamily="sans-serif-condensed"
                 android:textSize="@dimen/_15sdp"
                 android:textColor="@color/black_trans"
@@ -162,7 +182,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/text_existingpatient"
-                android:text="Sing Up"
+                android:text="Sign Up"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-condensed"
                 android:textSize="@dimen/_15sdp"
@@ -172,6 +192,5 @@
 
         </LinearLayout>
 
-
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.emediconn.Doctor.DrawerActivity;
+import com.example.emediconn.Patient.LoginPatient;
 import com.example.emediconn.Patient.PatientRegistration;
 
 public class ChooseRole extends AppCompatActivity {
@@ -34,7 +35,7 @@ public class ChooseRole extends AppCompatActivity {
         cv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ChooseRole.this, PatientRegistration.class);
+                Intent i = new Intent(ChooseRole.this, LoginPatient.class);
                 startActivity(i);
             }
         });

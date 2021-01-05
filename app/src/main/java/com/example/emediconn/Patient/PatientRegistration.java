@@ -143,9 +143,9 @@ int flag;
 
             JSONObject obj = new JSONObject();
             try {
-                obj.put("fullname", fullname);
+                obj.put("full_name", fullname);
                 obj.put("mobilenumber", mobilenum);
-                obj.put("usertype", role);
+                obj.put("user_type", role);
                 obj.put("password", password);
                 Log.e("OBJECT",""+obj);
 

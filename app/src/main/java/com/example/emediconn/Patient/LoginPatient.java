@@ -91,19 +91,17 @@ public class LoginPatient extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
                 }
-
-
-                if(et_patient_password.getText().toString().length()< 4 || et_patient_password.length()>10){
-                    et_patient_password.setError(" Password should be between 4 to 10 character");
-                    et_patient_password.requestFocus();
-
-                }
-
-               else if(et_patient_mobilenum.getText().toString().length() < 10){
+                if(et_patient_mobilenum.getText().toString().length() < 10){
                     et_patient_mobilenum.setError(" Mobile number should be valid");
                     et_patient_mobilenum.requestFocus();
 
                 }
+
+              else if(et_patient_password.getText().toString().length()< 4 || et_patient_password.length()>10){
+                    et_patient_password.setError(" Password should be between 4 to 10 character");
+                    et_patient_password.requestFocus();
+              }
+
                else{
                     if(prefManager.get("user_type")=="patient"){
                         loginpatient(mobilenum,password);
@@ -166,7 +164,7 @@ public class LoginPatient extends AppCompatActivity {
 
                                 Toast.makeText(LoginPatient.this, "Login Response" +message, Toast.LENGTH_SHORT).show();
                                 Log.d(TAG,"Name"+name);
-                                Log.d(TAG,"usertype"+usertype);
+                                Log.d(TAG,"user_type"+usertype);
                                 Log.d(TAG,"ID"+userID);
                                 Log.d(TAG,"ID"+role);
 

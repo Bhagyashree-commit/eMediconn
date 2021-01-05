@@ -1,4 +1,4 @@
-package com.example.emediconn.Patient;
+package com.example.emediconn.Doctor.ui;
 
 import android.os.Bundle;
 
@@ -10,30 +10,51 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.emediconn.Database.PrefManager;
 import com.example.emediconn.R;
 
-public class AboutUsFragment extends Fragment {
-    WebView wv;
 
+public class UpdateClinicUpdate extends Fragment {
 
+ //Image
+    ImageView iv_logout;
 
-    public AboutUsFragment() {
+ //Text View
+ TextView tv_name;
+
+ //Edit
+    EditText etupdate_clinicname,
+         etupdate_cliniccity,
+         etupdate_locality;
+
+ // Preference
+    PrefManager prefManager;
+
+    public UpdateClinicUpdate() {
         // Required empty public constructor
     }
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        getActivity().setTitle("About Us");
         // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.fragment_about_us, container, false);
-        wv=v.findViewById(R.id.web);
-        wv.loadUrl("http://healthcare.blucorsys.in/aboutus");
-        wv.getSettings().setJavaScriptEnabled(true);
+        View v= inflater.inflate(R.layout.fragment_update_clinic_update, container, false);
+        tv_name = v.findViewById(R.id.titletext);
+        iv_logout = v.findViewById(R.id.logout_doctor);
+
+        etupdate_clinicname = v.findViewById(R.id.etupdate_clinicname);
+        etupdate_cliniccity = v.findViewById(R.id.etupdate_cliniccity);
+        etupdate_locality = v.findViewById(R.id.etupdate_locality);
+
+        iv_logout.setVisibility(View.GONE);
+        tv_name.setText("Doctor Profile");
+        prefManager = new PrefManager(getContext());
+
         //Back
         v.setFocusableInTouchMode(true);
         v.requestFocus();
@@ -42,19 +63,27 @@ public class AboutUsFragment extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     if (keyCode == KeyEvent.KEYCODE_BACK) {
-                        replaceFragmentWithAnimation(new PatientDashboardFragment());
+                        replaceFragmentWithAnimation(new MyDoctorProfileFragment());
                         return true;
                     }
                 }
                 return false;
             }
         });
+
+
+
+        etupdate_clinicname.setText(prefManager.get("hospitalname"));
+        etupdate_cliniccity.setText(prefManager.get("hospitalcity"));
+        etupdate_locality.setText(prefManager.get("locality"));
+
         return v;
     }
+
     public void replaceFragmentWithAnimation(Fragment fragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
-        transaction.replace(R.id.nav_host_fragment, fragment);
+        transaction.replace(R.id.frame_doctor, fragment);
         FragmentManager mFragmentManager=getFragmentManager();
         mFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         // transaction.addToBackStack(null);

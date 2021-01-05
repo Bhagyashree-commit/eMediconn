@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:alpha="0.9"
-    android:background="@drawable/doctor_banner4">
+    android:background="@drawable/doctor_banner3">
 
     <LinearLayout
         android:layout_width="wrap_content"

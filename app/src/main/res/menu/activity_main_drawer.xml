@@ -15,7 +15,7 @@
 
         <item
             android:id="@+id/myProfile"
-            android:icon="@drawable/per"
+            android:icon="@drawable/pro"
             android:title="My Profile" />
 
         <item android:title="Other">
@@ -42,7 +42,7 @@
         <item android:title="Extra">
             <item
                 android:id="@+id/nav_changepass"
-                android:icon="@drawable/changepass"
+                android:icon="@drawable/editpass"
                 android:title="Change Password" />
             <item
                 android:id="@+id/nav_logout"

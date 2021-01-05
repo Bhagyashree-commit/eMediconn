@@ -78,14 +78,14 @@ public class DoctorRegistration extends AppCompatActivity {
                 String role="doctor";
                 prefManager.set("fullname",fullname);
                 prefManager.set("mobilenumber",mobilenum);
-                prefManager.set("usertype",role);
+                prefManager.set("user_type",role);
                 prefManager.set("password",password);
                 prefManager.commit();
 
                 Log.e("fullname", prefManager.get("fullname"));
                 Log.e("mobilenumber", prefManager.get("mobilenumber"));
                 Log.e("password", prefManager.get("password"));
-                Log.e("usertype", prefManager.get("usertype"));
+                Log.e("user_type", prefManager.get("user_type"));
 
                 if(et_doctor_name.getText().toString().length()==0 || et_doctor_name.getText().toString().trim().matches(namePattern)){
                     et_doctor_name.setError(" User Name should be valid");
@@ -117,9 +117,9 @@ public class DoctorRegistration extends AppCompatActivity {
 
         JSONObject obj = new JSONObject();
         try {
-            obj.put("fullname", fullname);
+            obj.put("full_name", fullname);
             obj.put("mobilenumber", mobilenum);
-            obj.put("usertype", role);
+            obj.put("user_type", role);
             obj.put("password", password);
             Log.e("OBJECTRTTT","" +obj);
 

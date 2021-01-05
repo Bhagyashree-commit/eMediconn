@@ -71,19 +71,22 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
         tv_patientname = headerview.findViewById(R.id.tv_patientname);
         prefManager=new PrefManager(DrawerActivity.this);
         String name=prefManager.get("full_name");
+
+        Log.e("profileeeee",""+prefManager.get("profile_photo"));
         //prefManager.get("full_name");
            // tv_patientname.setText(prefManager.get("full_name"));
-        if(prefManager.get("profile_photo").equalsIgnoreCase(""))
+        if(prefManager.get("profile_photo").trim().length()>40)
         {
-            iv_patienpropic.setImageDrawable(getResources().getDrawable(R.drawable.userr));
-        }
-        else
-        {
+            //iv_patienpropic.setImageDrawable(getResources().getDrawable(R.drawable.userr));
+
             String image_url=prefManager.get("profile_photo");
             Log.e("url",image_url);
             Glide.with(getApplicationContext())
                     .load(image_url)
                     .into(iv_patienpropic);
+        }
+        else {
+            iv_patienpropic.setImageDrawable(getResources().getDrawable(R.drawable.userr));
         }
 
   tv_patientname.setText(name);
@@ -208,7 +211,8 @@ public class DrawerActivity extends AppCompatActivity implements  NavigationView
                 prefManager.logoutUser();
                 //startActivity(new Intent(DrawerActivity.this, ChooseRole.class));
                 overridePendingTransition(R.anim.slide_left, R.anim.slide_right);
-
+prefManager.set("user_type","");
+prefManager.commit();
 
                // preferences.set("login","no");
               //  preferences.commit();

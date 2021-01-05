@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -30,6 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class otp_patient extends AppCompatActivity {
     private static final String TAG = otp_patient.class.getSimpleName();
@@ -147,7 +149,7 @@ int flag=0;
 
                                String fullname= prefManager.get("fullname");
                                String password= prefManager.get("password");
-                               String usertype= prefManager.get("usertype");
+                               String usertype= prefManager.get("user_type");
 
                                 register(fullname, getIntent().getStringExtra("mobilenumber"),password,usertype);
 
@@ -257,7 +259,14 @@ int flag=0;
                     public void onErrorResponse(VolleyError error) {
                         ploader.dismiss();
                     }
-                });
+                }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+        };
         queue.add(jsObjRequest);
 
     }
